@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Демо: квиз-попап «КТО ТЫ СЕЙЧАС?»</title>
+
+<!-- ===== ЯНДЕКС.МЕТРИКА (счётчик 103738778) ===== -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(103738778, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/103738778" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<style>
+  body{font-family:'Manrope',-apple-system,'Inter',sans-serif;background:#0a0a0a;color:#fff;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;padding:24px;box-sizing:border-box}
+  .demo-btn{background:#ed3232;color:#fff;border:none;padding:18px 32px;font-size:16px;font-weight:700;border-radius:999px;cursor:pointer;font-family:inherit;letter-spacing:.02em;text-transform:uppercase;box-shadow:0 8px 24px rgba(237,50,50,.35);transition:transform .15s}
+  .demo-btn:hover{transform:translateY(-2px)}
+
+  /* ===== QUIZ POPUP START — скопируй блок ниже в любую страницу ===== */
+  .quiz-overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:9999;padding:24px;box-sizing:border-box;animation:quizFadeIn .25s ease-out}
+  .quiz-overlay.open{display:flex}
+  @keyframes quizFadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes quizCardIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+  .quiz-card{background:#fff;color:#1a1a1a;border-radius:24px;width:100%;max-width:920px;max-height:calc(100vh - 48px);padding:48px 48px 40px;font-family:'Manrope',-apple-system,'Inter',sans-serif;box-shadow:0 30px 80px rgba(0,0,0,.5);position:relative;overflow-y:auto;animation:quizCardIn .3s ease-out;box-sizing:border-box}
+  .quiz-close{position:absolute;top:18px;right:18px;width:36px;height:36px;border-radius:50%;background:#f5f5f5;border:none;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#666;transition:background .15s;font-family:inherit}
+  .quiz-close:hover{background:#e8e8e8;color:#1a1a1a}
+  .quiz-title{font-size:clamp(20px,2.4vw,28px);font-weight:800;line-height:1.25;margin:0 0 26px;color:#1a1a1a;letter-spacing:-.01em}
+  .quiz-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .quiz-opt{display:flex;align-items:center;gap:18px;background:#fff;border:1.5px solid #e5e7eb;border-radius:8px;padding:18px 22px;cursor:pointer;font-family:inherit;font-size:16px;font-weight:600;color:#1a1a1a;text-align:left;transition:border-color .15s, transform .15s, box-shadow .15s;width:100%;box-sizing:border-box;line-height:1.3}
+  .quiz-opt:hover{border-color:#ed3232;transform:translateY(-1px);box-shadow:0 6px 18px rgba(237,50,50,.12)}
+  .quiz-opt-emoji{font-size:36px;line-height:1;flex-shrink:0;width:48px;text-align:center}
+  .quiz-opt-label{flex:1}
+
+  @media (max-width:720px){
+    .quiz-card{padding:32px 22px 26px;border-radius:20px;max-height:calc(100vh - 32px)}
+    .quiz-overlay{padding:16px}
+    .quiz-grid{grid-template-columns:1fr;gap:10px}
+    .quiz-opt{padding:16px 18px;font-size:15px;gap:14px;border-radius:8px}
+    .quiz-opt-emoji{font-size:30px;width:40px}
+    .quiz-title{font-size:20px;margin:0 0 18px;padding-right:32px}
+  }
+  /* ===== QUIZ POPUP END ===== */
+</style>
+</head>
+<body>
+
+<!-- ===== QUIZ POPUP — HTML (open on load) ===== -->
+<div class="quiz-overlay open" id="quizOverlay" role="dialog" aria-modal="true" aria-labelledby="quizTitle">
+  <div class="quiz-card">
+    <h2 class="quiz-title" id="quizTitle">Кто вы?</h2>
+    <div class="quiz-grid">
+      <button class="quiz-opt" data-goal="mlm"       data-href="/mlm/">
+        <span class="quiz-opt-emoji">🤝</span><span class="quiz-opt-label">МЛМ / Партнёрский маркетинг</span>
+      </button>
+      <button class="quiz-opt" data-goal="freelance" data-href="/freelance/">
+        <span class="quiz-opt-emoji">💼</span><span class="quiz-opt-label">Фрилансер / эксперт / продюсер</span>
+      </button>
+      <button class="quiz-opt" data-goal="employee"  data-href="/employee/">
+        <span class="quiz-opt-emoji">👨‍💼</span><span class="quiz-opt-label">Наёмный сотрудник</span>
+      </button>
+      <button class="quiz-opt" data-goal="business"  data-href="#">
+        <span class="quiz-opt-emoji">🏢</span><span class="quiz-opt-label">Бизнес / предприниматель</span>
+      </button>
+      <button class="quiz-opt" data-goal="mom"       data-href="#">
+        <span class="quiz-opt-emoji">👨‍👩‍👧</span><span class="quiz-opt-label">Мама в декрете</span>
+      </button>
+      <button class="quiz-opt" data-goal="student"   data-href="#">
+        <span class="quiz-opt-emoji">🎓</span><span class="quiz-opt-label">Студент / без опыта</span>
+      </button>
+      <button class="quiz-opt" data-goal="pensioner" data-href="#">
+        <span class="quiz-opt-emoji">🧓</span><span class="quiz-opt-label">Пенсионер</span>
+      </button>
+      <button class="quiz-opt" data-goal="unemployed" data-href="#">
+        <span class="quiz-opt-emoji">🛋️</span><span class="quiz-opt-label">Безработный / в поиске</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== QUIZ POPUP — JS ===== -->
+<script>
+(function(){
+  var YM_COUNTER = 103738778;
+  var overlay = document.getElementById('quizOverlay');
+  if (!overlay) return;
+
+  function open(){ overlay.classList.add('open'); document.body.style.overflow='hidden'; }
+  function close(){ overlay.classList.remove('open'); document.body.style.overflow=''; }
+
+  document.querySelectorAll('[data-quiz-open]').forEach(function(b){
+    b.addEventListener('click', function(e){ e.preventDefault(); open(); });
+  });
+  document.querySelectorAll('[data-quiz-close]').forEach(function(b){
+    b.addEventListener('click', close);
+  });
+  overlay.addEventListener('click', function(e){ if (e.target === overlay) close(); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && overlay.classList.contains('open')) close();
+  });
+
+  document.querySelectorAll('.quiz-opt').forEach(function(opt){
+    opt.addEventListener('click', function(){
+      var goal = opt.getAttribute('data-goal');
+      var href = opt.getAttribute('data-href') || '#';
+      if (window.ym) { try { ym(YM_COUNTER, 'reachGoal', goal); } catch(e){} }
+      // редирект с небольшой задержкой, чтобы цель успела уйти
+      setTimeout(function(){ window.location.href = href; }, 120);
+    });
+  });
+
+  // Глобальное API: openQuiz() / closeQuiz()
+  window.openQuiz = open;
+  window.closeQuiz = close;
+})();
+</script>
+
+</body>
+</html>

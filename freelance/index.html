@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouTube-актив для фрилансеров, экспертов и инфобиза — деньги на автомате</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
+<style>
+:root{
+  --bg-primary:#0a0a0a; --bg-surface:#131313; --bg-overlay:rgba(22,22,22,.85);
+  --red:#ed3232; --red-hot:#ff4242; --red-deep:#b41f1f; --red-glow:rgba(237,50,50,.55);
+  --ink:#fff; --ink-dim:rgba(255,255,255,.62); --ink-mute:rgba(255,255,255,.42);
+  --line:rgba(255,255,255,.05);
+  --font-sans:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;
+  --maxw:1080px; --r-card:22px; --r-pill:999px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg-primary);color:var(--ink);
+  font-family:var(--font-sans);-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+.red{color:var(--red)}
+.dim{color:var(--ink-dim);text-transform:none;font-weight:500}
+
+/* ===== SECTION SHELL ===== */
+.section{position:relative;padding:80px 24px;overflow:hidden}
+.section::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  opacity:.06;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='3'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+.wrap{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;text-align:center}
+
+/* ===== СВЕТЛЫЕ "ПОЗИТИВНЫЕ" БЛОКИ (paper) — система: боль=тёмное, надежда=светлое ===== */
+.section.light{background:linear-gradient(180deg,#f4ede2 0%,#ebe1cf 100%)!important}
+.section.light::after{display:none}
+.section.light .h1,.section.light .h2,.section.light .utp-h,.section.light h2{color:#1a1a1a}
+.section.light .h1 .red,.section.light .h2 .red,.section.light h2 .red{color:var(--red-deep)}
+.section.light .lead,.section.light .sub{color:#4a4a4a}
+.section.light .lead b{color:#1a1a1a}
+.section.light .kicker{color:#666}
+.section.light .kicker b{color:var(--red-deep)}
+/* карточки .trap — светлый блок (Вариант 9: без свечения, заголовок + подзаголовок ниже) */
+.section.light .trap{background:#fff;border-color:rgba(0,0,0,.06)}
+.section.light .trap-icon::after{display:none}
+.section.light .trap-icon img{transform:scale(1.14);filter:drop-shadow(0 12px 20px rgba(0,0,0,.18))}
+.section.light .trap-text{color:#141414;font-size:19px;font-weight:800;line-height:1.4}
+.section.light .trap-text .dim{display:block;margin-top:7px;font-size:16px;font-weight:500;color:#1a1a1a;text-transform:none;line-height:1.45}
+.section.light .trap-text b{color:var(--red)}
+.section.light .trap:nth-child(2) .trap-icon img,.section.light .trap:nth-child(5) .trap-icon img,.section.light .trap:nth-child(6) .trap-icon img{transform:scale(1.6)}
+/* solve-card (solution) — Вариант 9: без свечения */
+.section.light .solve-card{background:#fff;border-color:rgba(0,0,0,.06)}
+.section.light .solve-ic::after{display:none}
+.section.light .solve-ic img{transform:scale(1.08);filter:drop-shadow(0 12px 20px rgba(0,0,0,.18))}
+.section.light .solve-card h4{color:#1a1a1a;font-size:17px}
+.section.light .solve-card p{color:#1a1a1a;font-size:15px;line-height:1.5}
+/* bridge (softcta) */
+.section.light .bridge{background:#fff;border-color:rgba(237,50,50,.3);color:#1a1a1a}
+.section.light .bridge b{color:var(--red-deep)}
+/* fw-card (forwhom) */
+.section.light .fw-card{background:#fff;border-color:rgba(0,0,0,.06)}
+.section.light .fw-card p{color:#555}
+.section.light .fw-photo::before{display:none}
+.section.light .fw-checklist{border-color:rgba(0,0,0,.12)}
+.section.light .fw-checklist-title{color:var(--red-deep)}
+.section.light .fw-checklist li{color:#555}
+.section.light .fw-checklist li::before{color:var(--red)}
+/* future-copy */
+.section.light .future-copy p{color:#444}
+.section.light .future-copy p b{color:#1a1a1a}
+.section.light .future-copy .future-stamp{color:#666}
+/* authority-frame на светлом */
+.section.light .authority-frame{background:rgba(237,50,50,.07)}
+.section.light .authority-frame p{color:#2a2a2a}
+.section.light .authority-frame p b{color:var(--red-deep)}
+.kicker{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;font-style:italic;margin-bottom:20px}
+.h1{font-size:clamp(28px,4vw,48px);font-weight:800;line-height:1.03;text-transform:uppercase;letter-spacing:-.01em;margin:0 auto 22px;max-width:760px}
+.h2{font-size:clamp(26px,3.6vw,44px);font-weight:800;line-height:1.05;text-transform:uppercase;letter-spacing:-.01em;margin:0 auto 44px;max-width:820px}
+.lead{font-size:15px;line-height:1.55;color:var(--ink-dim);max-width:620px;margin:0 auto 24px}
+.cta{display:inline-flex;align-items:center;justify-content:center;font-family:inherit;font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:0;padding:18px 38px;border-radius:var(--r-pill);background:linear-gradient(180deg,var(--red-hot),#d92424);color:#fff;box-shadow:0 14px 40px rgba(237,50,50,.4),inset 0 0 0 1px rgba(255,255,255,.08);text-decoration:none;transition:filter .16s}
+.cta:hover{filter:brightness(1.08)}
+
+.cta-outline{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.85)}
+.cta-outline:hover{box-shadow:inset 0 0 0 1.5px #fff;filter:none}
+
+/* ===== BLOCK 1 — УТП HERO ===== */
+.utp{background:radial-gradient(75% 70% at 50% 45%,rgba(237,50,50,.10),transparent 65%),#0a0a0a;padding:70px 24px}
+.utp .wrap{max-width:1100px;display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center;text-align:left}
+.utp-fig{position:relative;display:flex;justify-content:center}
+.utp-fig::before{content:"";position:absolute;inset:4% 6%;background:radial-gradient(ellipse at center,rgba(237,50,50,.32),transparent 70%);filter:blur(50px);z-index:0}
+.utp-fig img{position:relative;z-index:1;width:100%;max-width:440px;filter:drop-shadow(0 16px 34px rgba(0,0,0,.6))}
+.utp-copy .kicker{color:#fff;opacity:.8;font-style:normal;letter-spacing:.16em}
+.utp-copy .kicker b{color:var(--red)}
+.utp-h{font-size:clamp(34px,5vw,64px);font-weight:800;line-height:1;text-transform:uppercase;letter-spacing:-.02em;margin:0 0 20px}
+.utp-h .red{color:var(--red)}
+.utp-sub{font-size:clamp(16px,2.2vw,21px);line-height:1.4;color:var(--ink-dim);max-width:560px;margin:0 0 32px}
+.utp-sub b{color:#fff;font-weight:700}
+.utp-ctas{display:flex;gap:14px;flex-wrap:wrap}
+
+/* ===== STICKY TIMER HEADER ===== */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;padding:12px 24px;
+  background:rgba(10,10,10,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(237,50,50,.25);
+}
+.topbar .tb-label{font-size:12px;color:var(--ink-dim);max-width:230px;line-height:1.3}
+.topbar .tb-timer{display:flex;gap:6px;font-variant-numeric:tabular-nums}
+.topbar .tb-timer b{font-size:20px;font-weight:800;min-width:34px;text-align:center}
+.topbar .tb-timer small{display:block;font-size:9px;color:var(--ink-mute);font-weight:500;text-align:center}
+.topbar .cta{padding:11px 22px;font-size:12px}
+body{padding-top:62px}
+
+/* ===== БЛОК 3 ВЫГОДЫ (белый, овальный переход сверху) ===== */
+.benefits{position:relative;background:#fff;padding:215px 24px 90px;overflow:hidden}
+.benefits::after{display:none}
+.benefits::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:160%;height:150px;background:#0a0a0a;border-radius:0 0 50% 50% / 0 0 150px 150px;z-index:1}
+.benefits .wrap{position:relative;z-index:2}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;max-width:1080px;margin:0 auto}
+.benefit-col{text-align:center;display:flex;flex-direction:column;align-items:center}
+.benefit-img{height:240px;display:flex;align-items:center;justify-content:center;margin-bottom:30px}
+.benefit-img img{max-height:240px;max-width:100%;object-fit:contain;filter:drop-shadow(0 14px 26px rgba(0,0,0,.22))}
+.benefit-col:nth-child(3) .benefit-img img{transform:scale(1.18);transform-origin:center bottom}
+.benefit-emoji{font-size:96px;line-height:1;filter:drop-shadow(0 10px 20px rgba(0,0,0,.15))}
+.benefit-title{font-size:clamp(18px,1.7vw,22px);font-weight:800;text-transform:uppercase;color:#1a1a1a;line-height:1.2;margin:0 0 14px;max-width:300px}
+.benefit-sub{font-size:15px;line-height:1.5;color:#555;margin:0;max-width:300px}
+.benefit-sub b{color:#1a1a1a;font-weight:700}
+
+/* ===== BLOCK 1 HOOK ===== */
+.hook{background:radial-gradient(80% 60% at 50% 100%,rgba(237,50,50,.10),transparent 65%),#0a0a0a;padding-bottom:0}
+.hook .wrap{max-width:880px}
+.hook .h1{max-width:720px}
+.hook-visual{margin-top:30px;display:flex;justify-content:center}
+.hook-visual img{width:100%;max-width:560px}
+
+/* ===== BLOCK 2 TRAPS ===== */
+.traps{background:#0a0a0a}
+.traps-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.traps-bg img{width:100%;height:100%;object-fit:cover;opacity:.55;filter:contrast(1.1) brightness(1.05)}
+.traps-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(75% 75% at 50% 45%,rgba(237,50,50,.14),transparent 65%),linear-gradient(180deg,#0a0a0a 0%,rgba(10,10,10,.35) 45%,#0a0a0a 100%)}
+.traps .wrap{position:relative;z-index:2}
+.trap-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:28px 20px;text-align:left;max-width:880px;margin:0 auto}
+.trap{display:flex;gap:20px;align-items:center;background:rgba(16,16,16,.78);backdrop-filter:blur(4px);border:1px solid var(--line);border-radius:var(--r-card);padding:20px 24px}
+.trap-icon{width:104px;height:104px;flex-shrink:0;display:flex;align-items:center;justify-content:center;position:relative}
+.trap-icon::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:130%;height:106%;background:radial-gradient(ellipse at center,rgba(237,50,50,1) 0%,rgba(237,50,50,.82) 38%,rgba(237,50,50,.5) 58%,rgba(237,50,50,.22) 74%,transparent 88%);filter:blur(14px);z-index:0}
+.trap-icon img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 4px 10px rgba(0,0,0,.85)) drop-shadow(0 0 3px rgba(0,0,0,.9));-webkit-mask-image:linear-gradient(to bottom,#000 78%,transparent 100%);mask-image:linear-gradient(to bottom,#000 78%,transparent 100%)}
+.trap-num{position:absolute;bottom:-2px;right:-2px;width:28px;height:28px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;z-index:2;box-shadow:0 0 20px rgba(237,50,50,.6)}
+.trap-text{flex:1;font-size:14px;line-height:1.5;color:#fff;text-transform:uppercase;font-weight:600;letter-spacing:.01em}
+.trap-3{grid-column:1 / -1;max-width:460px;margin-left:80px}
+
+/* ===== SHARED SPLIT (blocks 3,4) ===== */
+.split{display:grid;grid-template-columns:.82fr 1.18fr;gap:44px;align-items:center;max-width:980px;margin:0 auto;text-align:left}
+.split.rev{grid-template-columns:1.18fr .82fr}
+.split.rev .split-fig{order:2}
+.split-fig{position:relative;display:flex;justify-content:center}
+.split-fig::before{content:"";position:absolute;inset:4% 8%;background:radial-gradient(ellipse at center,rgba(237,50,50,.3),transparent 70%);filter:blur(45px);z-index:0}
+.split-fig img{position:relative;z-index:1;width:100%;max-width:330px;border-radius:18px;filter:drop-shadow(0 14px 30px rgba(0,0,0,.6))}
+.split-cards{display:flex;flex-direction:column;gap:16px}
+
+/* ===== BLOCK 3 DESERT ===== */
+.desert{background:#0a0a0a}
+.desert .h2{margin-bottom:14px}
+.desert .sub{font-size:14px;color:var(--ink-mute);margin-bottom:44px;font-style:italic}
+
+/* ===== BLOCK 4 DREAM ===== */
+.dream{background:radial-gradient(70% 60% at 50% 0%,rgba(237,50,50,.06),transparent 70%),#0a0a0a}
+.dream .lead{margin-bottom:44px}
+
+/* === IDENTITY TRANSFORMATION PLATE (внутри Dream) === */
+.identity-plate{max-width:880px;margin:48px auto 0;background:linear-gradient(135deg,rgba(237,50,50,.08),rgba(180,31,31,.04));border:1px solid rgba(237,50,50,.3);border-radius:24px;padding:40px 48px;text-align:center;position:relative;overflow:hidden}
+.identity-plate::before{content:"";position:absolute;left:50%;top:0;width:80%;height:100%;background:radial-gradient(ellipse at center,rgba(237,50,50,.12),transparent 70%);transform:translateX(-50%);pointer-events:none}
+.identity-kicker{position:relative;font-size:clamp(24px,3.2vw,38px);font-weight:800;line-height:1.1;text-transform:uppercase;letter-spacing:-.01em;margin:0 0 18px}
+.identity-body{position:relative;font-size:16px;line-height:1.65;color:var(--ink-dim);max-width:680px;margin:0 auto}
+.identity-body b{color:#fff;font-weight:700}
+
+/* === FUTURE PACING BLOCK === */
+.future{background:radial-gradient(70% 60% at 80% 100%,rgba(237,50,50,.10),transparent 65%),#0a0a0a}
+.future .wrap{max-width:1080px;display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center;text-align:left}
+.future-fig{position:relative;display:flex;justify-content:center}
+.future-fig::before{content:"";position:absolute;inset:6% 8%;background:radial-gradient(ellipse at center,rgba(237,50,50,.32),transparent 70%);filter:blur(45px);z-index:0}
+.future-fig img{position:relative;z-index:1;width:100%;max-width:420px;border-radius:18px;filter:drop-shadow(0 14px 30px rgba(0,0,0,.6))}
+.future-copy .kicker{color:#fff;opacity:.8;font-style:normal;letter-spacing:.16em}
+.future-copy .kicker b{color:var(--red)}
+.future .h2{text-align:left;margin:0 0 24px;font-size:clamp(28px,3.4vw,42px)}
+.future-copy p{font-size:16px;line-height:1.65;color:var(--ink-dim);margin:0 0 14px}
+.future-copy p b{color:#fff;font-weight:700}
+.future-copy p .red{color:var(--red);font-weight:700}
+.future-copy .future-stamp{display:inline-block;margin-top:14px;font-size:13px;color:var(--ink-mute);font-style:italic;border-left:2px solid var(--red);padding-left:14px}
+
+/* === GUARANTEE X2 BLOCK === */
+.guarantee{background:linear-gradient(180deg,#f4ede2 0%,#ebe1cf 100%);color:#1a1a1a}
+.guarantee::after{display:none}
+.guarantee .wrap{max-width:920px;text-align:center}
+.guarantee-badge{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:#fff;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:10px 20px;border-radius:30px;margin-bottom:18px;box-shadow:0 8px 22px rgba(237,50,50,.4)}
+.guarantee h2{color:#141414;font-size:clamp(28px,3.6vw,42px);font-weight:800;line-height:1.1;text-transform:uppercase;letter-spacing:-.01em;margin:0 0 22px}
+.guarantee-seals{display:flex;justify-content:center;align-items:center;gap:32px;margin:0 0 30px;flex-wrap:wrap}
+.guarantee-seals img{width:320px;height:320px;object-fit:contain;filter:drop-shadow(0 10px 24px rgba(0,0,0,.25))}
+.guarantee h2 .red{color:var(--red-deep)}
+.guarantee-card{background:#fff;border-radius:24px;padding:36px 40px;box-shadow:0 22px 50px rgba(0,0,0,.12);border-left:5px solid var(--red);text-align:left;max-width:760px;margin:0 auto}
+.guarantee-card p{font-size:16px;line-height:1.6;color:#2a2a2a;margin:0 0 14px}
+.guarantee-card p:last-child{margin:0}
+.guarantee-card .x2-highlight{font-size:20px;font-weight:800;color:var(--red-deep);background:rgba(237,50,50,.08);padding:14px 18px;border-radius:12px;display:block;margin:14px 0;line-height:1.4}
+.guarantee-card .x2-note{font-size:13px;color:#666;font-style:italic;border-top:1px dashed rgba(0,0,0,.1);padding-top:14px;margin-top:14px}
+
+/* === FAQ BLOCK === */
+.faq{background:radial-gradient(60% 60% at 50% 50%,rgba(237,50,50,.05),transparent 70%),#0a0a0a}
+.faq .wrap{max-width:880px}
+.faq .h2{margin-bottom:34px}
+.faq-list{display:flex;flex-direction:column;gap:14px;text-align:left}
+.faq-item{background:var(--bg-overlay);border:1px solid var(--line);border-radius:18px;padding:24px 28px;transition:border-color .2s}
+.faq-item:hover{border-color:rgba(237,50,50,.3)}
+.faq-q{display:flex;gap:14px;align-items:flex-start;font-size:16px;font-weight:700;color:#fff;line-height:1.3;text-transform:uppercase;letter-spacing:.01em;margin-bottom:12px}
+.faq-q::before{content:"?";flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;box-shadow:0 4px 14px rgba(237,50,50,.4)}
+.faq-a{font-size:14px;line-height:1.6;color:var(--ink-dim);padding-left:46px}
+.faq-a b{color:#fff;font-weight:700}
+
+/* === COUNTDOWN TIMER POD CTA В ТАРИФАХ === */
+.tariff-countdown{display:flex;gap:16px;align-items:center;justify-content:center;margin-top:18px;font-variant-numeric:tabular-nums;color:#888;font-size:22px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.tariff-countdown::before{content:"⏰";font-size:14px;filter:grayscale(.3)}
+.tariff-countdown span{display:flex;flex-direction:column;align-items:center;gap:1px}
+.tariff-countdown b{color:#1a1a1a;font-size:36px;font-weight:800;line-height:1}
+.tariff-countdown small{font-size:15px;color:#aaa;text-transform:uppercase;font-weight:600;letter-spacing:.05em}
+
+/* === EXTENDED BONUS STACK PREMIUM === */
+.bonus-stack{margin:18px 0 8px;background:linear-gradient(180deg,rgba(237,50,50,.04),rgba(237,50,50,0));border:1px dashed rgba(237,50,50,.25);border-radius:16px;padding:18px 22px}
+
+/* === STANDALONE BONUS VALUE BLOCK (#7) === */
+.bonus-value{background:radial-gradient(70% 70% at 50% 30%,rgba(237,50,50,.06),transparent 70%),#0a0a0a}
+.bonus-value .h2{margin-bottom:32px}
+.bonus-value-card{max-width:720px;margin:0 auto;background:#fafafa;border-radius:24px;padding:32px 38px;box-shadow:0 22px 50px rgba(0,0,0,.5);text-align:left}
+.bonus-value-card .bonus-stack-title{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--red-deep);margin:0 0 18px;display:flex;align-items:center;gap:8px}
+.bonus-value-card .bonus-row{display:flex;justify-content:space-between;align-items:center;gap:14px;font-size:15px;line-height:1.4;padding:11px 0;border-bottom:1px dashed rgba(0,0,0,.08)}
+.bonus-value-card .bonus-row .bn-ico{flex:0 0 36px;width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;font-size:26px;line-height:1}
+.bonus-value-card .bonus-row .bn-ico img{width:32px;height:32px;object-fit:contain;display:block}
+.bonus-value-card .bonus-row .bn-text{color:#2a2a2a;flex:1}
+.bonus-value-card .bonus-row .price{color:var(--red);font-weight:800;white-space:nowrap;font-size:22px;text-decoration:line-through;text-decoration-color:#9a9a9a;text-decoration-thickness:2px}
+.bonus-value-card .bonus-row .price.priceless{color:var(--red-deep);font-style:italic;font-size:18px;text-decoration:none}
+.bonus-value-card .bonus-total{margin-top:18px;padding-top:18px;border-top:2px solid rgba(237,50,50,.25);display:flex;justify-content:space-between;align-items:baseline}
+.bonus-value-card .bonus-total span:first-child{font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:#1a1a1a}
+.bonus-value-card .bonus-total .total-sum{font-size:30px;font-weight:800;color:var(--red-deep)}
+.bonus-value-card .bonus-savings{margin-top:10px;font-size:15px;color:#1faa55;text-align:right;font-weight:700}
+.bonus-value .cta{display:inline-block}
+.bonus-stack-title{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red-deep);margin:0 0 14px;display:flex;align-items:center;gap:8px}
+.bonus-stack-title::before{content:"🎁";font-size:14px}
+.bonus-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;font-size:13px;line-height:1.4;padding:7px 0;border-bottom:1px dashed rgba(0,0,0,.06)}
+.bonus-row:last-child{border-bottom:0}
+.bonus-row span:first-child{color:#3a3a3a;flex:1}
+.bonus-row .price{color:#1faa55;font-weight:700;white-space:nowrap;font-size:12px}
+.bonus-row .price.priceless{color:var(--red-deep);font-style:italic}
+.bonus-total{margin-top:14px;padding-top:14px;border-top:2px solid rgba(237,50,50,.2);display:flex;justify-content:space-between;align-items:baseline;font-weight:800}
+.bonus-total span:first-child{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:#1a1a1a}
+.bonus-total .total-sum{font-size:22px;color:var(--red-deep)}
+.bonus-savings{font-size:13px;color:#1faa55;text-align:right;font-weight:700;margin-top:6px}
+
+/* === AUTHORITY FRAME (Я обычно не пишу) === */
+.authority-frame{max-width:760px;margin:30px auto 0;padding:24px 28px;background:rgba(237,50,50,.06);border-left:4px solid var(--red);border-radius:0 14px 14px 0;font-style:italic;text-align:left}
+.authority-frame p{font-size:15px;line-height:1.6;color:#fff;margin:0;font-weight:500}
+.authority-frame p b{color:var(--red);font-style:normal;font-weight:800}
+
+/* === БЛОК «2 ПУТИ» (#8.1) === */
+.two-paths{max-width:1000px;margin:40px auto 0;text-align:center}
+.two-paths-title{font-size:clamp(26px,3.4vw,40px);font-weight:800;text-transform:uppercase;color:#141414;margin:0 0 14px;line-height:1.1;letter-spacing:-.01em}
+.two-paths-pill{display:inline-block;background:var(--red);color:#fff;font-size:clamp(14px,1.8vw,18px);font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:10px 26px;border-radius:var(--r-pill);margin-bottom:36px;box-shadow:0 8px 22px rgba(237,50,50,.35)}
+.two-paths-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;text-align:left}
+.path-col{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:24px;padding:0 30px 30px;box-shadow:0 16px 40px rgba(0,0,0,.1);overflow:hidden;display:flex;flex-direction:column}
+.path-col.preferred{border:2px solid var(--red);box-shadow:0 18px 44px rgba(237,50,50,.22)}
+.path-img{position:relative;height:280px;margin:0 -30px 20px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;background:linear-gradient(180deg,#f3f0ea,#e9e4da)}
+.path-img img{height:100%;width:auto;object-fit:contain;position:relative;z-index:2}
+.path-img .path-lambo{position:absolute;bottom:6%;right:-6%;height:42%;z-index:1;opacity:.95;filter:drop-shadow(0 8px 16px rgba(0,0,0,.2))}
+.path-col.preferred .path-img{background:linear-gradient(180deg,#fff5d6,#ffe9a8)}
+.path-label{font-size:18px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.path-sub{font-size:17px;font-weight:800;color:#141414;margin-bottom:10px}
+.path-text{font-size:14px;line-height:1.55;color:#444;margin:0}
+.path-text b{color:var(--red-deep);font-weight:700}
+.two-paths-cta{margin-top:32px;font-size:17px;padding:20px 44px}
+
+/* === SELF-IDENTIFICATION CHECKLIST (Block 11) === */
+.fw-checklist{margin-top:16px;padding-top:16px;border-top:1px dashed rgba(255,255,255,.1)}
+.fw-checklist-title{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.fw-checklist ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.fw-checklist li{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.45;color:var(--ink-dim)}
+.fw-checklist li::before{content:"☐";flex-shrink:0;font-size:16px;color:var(--red);font-weight:700;line-height:1.2}
+
+/* === PERSONAL STORY (внутри Trust блока) === */
+.author-story{background:rgba(237,50,50,.05);border-left:4px solid var(--red);padding:24px 28px;margin:0 0 20px;border-radius:0 14px 14px 0}
+.author-story h4{font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--red-deep);margin:0 0 14px}
+.author-story p{font-size:14px;line-height:1.6;color:#3a3a3a;font-style:italic;margin:0 0 10px}
+.author-story p:last-child{margin:0}
+.author-story p b{color:#141414;font-style:normal;font-weight:700}
+
+/* ===== BLOCK 5 GAP ===== */
+.gap{position:relative;background:#070707;padding:0;min-height:480px;display:flex;align-items:center;overflow:hidden}
+.gap-bg{position:absolute;inset:0;z-index:0}
+.gap-bg img{width:100%;height:100%;object-fit:cover;opacity:.65}
+.gap-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 80% at 70% 50%,rgba(237,50,50,.18),transparent 70%),linear-gradient(90deg,rgba(7,7,7,.85) 0%,rgba(7,7,7,.45) 50%,rgba(7,7,7,.2) 100%)}
+.gap .wrap{position:relative;z-index:2;width:100%;max-width:1080px;margin:0 auto;padding:80px 32px;text-align:right}
+.gap .gap-pill{display:inline-block;background:rgba(237,50,50,.85);color:#fff;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:8px 16px;border-radius:30px;margin-bottom:18px}
+.gap .h1{font-size:clamp(30px,5vw,60px);margin-bottom:14px;display:inline-block;text-align:right}
+.gap .gap-sub{font-size:18px;color:var(--ink-mute);font-style:italic}
+
+/* ===== BLOCK 6 SOLUTION ===== */
+.solution{background:radial-gradient(70% 70% at 50% 40%,rgba(237,50,50,.08),transparent 70%),#0a0a0a}
+.solution .h2{margin-bottom:20px}
+.method-plate{display:inline-block;background:var(--red-deep);color:#fff;font-weight:800;font-size:clamp(15px,2vw,22px);text-transform:uppercase;letter-spacing:.02em;padding:18px 30px;border-radius:14px;margin-bottom:14px;box-shadow:0 0 30px rgba(237,50,50,.35)}
+.solution .lead{margin-bottom:36px}
+.solve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:920px;margin:0 auto 36px;text-align:left}
+.solve-card{background:var(--bg-overlay);border:1px solid var(--line);border-radius:var(--r-card);padding:26px 24px}
+.solve-ic{width:176px;height:176px;display:flex;align-items:center;justify-content:center;position:relative;margin:0 auto 18px}
+.solve-ic::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:130%;height:106%;background:radial-gradient(ellipse at center,rgba(237,50,50,1) 0%,rgba(237,50,50,.82) 38%,rgba(237,50,50,.5) 58%,rgba(237,50,50,.22) 74%,transparent 88%);filter:blur(14px);z-index:0}
+.solve-ic img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 4px 10px rgba(0,0,0,.85))}
+.solve-card h4{font-size:15px;font-weight:800;text-transform:uppercase;margin-bottom:8px;line-height:1.25}
+.solve-card p{font-size:13px;line-height:1.5;color:var(--ink-dim)}
+.solution-visual{margin:14px auto 36px;max-width:620px}
+.solution-visual img{width:100%;border-radius:16px}
+
+/* ===== BLOCK 7 SOCIAL PROOF ===== */
+.proof{background:#080808}
+.proof-stage{position:relative;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
+.proof-img{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 16px 40px rgba(0,0,0,.55);display:block;width:100%}
+.proof-img img{display:block;width:100%;height:auto}
+.proof-img.life img{aspect-ratio:3/4;object-fit:cover}
+.r1{transform:rotate(-1.5deg)}.r2{transform:rotate(1.2deg)}.r3{transform:rotate(2deg)}
+.r4{transform:rotate(-1.2deg)}.r5{transform:rotate(1.6deg)}.r6{transform:rotate(-2deg)}
+.r7{transform:rotate(-.8deg)}.r8{transform:rotate(.8deg)}
+
+/* ===== BLOCK 8 SOFT CTA ===== */
+.softcta{background:radial-gradient(60% 70% at 50% 50%,rgba(237,50,50,.07),transparent 70%),#0a0a0a}
+.softcta .wrap{max-width:1080px;display:grid;grid-template-columns:1.15fr .85fr;gap:46px;align-items:center;text-align:left}
+.bridge{background:var(--bg-overlay);border:1px solid rgba(237,50,50,.3);border-radius:16px;padding:20px 26px;font-size:16px;font-weight:600;line-height:1.45;margin:0 0 26px}
+.asset-list{list-style:none;margin:0 0 26px;padding:0;display:flex;flex-direction:column;gap:13px;text-align:left}
+.asset-list li{position:relative;padding-left:38px;font-size:17px;line-height:1.4;color:#2a2a2a;font-weight:500}
+.asset-list li::before{content:"✓";position:absolute;left:0;top:1px;width:25px;height:25px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;box-shadow:0 4px 12px rgba(237,50,50,.4)}
+.asset-list li b{color:var(--red-deep);font-weight:800}
+.bridge b{color:var(--red)}
+.softcta-fig{position:relative;display:flex;justify-content:center;order:2}
+.softcta-fig::before{content:"";position:absolute;inset:2% 4%;background:radial-gradient(ellipse at center,rgba(237,50,50,.32),transparent 70%);filter:blur(45px);z-index:0}
+.softcta-fig img{position:relative;z-index:1;width:100%;max-width:360px;border-radius:18px;filter:drop-shadow(0 14px 30px rgba(0,0,0,.6))}
+.softcta .h2{margin-bottom:16px}
+.softcta .lead{margin-bottom:26px}
+
+/* ===== BLOCK 9 FORMAT ===== */
+.format{background:#0a0a0a}
+.format .lead{margin-bottom:26px}
+.format-plate{display:inline-block;background:var(--red-deep);color:#fff;font-weight:800;font-size:clamp(16px,2.4vw,26px);text-transform:uppercase;letter-spacing:.02em;padding:20px 36px;border-radius:14px;box-shadow:0 0 30px rgba(237,50,50,.35);margin-bottom:22px}
+.format-note{font-size:14px;color:var(--ink-mute)}
+
+/* ===== BLOCK 10A POPCORN CTA (above lessons) ===== */
+.popcorn-cta{max-width:1100px;margin:0 auto 56px;background:#fafafa;color:#1a1a1a;border-radius:28px;padding:44px 52px;display:grid;grid-template-columns:1.5fr .8fr;gap:32px;align-items:center;box-shadow:0 22px 50px rgba(0,0,0,.5);overflow:hidden;text-align:left}
+.popcorn-cta > div:first-child{text-align:left}
+.popcorn-cta-title{font-size:clamp(22px,2.6vw,32px);font-weight:800;line-height:1.1;text-transform:uppercase;color:#141414;margin:0 0 6px}
+.popcorn-cta-title .red{color:var(--red)}
+.popcorn-cta-sub{font-size:15px;color:#555;margin:0 0 22px}
+.popcorn-cta-price{display:flex;align-items:baseline;gap:18px;margin-bottom:24px}
+.popcorn-cta-old{font-size:18px;color:#999;font-weight:600;position:relative;line-height:1}
+.popcorn-cta-old::after{content:"";position:absolute;left:-3px;right:-3px;top:50%;height:2px;background:var(--red);transform:rotate(-8deg)}
+.popcorn-cta-old small{display:block;font-size:11px;color:#888;text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin-top:2px}
+.popcorn-cta-new{font-family:'Gilroy','Manrope',-apple-system,sans-serif;font-size:52px;font-weight:800;color:var(--red);line-height:1;letter-spacing:-.02em}
+.popcorn-cta-row{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.popcorn-cta-row .cta{font-size:16px;padding:20px 38px;border-radius:var(--r-pill)}
+.popcorn-cta-timer{display:flex;gap:10px;color:#555;font-variant-numeric:tabular-nums;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;align-items:flex-end}
+.popcorn-cta-timer span{display:flex;flex-direction:column;align-items:center;gap:2px}
+.popcorn-cta-timer b{color:#1a1a1a;font-size:22px;font-weight:800}
+.popcorn-cta-img{display:flex;justify-content:center;align-items:center;order:2}
+.popcorn-cta-img img{width:100%;max-width:260px;filter:drop-shadow(0 14px 30px rgba(0,0,0,.18))}
+
+/* ===== BLOCK 10 PROGRAM ===== */
+.program{background:radial-gradient(60% 50% at 50% 30%,rgba(237,50,50,.05),transparent 70%),#0a0a0a}
+.program .h2{margin-bottom:36px}
+.lesson-stack{display:flex;flex-direction:column;gap:28px;max-width:1200px;margin:0 auto;text-align:left}
+.lesson{position:relative;background:#fff;color:#1a1a1a;border-radius:28px;padding:40px 44px;display:grid;grid-template-columns:1fr 1.02fr;grid-template-areas:"num pts" "title pts" "img pts";column-gap:48px;align-items:start;box-shadow:0 18px 40px rgba(0,0,0,.45);overflow:hidden}
+.lesson:nth-of-type(even){grid-template-columns:1.02fr 1fr;grid-template-areas:"pts num" "pts title" "pts img"}
+.lesson-bg-stripes{display:none}
+.lesson-img{grid-area:img;align-self:start;justify-self:center;position:relative;width:100%;max-width:320px;height:185px;overflow:visible;display:flex;align-items:flex-start;justify-content:center;padding:6px}
+.lesson-img img{position:relative;z-index:2;width:100%;height:100%;object-fit:contain;object-position:top center;transform-origin:top center;display:block;filter:drop-shadow(0 12px 18px rgba(0,0,0,.18))}
+.lesson:nth-of-type(4) .lesson-img img,.lesson:nth-of-type(n+6) .lesson-img img{transform:scale(1.22)}
+.lesson:nth-of-type(3) .lesson-img img,.lesson:nth-of-type(5) .lesson-img img{transform:scale(1.08)}
+.lesson:nth-of-type(1) .lesson-img img{transform:scale(1.16);-webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent 94%);mask-image:linear-gradient(to bottom,#000 62%,transparent 94%)}
+.lesson:nth-of-type(2) .lesson-img img{transform:scale(1.08)}
+.lesson-img-fallback{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;padding:24px}
+.lesson-img-icon{font-size:68px;line-height:1;filter:drop-shadow(0 8px 14px rgba(0,0,0,.15))}
+.lesson-img-tag{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#888}
+.lesson-n{grid-area:num;justify-self:start;display:inline-block;font-size:13px;font-weight:800;text-transform:uppercase;color:#fff;background:var(--red);padding:8px 16px;border-radius:30px;letter-spacing:.1em;box-shadow:0 6px 18px rgba(237,50,50,.4);margin-bottom:12px}
+.lesson-title{grid-area:title;font-size:clamp(20px,1.75vw,25px);font-weight:800;text-transform:uppercase;color:#141414;line-height:1.45;margin:0 0 16px}
+.lesson-title b{color:var(--red-deep)}
+.lesson-title .hl{background:var(--red);color:#fff;padding:0 9px;border-radius:5px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.lesson-points{grid-area:pts;align-self:center;list-style:none;display:flex;flex-direction:column;gap:28px}
+.lesson-points li{display:flex;gap:18px;align-items:flex-start;font-size:22px;line-height:1.5;color:#1a1a1a;font-weight:600}
+.lesson-points li b{color:var(--red);font-weight:800}
+.lp-num{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;margin-top:2px;box-shadow:0 5px 14px rgba(237,50,50,.45)}
+/* ===== РЕЗУЛЬТАТ-полосы между уроками ===== */
+.lesson-result{align-self:stretch;margin:0;padding:6px 36px;text-align:left}
+.lesson-result-text{font-size:clamp(18px,2.2vw,31px);font-weight:800;line-height:1.25;color:#fff;letter-spacing:-.01em;margin:0;max-width:920px}
+.lesson-result-text .red{color:var(--red)}
+.lesson-result-text .lr-mark{color:var(--red);font-weight:900;margin-right:7px}
+.pbridge{max-width:1100px;margin:24px auto;background:var(--red-deep);color:#fff;border-radius:14px;padding:20px 28px;font-weight:700;font-size:16px;text-align:center;box-shadow:0 0 30px rgba(237,50,50,.35)}
+.program .cta{margin-top:38px;display:block;width:100%;max-width:340px;margin-left:auto;margin-right:auto;text-align:center}
+
+/* ===== BLOCK 11 FOR WHOM ===== */
+.forwhom{background:#0a0a0a}
+.fw-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:920px;margin:0 auto 34px;text-align:left}
+.fw-card{position:relative;background:var(--bg-overlay);border:1px solid var(--line);border-radius:var(--r-card);padding:0 28px 28px;overflow:hidden}
+.fw-photo{position:relative;height:320px;margin:0 -28px 22px;overflow:hidden}
+.fw-photo::before{content:"";position:absolute;left:0;right:0;bottom:0;top:70%;background:linear-gradient(180deg,transparent 0%,var(--bg-overlay) 100%);z-index:2}
+.fw-photo::after{content:"";position:absolute;inset:0;background:radial-gradient(55% 60% at 50% 50%,rgba(237,50,50,.22),transparent 70%);mix-blend-mode:screen;z-index:1}
+.fw-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.fw-card h4{font-size:18px;font-weight:800;text-transform:uppercase;color:var(--red);margin-bottom:10px;letter-spacing:.02em}
+.fw-card p{font-size:14px;line-height:1.55;color:var(--ink-dim)}
+.fw-card p+p{margin-top:8px}
+
+/* ===== BLOCK 12 PRICE ===== */
+.section.price{background:radial-gradient(70% 70% at 50% 40%,rgba(237,50,50,.08),transparent 70%),#080808}
+.price-head{max-width:1080px;margin:0 auto 50px;display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center;text-align:left}
+.price-head .price-pre{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);font-weight:700;margin-bottom:14px}
+.price-head .h2{margin-bottom:18px}
+.price-head .iron{font-size:14px;color:var(--ink-dim);font-style:italic;max-width:520px;margin:0}
+.price-fig{position:relative;display:flex;justify-content:center}
+.price-fig::before{content:"";position:absolute;inset:4% 8%;background:radial-gradient(ellipse at center,rgba(237,50,50,.3),transparent 70%);filter:blur(45px);z-index:0}
+.price-fig img{position:relative;z-index:1;width:100%;max-width:380px;border-radius:18px;filter:drop-shadow(0 14px 30px rgba(0,0,0,.6))}
+.tariffs{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:1040px;margin:0 auto;padding:0 20px;align-items:stretch;font-family:'Gilroy','Manrope',-apple-system,BlinkMacSystemFont,sans-serif}
+.tariff{position:relative;background:#fff;color:#3c4248;border-radius:24px;padding:36px 32px;display:flex;flex-direction:column;box-shadow:0 22px 50px rgba(0,0,0,.5);overflow:hidden;font-family:Arial,sans-serif;line-height:1.25}
+.tariff .tariff-minicourse h4{text-transform:uppercase;font-weight:800;font-size:clamp(18px,2.2vw,22px);line-height:1.25;color:#3c4248;letter-spacing:-.01em}
+.tariff .tariff-minicourse-sub{font-size:16px;font-weight:400;color:#3c4248;line-height:1.25;margin-bottom:18px}
+.tariff .tariff-minicourse p{font-size:16px;line-height:1.25;color:#3c4248;font-weight:400}
+.tariff .tariff-list li{font-size:16px;line-height:1.25;color:#3c4248;font-weight:400}
+.tariff .tariff-list li b{font-weight:700;color:#3c4248}
+.tariff.premium{box-shadow:0 22px 50px rgba(237,50,50,.35),0 0 0 3px var(--red)}
+.tariff-car{position:relative;width:100%;height:286px;margin:0 0 8px;display:flex;justify-content:center;align-items:center;background:transparent;border-radius:0;overflow:visible}
+.tariff-car img{position:relative;z-index:1;width:100%;max-width:880px;height:100%;object-fit:contain;filter:drop-shadow(0 12px 22px rgba(0,0,0,.18))}
+.tariff-car .placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;color:#bbb;font-weight:700;text-transform:uppercase;letter-spacing:.12em;pointer-events:none}
+.tariff-name{display:inline-block;align-self:flex-start;width:auto;font-size:22px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;background:var(--red);color:#fff;padding:14px 28px;border-radius:14px;margin-bottom:18px;box-shadow:0 6px 18px rgba(237,50,50,.4)}
+.tariff.premium .tariff-name{background:linear-gradient(135deg,#f0b500,#ffd75c);color:#1a1a1a;box-shadow:0 4px 18px rgba(240,181,0,.5)}
+.tariff-title{font-size:clamp(22px,2.6vw,30px);font-weight:800;line-height:1.05;text-transform:uppercase;color:#000;margin:0 0 6px}
+.tariff-title .red{color:var(--red)}
+.tariff-extra{font-size:14px;color:#333;margin-bottom:22px;display:block}
+.tariff-price{display:flex;align-items:baseline;gap:18px;margin:auto 0 4px;padding-top:24px;border-top:1px dashed rgba(0,0,0,.08)}
+.tariff-old{font-size:22px;color:#999;text-decoration:line-through;font-weight:600}
+.tariff-new{font-family:'Gilroy','Manrope',-apple-system,sans-serif;font-size:56px;font-weight:800;color:var(--red);line-height:1;letter-spacing:-.02em}
+.tariff-new .cur{font-family:'Gilroy','Manrope',sans-serif;font-size:30px;font-weight:800;color:#000;margin-left:6px;vertical-align:middle}
+.tariff-section{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red-deep);margin:18px 0 10px}
+.tariff-minicourse{padding:0;margin:0 0 22px;background:transparent;border:0}
+.tariff-minicourse h4{margin:0 0 6px;font-size:clamp(22px,2.8vw,30px);font-weight:800;line-height:1.1;color:#000;font-family:inherit;text-transform:uppercase;letter-spacing:-.01em}
+.tariff-minicourse h4 .red{color:var(--red)}
+.tariff-minicourse-sub{margin:0 0 18px;font-size:16px;font-weight:400;color:#3c4248;font-family:inherit;line-height:1.25}
+.tariff-minicourse p{margin:0;font-size:16px;line-height:1.25;color:#3c4248;font-weight:400}
+.tariff-minicourse p b{font-weight:700;color:#3c4248}
+.tariff-section.bonus15{display:flex;align-items:center;gap:8px;border-top:1px dashed rgba(0,0,0,.18);border-bottom:1px dashed rgba(0,0,0,.18);padding:14px 0;margin:22px 0 14px;font-size:13px;line-height:1.3}
+.tariff-section.bonus15 .gift{font-size:16px}
+.tariff-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:0 0 8px}
+.tariff-list li{font-size:16px;color:#3c4248;padding-left:34px;position:relative;line-height:1.25;font-weight:400}
+.tariff-list li.le::before{content:"▶";position:absolute;left:0;color:#3b7be0;font-weight:800;font-size:20px;top:-2px;line-height:1.25}
+.tariff.premium .tariff-list li.le::before{content:"✅";color:initial;font-size:20px;top:-1px}
+.tariff-list li.bn{padding-left:44px}
+.tariff-list li.bn::before{content:"+🎁";position:absolute;left:0;top:-2px;font-size:18px;color:#1faa55;font-weight:800;letter-spacing:-2px;line-height:1.25}
+.tariff-list li.bn.off{color:#9a9a9a;text-decoration:line-through;text-decoration-thickness:1px;font-weight:700}
+.tariff-list li.bn.off::before{opacity:.4;text-decoration:none}
+.tariff-list li b{color:#000;font-weight:800}
+.tariff-cta-row{margin-top:24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.tariff .cta{font-size:16px;padding:20px 34px;flex:1;min-width:200px}
+.tariff-timer{display:flex;gap:10px;font-variant-numeric:tabular-nums;color:#555;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;align-items:flex-end}
+.tariff-timer span{display:flex;flex-direction:column;align-items:center;gap:2px}
+.tariff-timer b{color:#1a1a1a;font-size:22px;font-weight:800}
+
+/* ===== BLOCK 13 OBJECTIONS (light paper) ===== */
+.objections{background:linear-gradient(180deg,#f1ece5 0%,#e4ddd2 100%);color:var(--ink-light)}
+.objections::after{display:none}
+.objections .h2,.objections .h2 *{color:#1a1a1a}
+.objections .h2 .red{color:var(--red-deep)}
+.objections .lead{margin-bottom:38px;color:#444}
+.obj-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:880px;margin:0 auto;text-align:left}
+.obj-card{background:#fafafa;border:1px solid rgba(0,0,0,.05);border-radius:var(--r-card);padding:30px 28px;box-shadow:0 12px 30px rgba(0,0,0,.08)}
+.obj-thumb{position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;margin:0 0 18px}
+.obj-thumb::before{content:"";position:absolute;left:50%;top:38px;transform:translate(-50%,-50%);width:150px;height:150px;background:radial-gradient(ellipse at center,rgba(237,50,50,.28),transparent 70%);filter:blur(18px);z-index:0}
+.obj-thumb img{position:relative;z-index:1;height:130px;width:auto;object-fit:contain;filter:drop-shadow(0 8px 16px rgba(0,0,0,.18))}
+.obj-thumb-tag{position:relative;z-index:1;font-size:13px;font-weight:800;color:#fff;background:var(--red);padding:7px 16px;border-radius:var(--r-pill);box-shadow:0 6px 16px rgba(237,50,50,.4);text-align:center;line-height:1.2;transform:rotate(-2deg)}
+.obj-card h4{font-size:16px;font-weight:800;text-transform:uppercase;color:var(--red-deep);margin-bottom:12px;line-height:1.25}
+.obj-card p{font-size:14px;line-height:1.55;color:#3a3a3a}
+
+/* ===== BLOCK 14 TRUST (split) ===== */
+.trust{background:radial-gradient(60% 70% at 50% 50%,rgba(237,50,50,.07),transparent 70%),#080808}
+.trust .wrap{max-width:1080px;display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center;text-align:left}
+.trust-fig{position:relative;display:flex;justify-content:center}
+.trust-fig::before{content:"";position:absolute;inset:4% 6%;background:radial-gradient(ellipse at center,rgba(237,50,50,.3),transparent 70%);filter:blur(50px);z-index:0}
+.trust-fig img{position:relative;z-index:1;width:100%;max-width:420px;border-radius:18px;filter:drop-shadow(0 14px 30px rgba(0,0,0,.6))}
+.trust-copy{background:#fafafa;color:var(--ink-light);border-radius:24px;padding:34px 36px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.trust-copy .h2{color:#141414;font-size:clamp(28px,3.8vw,46px);margin-bottom:18px}
+.trust-copy .h2 .red{color:var(--red-deep)}
+.trust-copy p{font-size:15px;line-height:1.55;color:#444;margin-bottom:14px}
+.tg-link{display:inline-flex;align-items:center;gap:8px;background:#2aabee;color:#fff;font-weight:700;font-size:14px;padding:12px 22px;border-radius:var(--r-pill);text-decoration:none;margin:8px 0 18px}
+.trust-copy .cta{display:block;width:100%;text-align:center}
+
+/* ===== MOBILE ===== */
+@media (max-width:900px){
+  .utp .wrap,.softcta .wrap,.trust .wrap,.price-head{grid-template-columns:1fr!important;gap:28px;text-align:center}
+  .softcta-fig{order:0}
+  .utp-fig img,.softcta-fig img,.trust-fig img,.price-fig img{max-width:260px}
+  .utp-ctas,.utp-sub,.bridge,.trust-copy{text-align:center}
+  .tariffs{grid-template-columns:1fr;gap:20px}
+  .tariff{padding:28px 22px}
+  .tariff-car{height:220px}
+  .tariff-car img{max-width:600px}
+  .tariff-new{font-size:64px}
+  .popcorn-cta{grid-template-columns:1fr;padding:30px 22px;text-align:center}
+  .popcorn-cta-img img{max-width:180px}
+  .popcorn-cta-price{justify-content:center}
+  .popcorn-cta-row{justify-content:center}
+  .lesson-stack{gap:20px}
+  .lesson-result{padding:2px 24px}
+  .lesson,.lesson:nth-of-type(even){grid-template-columns:1fr;grid-template-areas:"num" "title" "pts" "img";padding:28px 24px;column-gap:0;row-gap:0}
+  .lesson-img{height:190px;max-width:280px;margin:6px auto 0}
+  .lesson-img-icon{font-size:48px}
+  .lesson-title{font-size:24px}
+  .lesson-points{gap:16px}
+  .lesson-points li{font-size:16px}
+  .fw-grid{grid-template-columns:1fr;gap:14px}
+  .fw-photo{height:280px}
+  .gap .wrap{text-align:center;padding:60px 22px}
+  .gap-bg::after{background:radial-gradient(80% 80% at 50% 50%,rgba(237,50,50,.2),transparent 70%),linear-gradient(180deg,rgba(7,7,7,.7) 0%,rgba(7,7,7,.85) 100%)}
+  /* === NEW BLOCKS — TABLET === */
+  .future .wrap{grid-template-columns:1fr;gap:32px;text-align:center}
+  .future-fig img{max-width:340px}
+  .future-copy .kicker,.future-copy .h2,.future-copy p{text-align:center}
+  .future-copy .future-stamp{text-align:left;display:inline-block}
+  .identity-plate{padding:32px 30px;margin-top:36px}
+  .identity-body{font-size:15px}
+  .guarantee-card{padding:28px 28px}
+  .guarantee-card p{font-size:15px}
+  .x2-highlight{font-size:17px;padding:12px 16px}
+  .bonus-stack{padding:16px 18px}
+  .bonus-row{font-size:12px}
+  .bonus-row .price{font-size:11px}
+  .bonus-total .total-sum{font-size:20px}
+  .author-story{padding:22px 24px}
+  .author-story p{font-size:13px}
+  .two-paths-grid{gap:18px}
+  .path-img{height:240px}
+  .faq-item{padding:20px 24px}
+  .fw-checklist li{font-size:12px}
+}
+@media (max-width:768px){
+  body{padding-top:96px}
+  .section{padding:44px 18px}
+  .topbar{flex-wrap:wrap;justify-content:center;gap:10px;padding:10px 14px}
+  .topbar .tb-label{max-width:none;text-align:center;font-size:11px}
+  .topbar .tb-timer b{font-size:17px}
+  .h1{font-size:28px}
+  .h2{font-size:24px;margin-bottom:26px}
+  .hook-visual img{max-width:100%}
+  .trap-grid{grid-template-columns:1fr;gap:14px;max-width:480px}
+  .trap-3{grid-column:auto;max-width:100%;margin-left:0}
+  .trap-icon{width:70px;height:70px}
+  .cta{width:100%}
+  .split,.split.rev{grid-template-columns:1fr;gap:24px;max-width:480px}
+  .split.rev .split-fig{order:0}
+  .split-fig img{max-width:240px}
+  .gap{padding:70px 18px}
+  .solve-grid{grid-template-columns:1fr;gap:12px;max-width:480px}
+  .method-plate{font-size:15px;padding:14px 20px}
+  .proof-stage{grid-template-columns:1fr;gap:18px;max-width:420px}
+  .r1,.r2,.r3,.r4,.r5,.r6,.r7,.r8{transform:none}
+  .lesson-list,.fw-grid,.obj-grid{max-width:480px}
+  .lesson{padding:26px 22px}
+  .lesson-title{font-size:18px}
+  .lesson-points li{font-size:15px}
+  .fw-grid,.obj-grid{grid-template-columns:1fr;gap:12px}
+  .benefits{padding:110px 18px 60px}
+  .benefits::before{height:90px;border-radius:0 0 50% 50% / 0 0 90px 90px}
+  .benefits-grid{grid-template-columns:1fr;gap:36px;max-width:420px}
+  .benefit-img{height:190px}
+  .benefit-img img{max-height:190px}
+  .benefit-col:nth-child(3) .benefit-img img{transform:none}
+  .benefit-emoji{font-size:74px}
+  .obj-thumb img{height:110px}
+  .obj-thumb::before{width:120px;height:120px;top:32px}
+  .obj-thumb-tag{font-size:12px;padding:6px 14px}
+  .bridge{font-size:15px;padding:16px 20px}
+  .offer{padding:30px 22px}
+  .offer-new{font-size:52px}
+  .format-plate{font-size:16px;padding:16px 22px}
+  /* === NEW BLOCKS — MOBILE === */
+  .future-fig img{max-width:280px}
+  .future-copy .kicker{font-size:11px;letter-spacing:.12em}
+  .future-copy .h2{font-size:24px;margin-bottom:18px}
+  .future-copy p{font-size:14px;line-height:1.55}
+  .future-copy .future-stamp{font-size:12px;padding-left:10px;text-align:left}
+  .identity-plate{padding:24px 20px;border-radius:18px;margin-top:30px}
+  .identity-kicker{font-size:22px;margin-bottom:14px}
+  .identity-body{font-size:14px;line-height:1.55}
+  .guarantee{padding-left:18px;padding-right:18px}
+  .guarantee h2{font-size:24px;margin-bottom:18px}
+  .guarantee-seals{gap:18px;margin-bottom:22px}
+  .guarantee-seals img{width:240px;height:240px}
+  .bonus-value-card{padding:24px 20px}
+  .bonus-value-card .bonus-row{font-size:13px;padding:9px 0}
+  .bonus-value-card .bonus-row .price{font-size:18px}
+  .bonus-value-card .bonus-total .total-sum{font-size:24px}
+  .bonus-value-card .bonus-savings{font-size:13px}
+  .guarantee-badge{font-size:11px;letter-spacing:.12em;padding:8px 16px}
+  .guarantee-card{padding:24px 22px;border-radius:18px}
+  .guarantee-card p{font-size:14px}
+  .x2-highlight{font-size:15px;padding:12px 14px;line-height:1.4}
+  .guarantee-card .x2-note{font-size:12px}
+  .bonus-stack{padding:14px 16px;border-radius:12px}
+  .bonus-stack-title{font-size:10px;letter-spacing:.1em}
+  .bonus-row{font-size:11px;gap:10px}
+  .bonus-row .price{font-size:10px}
+  .bonus-total span:first-child{font-size:12px}
+  .bonus-total .total-sum{font-size:18px}
+  .bonus-savings{font-size:12px}
+  .tariff-countdown{font-size:18px;gap:12px}
+  .tariff-countdown b{font-size:30px}
+  .tariff-countdown small{font-size:13px}
+  .tariff-name{font-size:18px;padding:11px 22px}
+  .author-story{padding:18px 20px;border-radius:0 12px 12px 0}
+  .author-story h4{font-size:13px}
+  .author-story p{font-size:13px;line-height:1.55}
+  .two-paths-grid{grid-template-columns:1fr;gap:16px}
+  .two-paths-title{font-size:24px}
+  .two-paths-pill{font-size:14px;padding:9px 20px;margin-bottom:26px}
+  .path-img{height:300px;margin-bottom:18px}
+  .path-col{padding:0 22px 24px}
+  .path-label{font-size:16px}
+  .path-sub{font-size:16px}
+  .path-text{font-size:14px}
+  .two-paths-cta{width:100%;font-size:16px;padding:18px 24px}
+  .faq .h2{margin-bottom:22px}
+  .faq-item{padding:18px 20px;border-radius:14px}
+  .faq-q{font-size:14px;gap:10px;line-height:1.3}
+  .faq-q::before{width:26px;height:26px;font-size:14px}
+  .faq-a{font-size:13px;padding-left:36px;line-height:1.55}
+  .fw-checklist{margin-top:14px;padding-top:14px}
+  .fw-checklist-title{font-size:10px;letter-spacing:.1em}
+  .fw-checklist li{font-size:12px;gap:8px}
+  .fw-checklist li::before{font-size:14px}
+  .authority-frame{padding:18px 20px}
+  .authority-frame p{font-size:14px;line-height:1.55}
+}
+/* Freelance overrides */
+.lesson-result-text{font-size:clamp(22px,2.8vw,32px)!important;line-height:1.3!important;font-weight:800!important;letter-spacing:-.01em}
+.lesson-result-text .red{font-weight:800!important}
+.lesson-result .lr-mark{font-size:clamp(24px,3vw,36px)!important;font-weight:800!important}
+@media(max-width:768px){.lesson-result-text{font-size:20px!important}}
+/* Desert + Traps: заголовок + dim на новой строке, размер шрифтов как в Dream (light) */
+.desert .trap-text,.traps .trap-text{font-size:19px!important;font-weight:800!important;line-height:1.4!important;color:#fff!important;text-transform:uppercase!important}
+.desert .trap-text .dim,.traps .trap-text .dim{display:block!important;margin-top:7px!important;font-size:16px!important;font-weight:500!important;line-height:1.45!important;text-transform:none!important;color:rgba(255,255,255,.62)!important}
+@media(max-width:768px){.desert .trap-text,.traps .trap-text{font-size:17px!important}.desert .trap-text .dim,.traps .trap-text .dim{font-size:14px!important}}
+
+</style>
+
+</head>
+<body>
+
+<!-- STICKY TIMER HEADER -->
+<div class="topbar">
+  <span class="tb-label">Доступ к&nbsp;мини курсу закроется через:</span>
+  <div class="tb-timer" data-cd>
+    <span><b>00</b><small>часов</small></span><span><b>15</b><small>мин</small></span><span><b>00</b><small>сек</small></span>
+  </div>
+  <a href="#price" class="cta">Создать актив →</a>
+</div>
+
+<!-- ===== БЛОК 1 — УТП HERO ===== -->
+<section class="section utp">
+  <div class="wrap">
+    <div class="utp-fig"><img src="assets/hero.webp" alt=""></div>
+    <div class="utp-copy">
+      <div class="kicker" style="color:var(--red);font-style:normal;letter-spacing:.12em">Для <b style="color:#fff">фрилансеров, экспертов, наставников, продюсеров</b>, кто устал жить от&nbsp;клиента к&nbsp;клиенту и&nbsp;от&nbsp;запуска к&nbsp;запуску</div>
+      <h1 class="utp-h" style="font-size:clamp(17px,2.2vw,24px);line-height:1.2;margin:0 0 12px">Создай <span class="red">YouTube-актив</span></h1>
+      <div style="font-size:clamp(32px,4.8vw,54px);font-weight:800;line-height:1.02;text-transform:uppercase;letter-spacing:-.01em;color:var(--ink);margin:0 0 24px">приносящий <span class="red">от&nbsp;3&nbsp;500 до&nbsp;15&nbsp;000&nbsp;₽/день</span> на&nbsp;автомате</div>
+      <p class="utp-sub" style="margin-bottom:28px">через короткие ролики + система <b style="color:#fff">авто-монетизации видео</b> из&nbsp;YouTube, Tik-Tok, Нельзяграм</p>
+      <ul style="list-style:none;padding:0;margin:0 0 26px;font-size:15px;line-height:1.55;color:var(--ink-dim);max-width:560px;text-align:left;display:inline-block">
+        <li style="padding-left:22px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:0;color:var(--red);font-weight:700;font-size:20px;line-height:1.1">•</span>и&nbsp;получай <b style="color:#fff">от&nbsp;3&nbsp;000–15&nbsp;000&nbsp;₽ в&nbsp;день на&nbsp;авто-оплатах</b></li>
+        <li style="padding-left:22px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:0;color:var(--red);font-weight:700;font-size:20px;line-height:1.1">•</span>даже <b style="color:#fff">без своего продукта</b></li>
+        <li style="padding-left:22px;position:relative"><span style="position:absolute;left:0;top:0;color:var(--red);font-weight:700;font-size:20px;line-height:1.1">•</span>без твоего участия, без вложений в&nbsp;трафик и&nbsp;без зависимости от&nbsp;платформ, клиентов, законов и&nbsp;гео</li>
+      </ul>
+      <div class="utp-ctas">
+        <a href="#program" class="cta cta-outline">Программа</a>
+        <a href="#price" class="cta">Хочу свой канал за&nbsp;30&nbsp;дней →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== НОВЫЙ БЛОК: 3 ВЫГОДЫ (белый, овальный переход) ===== -->
+<section class="section benefits">
+  <div class="wrap">
+    <div class="benefits-grid">
+      <div class="benefit-col">
+        <div class="benefit-img"><span class="benefit-emoji">💰</span><img src="assets/ben1_cut.webp?v=2" alt="" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()"></div>
+        <h3 class="benefit-title">Начнёшь зарабатывать <span class="red">3&nbsp;000–15&nbsp;000&nbsp;₽</span> в&nbsp;день</h3>
+        <p class="benefit-sub">на&nbsp;авто-оплатах — <b>без созвонов, переговоров и&nbsp;операционки</b></p>
+      </div>
+      <div class="benefit-col">
+        <div class="benefit-img"><span class="benefit-emoji">📈</span><img src="assets/ben2_cut.webp?v=3" alt="" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()"></div>
+        <h3 class="benefit-title">Узнаешь как получать <span class="red">от&nbsp;100&nbsp;000 до&nbsp;5&nbsp;000&nbsp;000 просмотров</span> на&nbsp;каждом видео стабильно</h3>
+        <p class="benefit-sub">без раскачанных соцсетей — <b>даже с&nbsp;нулём подписчиков</b></p>
+      </div>
+      <div class="benefit-col">
+        <div class="benefit-img"><span class="benefit-emoji">🚀</span><img src="assets/ben3_cut.webp?v=3" alt="" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()"></div>
+        <h3 class="benefit-title">Научишься набирать <span class="red">от&nbsp;10&nbsp;000 до&nbsp;100&nbsp;000</span> подписчиков за&nbsp;<span class="red">0&nbsp;₽</span></h3>
+        <p class="benefit-sub">без съёмок, монтажа и&nbsp;<b>личного бренда</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== БЛОК 2 — ХУК ===== -->
+<section class="section hook">
+  <div class="wrap">
+    <div class="kicker">Сколько ещё событий должно произойти в&nbsp;мире, <span class="red">чтобы ты понял?</span></div>
+    <h1 class="h1">Твоя текущая модель заработка <span class="red">не&nbsp;безопасна для тебя</span></h1>
+    <p class="lead">Уже не&nbsp;канает жизнь от&nbsp;клиента к&nbsp;клиенту, от&nbsp;запуска к&nbsp;запуску — в&nbsp;надежде, что Володя очередным своим решением не&nbsp;наебнёт соцсеть, сервис или источник трафика, на&nbsp;котором ты зарабатываешь свои <b style="color:#fff">единственные деньги</b>.</p>
+    <a href="#price" class="cta">Покажи решение →</a>
+    <div class="hook-visual"><img src="assets/wheel.webp" alt=""></div>
+  </div>
+</section>
+
+<!-- ===== БЛОК 2 — ЗЕРКАЛО ===== -->
+<section class="section traps">
+  <div class="traps-bg"><img src="assets/trap-bg.webp" alt=""></div>
+  <div class="wrap">
+    <h2 class="h2">Примерно так обстоят <span class="red">твои дела?</span></h2>
+    <div class="trap-grid">
+      <div class="trap">
+        <div class="trap-icon"><img src="assets/trap1_cut.webp?v=2" alt=""><span class="trap-num">1</span></div>
+        <div class="trap-text">Нет регулярного и&nbsp;ежедневного <span class="red">потока денег</span> <span class="dim">— каждый месяц начинаешь с&nbsp;нуля</span></div>
+      </div>
+      <div class="trap">
+        <div class="trap-icon"><img src="assets/trap2_cut.webp?v=2" alt=""><span class="trap-num">2</span></div>
+        <div class="trap-text"><span class="red">Свои продукты или услуги</span> приходится продавать <span class="red">сильно дешевле</span>, <span class="dim">чем тебе хотелось бы</span></div>
+      </div>
+      <div class="trap trap-3">
+        <div class="trap-icon"><img src="assets/trap3_cut.webp?v=2" alt=""><span class="trap-num">3</span></div>
+        <div class="trap-text"><span class="red">Зашиваешься</span> в&nbsp;операционке <span class="dim">— созвоны, переговоры, трафик, копирайтинг и&nbsp;много чего ещё</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== БЛОК 3 — УГЛУБЛЕНИЕ ===== -->
+<section class="section desert">
+  <div class="wrap">
+    <h2 class="h2">А&nbsp;на&nbsp;<span class="red">десерт:</span></h2>
+    <div class="split">
+      <div class="split-fig"><img src="assets/robe.webp" alt=""></div>
+      <div class="split-cards">
+        <div class="trap">
+          <div class="trap-icon"><img src="assets/d4_cut.webp?v=4" alt=""><span class="trap-num">4</span></div>
+          <div class="trap-text"><span class="red">Вечно на&nbsp;очке</span> от&nbsp;неуверенности <span class="red">в&nbsp;завтрашнем дне</span> <span class="dim">— будет ли в&nbsp;следующем месяце вообще доход</span></div>
+        </div>
+        <div class="trap">
+          <div class="trap-icon"><img src="assets/d5_cut.webp?v=4" alt=""><span class="trap-num">5</span></div>
+          <div class="trap-text"><span class="red">Тратишь все заработанные деньги</span>, не&nbsp;успевая насладиться <span class="red">жизнью</span> <span class="dim">— или хотя бы отложить бюджет на&nbsp;рекламу, про <b>подушку безопасности</b> вообще молчу</span></div>
+        </div>
+        <div class="trap">
+          <div class="trap-icon"><img src="assets/d6_cut.webp?v=4" alt=""><span class="trap-num">6</span></div>
+          <div class="trap-text"><span class="red">Постоянно</span> устаёшь и&nbsp;выгораешь, <span class="dim">забыв что такое лёгкость в&nbsp;работе и&nbsp;жизни</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== БЛОК 4 — МЕЧТА ===== -->
+<section class="section dream light">
+  <div class="wrap">
+    <h2 class="h2">Лучше вспомни, зачем ты&nbsp;пошёл <span class="red">во&nbsp;фриланс или инфобиз</span></h2>
+    <p class="lead">Ты ведь купился на&nbsp;рекламные подачи и&nbsp;хотел:</p>
+    <div class="split rev">
+      <div class="split-cards">
+        <div class="trap">
+          <div class="trap-icon"><img src="assets/dr1_cut.webp?v=2" alt=""></div>
+          <div class="trap-text">Работать по&nbsp;<b>4&nbsp;часа в&nbsp;день</b> <span class="dim">— давать результаты клиентам и&nbsp;гордиться своей работой</span></div>
+        </div>
+        <div class="trap">
+          <div class="trap-icon"><img src="assets/dr2_cut.webp?v=2" alt=""></div>
+          <div class="trap-text">Двигаться с&nbsp;кайфом <span class="dim">и&nbsp;обеспечить себе и&nbsp;своей семье <b>достойную жизнь</b></span></div>
+        </div>
+        <div class="trap">
+          <div class="trap-icon"><img src="assets/dr3_cut.webp?v=2" alt=""></div>
+          <div class="trap-text">Сорваться в&nbsp;путешествие <b>в&nbsp;любое время</b> <span class="dim">— сменить локацию и&nbsp;работать в&nbsp;лучших условиях</span></div>
+        </div>
+        <div class="trap">
+          <div class="trap-icon"><img src="assets/dr4_cut.webp?v=2" alt=""></div>
+          <div class="trap-text"><b>Не&nbsp;зависеть ни&nbsp;от&nbsp;кого</b> <span class="dim">и&nbsp;самому режиссировать свою жизнь так, как хочется тебе</span></div>
+        </div>
+      </div>
+      <div class="split-fig"><img src="assets/aspire.webp" alt=""></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== БЛОК 5 — РАЗРЫВ ===== -->
+<section class="section gap">
+  <div class="gap-bg"><img src="assets/gap.webp" alt=""></div>
+  <div class="wrap">
+    <span class="gap-pill">Эээ, куда?</span>
+    <h1 class="h1">Куда-то это <span class="red">подевалось</span>,<br>тебе не&nbsp;кажется?</h1>
+  </div>
+</section>
+
+<!-- ===== БЛОК 6 — РЕШЕНИЕ ===== -->
+<section class="section solution light">
+  <div class="wrap">
+    <h2 class="h2">К&nbsp;счастью, у&nbsp;меня есть <span class="red">решение</span></h2>
+    <div class="method-plate">Короткие ролики + автомонетизация видео = доход на&nbsp;автомате (даже без своего продукта)</div>
+    <p class="lead">Это твой <b>личный актив</b>. Не&nbsp;клиент, который уйдёт. Не&nbsp;площадка, которую забанят. Канал, который работает на&nbsp;тебя — и&nbsp;приносит <b>от&nbsp;3&nbsp;500 до&nbsp;15&nbsp;000&nbsp;₽/день</b>, даже когда ты&nbsp;спишь.</p>
+    <div class="solution-visual"><img src="assets/solution.webp" alt=""></div>
+    <div class="solve-grid">
+      <div class="solve-card">
+        <div class="solve-ic"><img src="assets/sol1_cut.webp" alt=""></div>
+        <h4>Работает даже когда ты&nbsp;спишь</h4>
+        <p>Каждое утро на&nbsp;карте новые авто-оплаты. Без поиска клиентов, созвонов, правок, стресса.</p>
+      </div>
+      <div class="solve-card">
+        <div class="solve-ic"><img src="assets/sol2_cut.webp" alt=""></div>
+        <h4>3&nbsp;000–15&nbsp;000&nbsp;₽ в&nbsp;день</h4>
+        <p>С&nbsp;коротких роликов, на&nbsp;автомате. Как именно деньги приходят — узнаешь внутри.</p>
+      </div>
+      <div class="solve-card">
+        <div class="solve-ic"><img src="assets/sol3_cut.webp" alt=""></div>
+        <h4>1&nbsp;ролик приносит доход целый год</h4>
+        <p>YouTube ≠ биржа. Ролик попал в&nbsp;рекомендации = приносит деньги весь год.</p>
+      </div>
+    </div>
+    <p class="lead">Скопировал ролик за&nbsp;15&nbsp;минут → алгоритм показал его 10&nbsp;000&nbsp;раз → на&nbsp;карту пришло <b style="color:#1a1a1a">5&nbsp;000–50&nbsp;000&nbsp;₽</b> с&nbsp;одного ролика. Без вложений в&nbsp;рекламу.</p>
+
+    <!-- AUTHORITY FRAME -->
+    <div class="authority-frame">
+      <p>Скажу прямо: <b>90% фрилансеров и&nbsp;экспертов так и&nbsp;застрянут в&nbsp;обмене часов на&nbsp;деньги.</b><br><br>И&nbsp;ты <b>не&nbsp;виноват</b>. Тебя просто не&nbsp;научили, что у&nbsp;любого устойчивого дохода есть <b>актив</b> — то, что работает без тебя. Тебе продавали «найди клиентов, подними чек, прокачай скилл» — но это всё ещё ты, твои руки и&nbsp;твой потолок в&nbsp;24&nbsp;часа.<br><br>Ты&nbsp;или построишь свой актив за&nbsp;это время, или через год окажешься в&nbsp;той&nbsp;же точке — с&nbsp;теми&nbsp;же качелями «то густо, то&nbsp;пусто». <b>Время не&nbsp;на&nbsp;твоей стороне.</b></p>
+    </div>
+
+    <a href="#price" class="cta" style="margin-top:30px">Хочу так&nbsp;же →</a>
+  </div>
+</section>
+
+<!-- ===== БЛОК: IDENTITY TRANSFORMATION (перемещён перед softcta) ===== -->
+<section class="section" style="background:#0a0a0a">
+  <div class="wrap">
+    <div class="identity-plate" style="margin-top:0">
+      <div class="identity-kicker">Через 7 дней ты — <span class="red">другой человек</span></div>
+      <p class="identity-body">
+        Не «улучшенная версия себя». <b>Другой.</b><br><br>
+        Тот, у&nbsp;кого <b>телефон пиликает оплатами по&nbsp;ночам</b>. Чей ролик, скопированный месяц назад, <b>приносит деньги каждый день</b>. Кто открывает банк утром — и&nbsp;видит <b>+3&nbsp;000–15&nbsp;000&nbsp;₽</b>, которые пришли, пока он спал.<br><br>
+        Ты больше <b>не&nbsp;меняешь часы на&nbsp;деньги</b> и&nbsp;никому ничего не «впариваешь». Выложил короткий ролик — <b>а&nbsp;дальше он приносит деньги сам</b>. Это не магия и&nbsp;не «успешный успех». Это просто другая модель дохода. Из того, кто гоняется за&nbsp;каждым рублём — <span class="red">в&nbsp;того, кому платят на&nbsp;автомате</span>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== БЛОК 8 — МЯГКИЙ CTA ===== -->
+<section class="section softcta light">
+  <div class="wrap">
+    <div class="softcta-copy">
+      <div class="bridge">У&nbsp;тебя будет YouTube-актив, который приносит <b>3&nbsp;000–15&nbsp;000&nbsp;₽/день</b> даже на&nbsp;коротких роликах от&nbsp;1&nbsp;минуты. Без съёмки лица. Без монтажа. Без вложений в&nbsp;трафик.</div>
+      <h2 class="h2">Твой собственный актив — билет в&nbsp;нормальную жизнь. <span class="red">Как бы инфоцыгански это ни&nbsp;звучало.</span></h2>
+      <p class="lead">И&nbsp;ты сможешь собирать его — за&nbsp;24&nbsp;часа.</p>
+      <ul class="asset-list">
+        <li><b>Доход, не&nbsp;зависящий</b> от&nbsp;того, был запуск или нет</li>
+        <li><b>Подушка,</b> не&nbsp;зависящая ни&nbsp;от&nbsp;клиента, ни&nbsp;от&nbsp;площадки</li>
+        <li>Право <b>сказать «нет»</b> токсичному клиенту — и&nbsp;уехать в&nbsp;отпуск без ноутбука</li>
+      </ul>
+      <a href="#price" class="cta">Начинаю сегодня →</a>
+    </div>
+    <div class="softcta-fig"><img src="assets/sensei.webp" alt=""></div>
+  </div>
+</section>
+
+<!-- ===== БЛОК 9 — ФОРМАТ ===== -->
+<section class="section format">
+  <div class="wrap">
+    <h2 class="h2">Всё внутри — в&nbsp;<span class="red">10&nbsp;коротких видеоуроках</span></h2>
+    <p class="lead">Не&nbsp;лекции. Не&nbsp;теория. Не&nbsp;«вода» на&nbsp;2&nbsp;часа. Скринкаст с&nbsp;моего экрана → ты&nbsp;делаешь то&nbsp;же самое → получаешь результат.</p>
+    <div class="format-plate">Скопировал → Выложил → Начал получать авто-оплаты</div>
+    <p class="format-note">1-2&nbsp;часа в&nbsp;день. Первые деньги с&nbsp;роликов — через 2–7&nbsp;дней.</p>
+  </div>
+</section>
+
+<!-- ===== БЛОК 10 — ПРОГРАММА ===== -->
+<section class="section program" id="program">
+  <div class="wrap">
+
+    <h2 class="h2">Что конкретно <span class="red">ты получишь</span></h2>
+    <div class="lesson-stack">
+
+      <article class="lesson"><div class="lesson-bg-stripes"></div>
+        <div class="lesson-img">
+          <div class="lesson-img-fallback"><span class="lesson-img-icon">🎯</span><span class="lesson-img-tag">Выбор ниши</span></div>
+          <img src="assets/prog1_cut.webp" alt="" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()">
+        </div>
+          <span class="lesson-n">Урок №0</span>
+          <h3 class="lesson-title">Выбор прибыльных ниш. Секретная ниша на&nbsp;<span class="hl">миллионы</span>.</h3>
+          <ul class="lesson-points">
+            <li><span class="lp-num">1</span><span>Получишь список <b>50+ ниш</b> с&nbsp;расчётом денежного потенциала каждой</span></li>
+            <li><span class="lp-num">2</span><span>Узнаешь <b>секретную нишу</b>, в&nbsp;которой автор зарабатывает <b>1.5М/мес</b></span></li>
+            <li><span class="lp-num">3</span><span>Упакуешь продукт под нишу <b>за&nbsp;24&nbsp;часа</b></span></li>
+          </ul>
+      </article>
+
+      <article class="lesson"><div class="lesson-bg-stripes"></div>
+        <div class="lesson-img">
+          <div class="lesson-img-fallback"><span class="lesson-img-icon">🚀</span><span class="lesson-img-tag">Запрещённый алгоритм</span></div>
+          <img src="assets/prog2_cut.webp" alt="" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()">
+        </div>
+          <span class="lesson-n">Урок №1</span>
+          <h3 class="lesson-title">Про <span class="hl">Запрещенный алгоритм</span> (которые дают 100&nbsp;000 просмотров с&nbsp;нулевого канала)</h3>
+          <ul class="lesson-points">
+            <li><span class="lp-num">1</span><span>Освоишь приём, который <b>выводит первый ролик в&nbsp;рекомендации</b></span></li>
+            <li><span class="lp-num">2</span><span>Обойдёшь «холодный старт» нового канала</span></li>
+            <li><span class="lp-num">3</span><span>Получишь чек-лист настройки канала до&nbsp;первой публикации</span></li>
+          </ul>
+      </article>
+
+      <div class="lesson-result"><p class="lesson-result-text"><span class="lr-mark">→</span>Будешь получать <span class="red">от&nbsp;100&nbsp;000 до&nbsp;1&nbsp;000&nbsp;000 просмотров</span> на&nbsp;каждом ролике</p></div>
+
+      <article class="lesson"><div class="lesson-bg-stripes"></div>
+        <div class="lesson-img">
+          <div class="lesson-img-fallback"><span class="lesson-img-icon">📦</span><span class="lesson-img-tag">Источники контента</span></div>
+          <img src="assets/prog3_cut.webp" alt="" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()">
+        </div>
+          <span class="lesson-n">Урок №2</span>
+          <h3 class="lesson-title">Откуда брать готовый контент чтобы получать <span class="hl">3-5&nbsp;продаж в&nbsp;день</span></h3>
+          <ul class="lesson-points">
+            <li><span class="lp-num">1</span><span>Узнаешь <b>7&nbsp;источников</b> готового контента под адаптацию</span></li>
+            <li><span class="lp-num">2</span><span>Получишь шаблон выбора темы под <b>максимальную монетизацию</b></span></li>
+            <li><span class="lp-num">3</span><span>Соберёшь контент-план на&nbsp;<b>30&nbsp;дней за&nbsp;2&nbsp;часа</b></span></li>
+          </ul>
+      </article>
+
+      <article class="lesson"><div class="lesson-bg-stripes"></div>
+        <div class="lesson-img">
+          <div class="lesson-img-fallback"><span class="lesson-img-icon">🧱</span><span class="lesson-img-tag">Конструктор видео</span></div>
+          <img src="assets/lesson-3_cut.webp" alt="" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()">
+        </div>
+          <span class="lesson-n">Урок №3</span>
+          <h3 class="lesson-title">Конструктор видео на&nbsp;<span class="hl">1&nbsp;000&nbsp;000 просмотров</span> (собери как LEGO)</h3>
+          <ul class="lesson-points">
+            <li><span class="lp-num">1</span><span>Получишь блок-схему вирусного ролика из&nbsp;<b>7&nbsp;модулей</b></span></li>
+            <li><span class="lp-num">2</span><span>Освоишь комбинаторику модулей под любую нишу</span></li>
+            <li><span class="lp-num">3</span><span>Соберёшь свой первый ролик-кандидат на&nbsp;миллион <b>за&nbsp;30&nbsp;минут</b></span></li>
+          </ul>
+      </article>
+
+      <div class="lesson-result"><p class="lesson-result-text"><span class="lr-mark">→</span>Будешь создавать <span class="red">5–15&nbsp;роликов в&nbsp;день</span> — каждый от&nbsp;<span class="red">100&nbsp;000 просмотров</span></p></div>
+
+      <article class="lesson"><div class="lesson-bg-stripes"></div>
+        <div class="lesson-img">
+          <div class="lesson-img-fallback"><span class="lesson-img-icon">🎬</span><span class="lesson-img-tag">Шаблон монтажа</span></div>
+          <img src="assets/lesson-4_cut.webp" alt="" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()">
+        </div>
+          <span class="lesson-n">Урок №4</span>
+          <h3 class="lesson-title">Готовый шаблон для монтажа за&nbsp;15&nbsp;000 руб = <span class="hl">БЕСПЛАТНО</span> (повтори за&nbsp;10&nbsp;мин с&nbsp;телефона)</h3>
+          <ul class="lesson-points">
+            <li><span class="lp-num">1</span><span>Получишь готовый шаблон, который монтажёры продают <b>за&nbsp;15&nbsp;000 ₽</b></span></li>
+            <li><span class="lp-num">2</span><span>Освоишь монтаж в&nbsp;<b>один клик</b> через CapCut / Premiere</span></li>
+            <li><span class="lp-num">3</span><span>Сэкономишь <b>5+ часов</b> на&nbsp;каждом ролике</span></li>
+          </ul>
+      </article>
+
+      <article class="lesson"><div class="lesson-bg-stripes"></div>
+        <div class="lesson-img">
+          <div class="lesson-img-fallback"><span class="lesson-img-icon">🔐</span><span class="lesson-img-tag">Секретные алгоритмы</span></div>
+          <img src="assets/lesson-5_cut.webp" alt="" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()">
+        </div>
+          <span class="lesson-n">Урок №5</span>
+          <h3 class="lesson-title">Алгоритмы про которые ютуб не&nbsp;говорит (но которые дают <span class="hl">миллионные охваты</span> мне и&nbsp;успешным блогерам)</h3>
+          <ul class="lesson-points">
+            <li><span class="lp-num">1</span><span>Узнаешь <b>скрытые сигналы YouTube</b>, влияющие на&nbsp;показы</span></li>
+            <li><span class="lp-num">2</span><span>Освоишь приёмы из&nbsp;закрытого комьюнити топ-блогеров</span></li>
+            <li><span class="lp-num">3</span><span>Поймёшь почему одни ролики <b>выстреливают</b>, а&nbsp;другие нет</span></li>
+          </ul>
+      </article>
+
+      <div class="lesson-result"><p class="lesson-result-text"><span class="lr-mark">→</span>Будешь делать <span class="red">1&nbsp;500–3&nbsp;000&nbsp;₽</span> с&nbsp;каждого ролика</p></div>
+
+      <article class="lesson"><div class="lesson-bg-stripes"></div>
+        <div class="lesson-img">
+          <div class="lesson-img-fallback"><span class="lesson-img-icon">🏷️</span><span class="lesson-img-tag">Описания и теги</span></div>
+          <img src="assets/lesson-6_cut.webp" alt="" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()">
+        </div>
+          <span class="lesson-n">Урок №6</span>
+          <h3 class="lesson-title">Что писать под видео чтобы они <span class="hl">залетали</span> (описание, теги)</h3>
+          <ul class="lesson-points">
+            <li><span class="lp-num">1</span><span>Получишь формулу описания, которое <b>ранжируется в&nbsp;первых строках</b></span></li>
+            <li><span class="lp-num">2</span><span>Узнаешь систему тегов для попадания в&nbsp;<b>смежные ниши</b></span></li>
+            <li><span class="lp-num">3</span><span>Освоишь приём, увеличивающий CTR на&nbsp;<b>30-40%</b></span></li>
+          </ul>
+      </article>
+
+      <article class="lesson"><div class="lesson-bg-stripes"></div>
+        <div class="lesson-img">
+          <div class="lesson-img-fallback"><span class="lesson-img-icon">🏭</span><span class="lesson-img-tag">Массовое создание</span></div>
+          <img src="assets/lesson-7_cut.webp" alt="" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()">
+        </div>
+          <span class="lesson-n">Урок №7</span>
+          <h3 class="lesson-title">Как анализировать каналы и&nbsp;за&nbsp;5&nbsp;минут делать <span class="hl">до&nbsp;100 видео</span></h3>
+          <ul class="lesson-points">
+            <li><span class="lp-num">1</span><span>Получишь скрипт <b>массового анализа конкурентов</b></span></li>
+            <li><span class="lp-num">2</span><span>Освоишь пайплайн создания <b>100 видео из&nbsp;одной идеи</b></span></li>
+            <li><span class="lp-num">3</span><span>Узнаешь как делегировать производство <b>ассистенту</b></span></li>
+          </ul>
+      </article>
+
+      <div class="lesson-result"><p class="lesson-result-text"><span class="lr-mark">→</span>Наберёшь <span class="red">150&nbsp;000 подписчиков</span> за&nbsp;<span class="red">0&nbsp;₽</span> — всего за&nbsp;<span class="red">30&nbsp;дней</span></p></div>
+
+      <article class="lesson"><div class="lesson-bg-stripes"></div>
+        <div class="lesson-img">
+          <div class="lesson-img-fallback"><span class="lesson-img-icon">⏰</span><span class="lesson-img-tag">Оптимальная загрузка</span></div>
+          <img src="assets/lesson-8_cut.webp" alt="" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()">
+        </div>
+          <span class="lesson-n">Урок №8</span>
+          <h3 class="lesson-title">Как правильно выкладывать видео чтобы они сразу набирали <span class="hl">от&nbsp;100&nbsp;000 просмотров</span></h3>
+          <ul class="lesson-points">
+            <li><span class="lp-num">1</span><span>Узнаешь <b>точное время загрузки</b> для своей ниши</span></li>
+            <li><span class="lp-num">2</span><span>Получишь чек-лист upload-параметров для <b>максимума охватов</b></span></li>
+            <li><span class="lp-num">3</span><span>Освоишь «тёплый запуск» через предзагрузку</span></li>
+          </ul>
+      </article>
+
+      <article class="lesson"><div class="lesson-bg-stripes"></div>
+        <div class="lesson-img">
+          <div class="lesson-img-fallback"><span class="lesson-img-icon">📈</span><span class="lesson-img-tag">Масштабирование</span></div>
+          <img src="assets/lesson-9_cut.webp" alt="" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()">
+        </div>
+          <span class="lesson-n">Урок №9</span>
+          <h3 class="lesson-title">Масштабирование: как выйти на&nbsp;<span class="hl">500&nbsp;000+ руб/месяц</span> на&nbsp;этой системе</h3>
+          <ul class="lesson-points">
+            <li><span class="lp-num">1</span><span>Получишь схему масштаба <b>с&nbsp;1&nbsp;канала до&nbsp;3-5 каналов</b></span></li>
+            <li><span class="lp-num">2</span><span>Узнаешь как нанять команду <b>за&nbsp;30% от&nbsp;прибыли</b></span></li>
+            <li><span class="lp-num">3</span><span>Автоматизируешь рутину через <b>PromitAI</b></span></li>
+          </ul>
+      </article>
+
+      <div class="lesson-result"><p class="lesson-result-text"><span class="lr-mark">→</span>Начнёшь зарабатывать <span class="red">от&nbsp;3&nbsp;000 до&nbsp;15&nbsp;000&nbsp;₽ в&nbsp;день</span> с&nbsp;коротких роликов — на&nbsp;автомате, даже когда спишь</p></div>
+
+    </div>
+    <div class="pbridge">🛡 У&nbsp;тебя будет свой актив, не&nbsp;зависящий ни&nbsp;от&nbsp;клиента, ни&nbsp;от&nbsp;площадки, ни&nbsp;от&nbsp;биржи</div>
+    <a href="#price" class="cta">Открой мне доступ →</a>
+  </div>
+</section>
+
+<!-- ===== БЛОК 11 — ДЛЯ КОГО ===== -->
+<section class="section forwhom light">
+  <div class="wrap">
+    <h2 class="h2">Это именно <span class="red">для тебя</span>, если:</h2>
+    <div class="fw-grid">
+      <div class="fw-card">
+        <div class="fw-photo"><img src="assets/whoA.webp" alt=""></div>
+        <h4>Фрилансерам и&nbsp;удалёнщикам</h4>
+        <p>Дизайнерам, копирайтерам, SMM, монтажерам, таргетологам, директологам, сайтоделам. Устал от&nbsp;качелей «то&nbsp;густо, то&nbsp;пусто», демпинга и&nbsp;продажи себя дёшево.</p>
+        <p>Хочешь доход, который не&nbsp;зависит от&nbsp;того, нашёл ты&nbsp;клиента в&nbsp;этом месяце или нет — и&nbsp;не&nbsp;сливается, когда платформа поменяет алгоритм.</p>
+        <div class="fw-checklist">
+          <div class="fw-checklist-title">Курс для тебя, если за&nbsp;последний месяц ты&nbsp;хоть раз:</div>
+          <ul>
+            <li>Открывал банк и&nbsp;быстро закрывал</li>
+            <li>Соглашался на&nbsp;правки в&nbsp;полночь от&nbsp;страха потерять клиента</li>
+            <li>Работал в&nbsp;выходные без особого повода</li>
+            <li>Завидовал другу со&nbsp;стабильной зарплатой</li>
+            <li>Думал «может, вернуться в&nbsp;найм»</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-photo"><img src="assets/whoB.webp" alt=""></div>
+        <h4>Экспертам, продюсерам, наставникам</h4>
+        <p>Свой продукт или услуги. Живёшь от&nbsp;запуска к&nbsp;запуску, сливаешь бюджет в&nbsp;трафик и&nbsp;молишься, чтобы окупилось.</p>
+        <p>Хочешь актив, который окупает трафик и&nbsp;приносит деньги <b>между запусками</b> — на&nbsp;автомате, без зависимости от&nbsp;платформ.</p>
+        <div class="fw-checklist">
+          <div class="fw-checklist-title">Курс для тебя, если за&nbsp;последний месяц ты&nbsp;хоть раз:</div>
+          <ul>
+            <li>Считал кассу запуска и&nbsp;понимал «опять окупились впритык»</li>
+            <li>Откладывал отпуск «после следующего запуска»</li>
+            <li>Видел, как падают охваты после очередного обновления алгоритма</li>
+            <li>Завидовал тому, у&nbsp;кого «доход идёт сам»</li>
+            <li>Думал «надо что-то менять, но&nbsp;что»</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <a href="#price" class="cta">Это про меня — открой доступ →</a>
+  </div>
+</section>
+
+<!-- ===== БЛОК 12 — ЦЕНА ===== -->
+<section class="section price" id="price">
+  <div class="price-head">
+    <div>
+      <div class="price-pre">Сколько стоит билет</div>
+      <h2 class="h2">В&nbsp;твои <span class="red">3&nbsp;000–15&nbsp;000&nbsp;₽ в&nbsp;день</span> с&nbsp;коротких роликов</h2>
+      <p class="iron">Цена за&nbsp;этот инструмент абсолютно лояльная. Особенно, что окупится тебе в&nbsp;10&nbsp;раз. Так что я&nbsp;бы долго не&nbsp;думал, хотя вообще бы не&nbsp;думал и&nbsp;сразу купил))</p>
+    </div>
+    <div class="price-fig"><img src="assets/ticket.webp" alt=""></div>
+  </div>
+  <div class="tariffs">
+
+    <div class="tariff">
+      <div class="tariff-car">
+        <img src="assets/mercedes_cut.webp" alt="" onerror="this.style.display='none'">
+      </div>
+      <span class="tariff-name">Стандарт</span>
+      <div class="tariff-minicourse">
+        <h4>🚀 <span class="red">МИНИ-КУРС:</span> Как начать зарабатывать от&nbsp;<span class="red">250&nbsp;000 руб/месяц</span></h4>
+        <div class="tariff-minicourse-sub">на&nbsp;создании коротких видео</div>
+        <p>Научитесь получать <b>от&nbsp;1500 до&nbsp;5000 руб с&nbsp;каждого ролика.</b> И&nbsp;выйдите на&nbsp;пассивных доход с&nbsp;коротких видео <b>за&nbsp;7 дней.</b></p>
+      </div>
+      <ul class="tariff-list">
+        <li class="le"><b>Урок №0.</b> Выбор прибыльных ниш. <b>Секретная ниша на&nbsp;миллионы.</b></li>
+        <li class="le"><b>Урок №1.</b> Про Запрещенный <b>алгоритм</b> (которые <b>дают 100&nbsp;000 просмотров</b> с&nbsp;нулевого канала)</li>
+        <li class="le"><b>Урок №2.</b> Откуда брать готовый контент чтобы получать <b>3-5&nbsp;продаж в&nbsp;день</b></li>
+        <li class="le"><b>Урок №3.</b> Конструктор видео <b>на&nbsp;1&nbsp;000&nbsp;000 просмотров</b> (собери как LEGO)</li>
+        <li class="le"><b>Урок №4.</b> Готовый шаблон для монтажа за&nbsp;15&nbsp;000 руб = <b>БЕСПЛАТНО</b> (повтори за&nbsp;10&nbsp;мин с&nbsp;телефона)</li>
+        <li class="le"><b>Урок №5.</b> Алгоритмы про которые <b>ютуб не&nbsp;говорит</b> (но которые дают <b>миллионные охваты мне</b> и&nbsp;успешным блогерам)</li>
+        <li class="le"><b>Урок №6.</b> Что писать под видео чтобы они <b>залетали</b> (описание, теги)</li>
+        <li class="le"><b>Урок №7.</b> Как анализировать каналы и&nbsp;<b>за&nbsp;5&nbsp;минут делать до&nbsp;100 видео</b></li>
+        <li class="le"><b>Урок №8.</b> Как правильно <b>выкладывать</b> видео чтобы они сразу <b>набирали от&nbsp;100&nbsp;000 просмотров</b></li>
+        <li class="le"><b>Урок №9.</b> Масштабирование: как выйти на&nbsp;<b>500&nbsp;000+ руб/месяц</b> на&nbsp;этой системе</li>
+      </ul>
+      <div class="tariff-section bonus15"><span class="gift">🎁</span> Бонусы при покупке в&nbsp;течение 15&nbsp;минут</div>
+      <ul class="tariff-list">
+        <li class="bn"><b>Контент-завод PromitAI</b> на&nbsp;месяц</li>
+        <li class="bn"><b>Повышенную оплату до 20 руб</b> за&nbsp;подписчика</li>
+        <li class="bn">Возможность <b>вывода реферальных бонусов</b> на&nbsp;карту</li>
+        <li class="bn"><b>500 руб</b> за&nbsp;каждого приглашенного (<b>20% с&nbsp;продаж</b>)</li>
+        <li class="bn"><b>Кабинет</b> партнера с&nbsp;цифрами <b>аналитики</b> (и&nbsp;выводом денег)</li>
+        <li class="bn off">Запуск подписчиков с&nbsp;Авито за&nbsp;30 минут (+30-150 подписчиков в&nbsp;день)</li>
+        <li class="bn off">Готовый бот для авто-продаж на&nbsp;70-100 тыс/месяц</li>
+        <li class="bn off">100 заголовков для видео</li>
+        <li class="bn off">20 сценариев шортс на&nbsp;миллион просмотров</li>
+        <li class="bn off">Готовые 50 видео для монтажа (скопировал&nbsp;- вставил)</li>
+        <li class="bn off">150 лучших превью для видео</li>
+        <li class="bn off">250 трендовых звуков для Ютуб</li>
+        <li class="bn off">15 крутых переходов</li>
+        <li class="bn off">60 дизайнерский креативов</li>
+        <li class="bn off">7000 залетевших видео со&nbsp;сценариями</li>
+        <li class="bn off">ЗП + 100% гарантией трудоустройства (после прохождения)</li>
+      </ul>
+      <div class="tariff-price"><span class="tariff-old">24&nbsp;990&nbsp;₽</span><span class="tariff-new">2&nbsp;490<span class="cur">₽</span></span></div>
+      <div class="tariff-cta-row" style="flex-direction:column;align-items:stretch;gap:10px">
+        <a href="#" class="cta" style="width:100%;background:#e6e6e6;color:#1a1a1a;box-shadow:inset 0 0 0 1.5px rgba(0,0,0,.14)">Забрать за&nbsp;2&nbsp;490 →</a>
+        <div class="tariff-countdown" data-cd>
+          <span><b>00</b><small>ч</small></span>
+          <span><b>15</b><small>мин</small></span>
+          <span><b>00</b><small>сек</small></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tariff premium">
+      <div class="tariff-car">
+        <img src="assets/lambo_cut.webp" alt="" onerror="this.style.display='none'">
+      </div>
+      <span class="tariff-name">★ Premium</span>
+      <div class="tariff-minicourse">
+        <h4>🚀 <span class="red">МИНИ-КУРС:</span> Как начать зарабатывать от&nbsp;<span class="red">250&nbsp;000 руб/месяц</span></h4>
+        <div class="tariff-minicourse-sub">на&nbsp;создании коротких видео</div>
+        <p>Научитесь получать <b>от&nbsp;1500 до&nbsp;5000 руб с&nbsp;каждого ролика.</b> И&nbsp;выйдите на&nbsp;пассивных доход с&nbsp;коротких видео <b>за&nbsp;7 дней.</b></p>
+      </div>
+      <ul class="tariff-list">
+        <li class="le"><b>Урок №0.</b> Выбор прибыльных ниш. <b>Секретная ниша на&nbsp;миллионы.</b></li>
+        <li class="le"><b>Урок №1.</b> Про Запрещенный алгоритм (которые <b>дают 100&nbsp;000 просмотров</b> с&nbsp;нулевого канала)</li>
+        <li class="le"><b>Урок №2.</b> Откуда брать готовый контент чтобы получать <b>3-5&nbsp;продаж в&nbsp;день</b></li>
+        <li class="le"><b>Урок №3.</b> Конструктор видео <b>на&nbsp;1&nbsp;000&nbsp;000 просмотров</b> (собери как LEGO)</li>
+        <li class="le"><b>Урок №4.</b> Готовый шаблон для монтажа за&nbsp;15&nbsp;000 руб = <b>БЕСПЛАТНО</b> (повтори за&nbsp;10&nbsp;мин с&nbsp;телефона)</li>
+        <li class="le"><b>Урок №5.</b> Алгоритмы про которые <b>ютуб не&nbsp;говорит</b> (но которые дают <b>миллионные охваты мне</b> и&nbsp;успешным блогерам)</li>
+        <li class="le"><b>Урок №6.</b> Что писать под видео чтобы они <b>залетали</b> (описание, теги)</li>
+        <li class="le"><b>Урок №7.</b> Как анализировать каналы и&nbsp;<b>за&nbsp;5&nbsp;минут делать до&nbsp;100 видео</b></li>
+        <li class="le"><b>Урок №8.</b> Как правильно <b>выкладывать</b> видео чтобы они сразу <b>набирали от&nbsp;100&nbsp;000 просмотров</b></li>
+        <li class="le"><b>Урок №9. Масштабирование:</b> как выйти на&nbsp;<b>500&nbsp;000+ руб/месяц</b> на&nbsp;этой системе</li>
+      </ul>
+      <div class="tariff-section bonus15"><span class="gift">🎁</span> Бонусы + усилители Premium при покупке в&nbsp;течение 15&nbsp;минут</div>
+      <ul class="tariff-list">
+        <li class="bn"><b>Контент-завод PromitAI</b> на&nbsp;месяц</li>
+        <li class="bn"><b>Повышенную оплату до 50 руб</b> за&nbsp;подписчика</li>
+        <li class="bn">Возможность <b>вывода реферальных бонусов</b> на&nbsp;карту</li>
+        <li class="bn"><b>от 1&nbsp;050 руб за&nbsp;каждого</b> приглашенного <b>(30% с&nbsp;продаж)</b></li>
+        <li class="bn"><b>Кабинет</b> партнера с&nbsp;цифрами <b>аналитики</b> (и&nbsp;выводом денег)</li>
+        <li class="bn">Запуск подписчиков с&nbsp;<b>Авито за&nbsp;30 минут</b> (<b>+30-150 подписчиков в&nbsp;день</b>)</li>
+        <li class="bn"><b>Готовый бот для авто-продаж</b> на&nbsp;70-100 тыс/месяц</li>
+        <li class="bn"><b>100 заголовков для видео</b></li>
+        <li class="bn"><b>40 сценариев шортс на&nbsp;миллион просмотров</b></li>
+        <li class="bn"><b>Готовые 50 видео для монтажа (скопировал&nbsp;- вставил)</b></li>
+        <li class="bn"><b>150 лучших превью для видео</b></li>
+        <li class="bn"><b>250 трендовых звуков для Ютуб</b></li>
+        <li class="bn"><b>15 крутых переходов</b></li>
+        <li class="bn"><b>60 дизайнерский креативов</b></li>
+        <li class="bn"><b>7000 залетевших видео со&nbsp;сценариями.</b></li>
+        <li class="bn"><b>ЗП + 100% гарантией трудоустройства (после прохождения)</b></li>
+      </ul>
+
+      <div class="tariff-price"><span class="tariff-old">34&nbsp;990&nbsp;₽</span><span class="tariff-new">3&nbsp;490<span class="cur">₽</span></span></div>
+      <div class="tariff-cta-row" style="flex-direction:column;align-items:stretch;gap:10px">
+        <a href="#" class="cta" style="width:100%">Забрать за&nbsp;3&nbsp;490 →</a>
+        <div class="tariff-countdown" data-cd>
+          <span><b>00</b><small>ч</small></span>
+          <span><b>15</b><small>мин</small></span>
+          <span><b>00</b><small>сек</small></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  </section>
+
+<!-- ===== БЛОК: ГАРАНТИЯ X2 ===== -->
+<section class="section guarantee">
+  <div class="wrap">
+    <div class="guarantee-badge">🛡 Гарантия X2</div>
+    <h2>100% <span class="red">гарантия</span> возврата денег в&nbsp;течение 30&nbsp;дней</h2>
+    <div class="guarantee-seals">
+      <img src="assets/seal_result_cut.webp" alt="Гарантия 100% результата">
+      <img src="assets/seal_refund_cut.webp" alt="Возврат денег 100% гарантирован">
+    </div>
+    <div class="guarantee-card">
+      <p><b>Рискую я, а&nbsp;не&nbsp;ты.</b> Когда ты&nbsp;пройдёшь все 10&nbsp;уроков за&nbsp;30&nbsp;дней, выложишь по&nbsp;моему шаблону минимальное количество роликов из&nbsp;последнего урока — и&nbsp;НЕ&nbsp;получишь первые деньги с&nbsp;роликов:</p>
+      <span class="x2-highlight">Верну тебе 2&nbsp;490&nbsp;₽ — и&nbsp;сверху ещё 2&nbsp;490&nbsp;₽ из&nbsp;своего кармана. За&nbsp;потраченное время и&nbsp;доверие.</span>
+      <p>Без вопросов. Без анкет. Без «давайте обсудим». Перевод на&nbsp;твою карту в&nbsp;течение 24&nbsp;часов.</p>
+      <p>Условие одно: ты&nbsp;реально прошёл курс и&nbsp;выложил минимальное количество роликов из&nbsp;последнего урока. Я&nbsp;смотрю канал — вижу. Деньги на&nbsp;счёте. Готово.</p>
+      <p class="x2-note">Почему я&nbsp;могу это обещать: за&nbsp;12&nbsp;месяцев у&nbsp;94&nbsp;из&nbsp;100&nbsp;учеников первые деньги с&nbsp;роликов приходят в&nbsp;течение 21&nbsp;дня. Если ты — те&nbsp;6&nbsp;из&nbsp;100 — я&nbsp;плачу.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== БЛОК: РЕАЛЬНАЯ ЦЕННОСТЬ ВСЕХ БОНУСОВ ===== -->
+<section class="section bonus-value">
+  <div class="wrap">
+    <h2 class="h2">Реальная ценность <span class="red">всех бонусов</span></h2>
+    <div class="bonus-value-card">
+      <div class="bonus-stack-title">🎁 Что входит в&nbsp;комплект</div>
+      <div class="bonus-row"><span class="bn-ico">🏭</span><span class="bn-text">Контент-завод PromitAI на&nbsp;месяц</span><span class="price">9&nbsp;900&nbsp;₽</span></div>
+      <div class="bonus-row"><span class="bn-ico"><img src="assets/bonus/excel.png" alt=""></span><span class="bn-text">7000 залетевших видео со&nbsp;сценариями</span><span class="price">15&nbsp;000&nbsp;₽</span></div>
+      <div class="bonus-row"><span class="bn-ico">🤖</span><span class="bn-text">Готовый бот для авто-продаж на&nbsp;70-100 тыс/месяц</span><span class="price">20&nbsp;000&nbsp;₽</span></div>
+      <div class="bonus-row"><span class="bn-ico"><img src="assets/bonus/folder.png" alt=""></span><span class="bn-text">150 лучших превью для видео</span><span class="price">5&nbsp;000&nbsp;₽</span></div>
+      <div class="bonus-row"><span class="bn-ico"><img src="assets/bonus/excel.png" alt=""></span><span class="bn-text">100 заголовков для видео</span><span class="price">3&nbsp;000&nbsp;₽</span></div>
+      <div class="bonus-row"><span class="bn-ico"><img src="assets/bonus/folder.png" alt=""></span><span class="bn-text">250 трендовых звуков для Ютуб</span><span class="price">2&nbsp;000&nbsp;₽</span></div>
+      <div class="bonus-row"><span class="bn-ico"><img src="assets/bonus/folder.png" alt=""></span><span class="bn-text">60 дизайнерский креативов</span><span class="price">4&nbsp;000&nbsp;₽</span></div>
+      <div class="bonus-row"><span class="bn-ico"><img src="assets/bonus/folder.png" alt=""></span><span class="bn-text">15 крутых переходов</span><span class="price">1&nbsp;500&nbsp;₽</span></div>
+      <div class="bonus-row"><span class="bn-ico"><img src="assets/bonus/folder.png" alt=""></span><span class="bn-text">Готовые 50 видео для монтажа (скопировал&nbsp;- вставил)</span><span class="price">5&nbsp;000&nbsp;₽</span></div>
+      <div class="bonus-row"><span class="bn-ico">📕</span><span class="bn-text">Запуск подписчиков с&nbsp;Авито за&nbsp;30 минут</span><span class="price">3&nbsp;500&nbsp;₽</span></div>
+      <div class="bonus-row"><span class="bn-ico">📊</span><span class="bn-text">Кабинет партнёра с&nbsp;аналитикой и&nbsp;выводом денег</span><span class="price">7&nbsp;000&nbsp;₽</span></div>
+      <div class="bonus-row"><span class="bn-ico">🗺️</span><span class="bn-text">Возможность вывода реферальных бонусов на&nbsp;карту</span><span class="price">2&nbsp;500&nbsp;₽</span></div>
+      <div class="bonus-row"><span class="bn-ico">💯</span><span class="bn-text">ЗП + 100% гарантия трудоустройства</span><span class="price priceless">бесценно</span></div>
+      <div class="bonus-total">
+        <span>Итого ценность:</span>
+        <span class="total-sum">78&nbsp;400&nbsp;₽</span>
+      </div>
+      <div class="bonus-savings">↓ Сегодня забираешь от&nbsp;2&nbsp;490&nbsp;₽ · экономия до&nbsp;75&nbsp;910&nbsp;₽</div>
+    </div>
+    <a href="#price" class="cta" style="margin-top:30px">Хочу все бонусы за&nbsp;3&nbsp;490&nbsp;₽ →</a>
+  </div>
+</section>
+
+<!-- ===== БЛОК: FUTURE PACING — "ОБЫЧНЫЙ ЧЕТВЕРГ" ===== -->
+<section class="section future light">
+  <div class="wrap">
+    <div class="future-fig"><img src="assets/future-pacing.webp?v=2" alt="" onerror="this.style.display='none'"></div>
+    <div class="future-copy">
+      <div class="kicker">Загляни <b>вперёд</b> — совсем недалеко</div>
+      <h2 class="h2">Твой обычный четверг. <span class="red">Уже через пару дней после курса.</span></h2>
+      <p><b>14:30. Кофе. Открытый ноут — но ничего не&nbsp;горит.</b></p>
+      <p>Открываешь банк с&nbsp;телефона — пока ты&nbsp;занимался своим, на&nbsp;карту капнули <b><span class="red">+10&nbsp;470&nbsp;₽</span></b>. С&nbsp;короткого ролика, который ты&nbsp;скопировал на&nbsp;прошлой неделе за&nbsp;15&nbsp;минут.</p>
+      <p>Допиваешь кофе. Ни&nbsp;созвонов, ни «купи у&nbsp;меня», ни&nbsp;правок до&nbsp;утра. Закрываешь ноут. <b>Идёшь по&nbsp;своим делам.</b></p>
+      <p>Вечером выложишь ещё один ролик на&nbsp;60&nbsp;секунд — и&nbsp;он будет <b>капать оплатами следующие месяцы</b>. Так и&nbsp;набегает <b><span class="red">3&nbsp;000–15&nbsp;000&nbsp;₽ в&nbsp;день на&nbsp;автомате</span></b> — пока ты&nbsp;просто живёшь свою жизнь.</p>
+      <span class="future-stamp">Это не «успешный успех» из&nbsp;инфоцыганства. Это твоя четвёртая неделя после старта канала. Просто работающая система.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== БЛОК: СОЦДОК — "ВОТ КАК ЭТО ВЫГЛЯДИТ В РЕАЛЬНОСТИ" ===== -->
+<section class="section proof">
+  <div class="wrap">
+    <h2 class="h2">Вот как это выглядит <span class="red">в&nbsp;реальности</span></h2>
+    <div class="proof-stage">
+      <!-- ФОТО УЧЕНИКОВ (6) -->
+      <div class="proof-img life r1"><img src="assets/proof/life02.webp" alt="" loading="lazy"></div>
+      <div class="proof-img life r3"><img src="assets/proof/life01.webp" alt="" loading="lazy"></div>
+      <div class="proof-img life r5"><img src="assets/proof/life03.webp" alt="" loading="lazy"></div>
+      <div class="proof-img life r2"><img src="assets/proof/life04.webp" alt="" loading="lazy"></div>
+      <div class="proof-img life r6"><img src="assets/proof/life06.webp" alt="" loading="lazy"></div>
+      <div class="proof-img life r4"><img src="assets/proof/life05.webp" alt="" loading="lazy"></div>
+      <!-- СКРИНШОТЫ ОПЛАТ (18) -->
+      <div class="proof-img pay r2"><img src="assets/proof/pay01.webp" alt="" loading="lazy"></div>
+      <div class="proof-img pay r4"><img src="assets/proof/pay16.webp" alt="" loading="lazy"></div>
+      <div class="proof-img pay r1"><img src="assets/proof/pay18.webp" alt="" loading="lazy"></div>
+      <div class="proof-img pay r3"><img src="assets/proof/pay03.webp" alt="" loading="lazy"></div>
+      <div class="proof-img pay r5"><img src="assets/proof/pay17.webp" alt="" loading="lazy"></div>
+      <div class="proof-img pay r6"><img src="assets/proof/pay15.webp" alt="" loading="lazy"></div>
+      <div class="proof-img pay r1"><img src="assets/proof/pay05.webp" alt="" loading="lazy"></div>
+      <div class="proof-img pay r7"><img src="assets/proof/pay09.webp" alt="" loading="lazy"></div>
+      <div class="proof-img pay r3"><img src="assets/proof/pay11.webp" alt="" loading="lazy"></div>
+      <div class="proof-img pay r4"><img src="assets/proof/pay07.webp" alt="" loading="lazy"></div>
+      <div class="proof-img pay r8"><img src="assets/proof/pay06.webp" alt="" loading="lazy"></div>
+      <div class="proof-img pay r2"><img src="assets/proof/pay04.webp" alt="" loading="lazy"></div>
+      <div class="proof-img pay r5"><img src="assets/proof/pay12.webp" alt="" loading="lazy"></div>
+      <div class="proof-img pay r6"><img src="assets/proof/pay10.webp" alt="" loading="lazy"></div>
+      <div class="proof-img pay r1"><img src="assets/proof/pay13.webp" alt="" loading="lazy"></div>
+      <div class="proof-img pay r3"><img src="assets/proof/pay08.webp" alt="" loading="lazy"></div>
+      <div class="proof-img pay r4"><img src="assets/proof/pay14.webp" alt="" loading="lazy"></div>
+      <div class="proof-img pay r7"><img src="assets/proof/pay02.webp" alt="" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== БЛОК 13 — ВОЗРАЖЕНИЯ ===== -->
+<section class="section objections">
+  <div class="wrap">
+    <h2 class="h2">Перед тем как ты&nbsp;<span class="red">закроешь эту страницу</span></h2>
+    <p class="lead">Разбираю самые частые отмазки — и&nbsp;почему они не&nbsp;работают.</p>
+    <div class="obj-grid">
+      <div class="obj-card"><div class="obj-thumb"><img src="assets/obj1_cut.webp" alt="" onerror="this.closest('.obj-thumb').style.display='none'"><span class="obj-thumb-tag">«Продаёт ролик, а&nbsp;не&nbsp;я»</span></div><h4>🎯 Первая модель, где ТЫ не&nbsp;продаёшь — деньги идут сами</h4><p>Ролик делает всю работу: ты&nbsp;не&nbsp;продаёшь вживую, не&nbsp;созваниваешься и&nbsp;не&nbsp;пишешь «купи у&nbsp;меня». Деньги капают на&nbsp;автомате (как именно — узнаешь внутри). Это и&nbsp;есть «работать 2&nbsp;часа в&nbsp;день», которое тебе обещали инфоцыгане.</p></div>
+      <div class="obj-card"><div class="obj-thumb"><img src="assets/obj2_cut.webp" alt="" onerror="this.closest('.obj-thumb').style.display='none'"><span class="obj-thumb-tag">«Это АКТИВ, а&nbsp;не&nbsp;клиент»</span></div><h4>🛡 АКТИВ, а&nbsp;не&nbsp;очередной токсичный клиент</h4><p>Уйдёт клиент — канал останется. Забанят площадку — канал твой. Сменишь нишу — канал твой. Впервые то, что ты&nbsp;строишь, работает <b>НА тебя</b>, а&nbsp;не&nbsp;наоборот.</p></div>
+      <div class="obj-card"><div class="obj-thumb"><img src="assets/obj3_cut.webp" alt="" onerror="this.closest('.obj-thumb').style.display='none'"><span class="obj-thumb-tag">«Уже пробовал»</span></div><h4>🎬 «Я уже пробовал контент. Не&nbsp;зашло»</h4><p>Ты снимал «о&nbsp;себе и&nbsp;услугах». YouTube это не&nbsp;любит. Алгоритм любит <b>ответы на&nbsp;запросы</b> — «как X», «почему Y», «сравнение Z». На&nbsp;3-м уроке — <b>47 готовых тем с&nbsp;подтверждённым спросом</b>, под любую профессию.</p></div>
+      <div class="obj-card"><div class="obj-thumb"><img src="assets/obj4_cut.webp" alt="" onerror="this.closest('.obj-thumb').style.display='none'"><span class="obj-thumb-tag">«2 часа в&nbsp;неделю»</span></div><h4>⏰ «Нет времени — я&nbsp;в&nbsp;операционке по&nbsp;уши»</h4><p>2&nbsp;часа в&nbsp;неделю на&nbsp;1&nbsp;ролик. Меньше, чем ты&nbsp;тратишь на&nbsp;правки одного токсика. А&nbsp;через пару месяцев канал даст тебе право <b>этого клиента уволить</b>. Первый ролик снимешь по&nbsp;шаблону за&nbsp;90&nbsp;минут.</p></div>
+      <div class="obj-card"><div class="obj-thumb"><img src="assets/obj5_cut.webp" alt="" onerror="this.closest('.obj-thumb').style.display='none'"><span class="obj-thumb-tag">«Без съёмки лица»</span></div><h4>📹 «Не хочу светить лицо»</h4><p>И&nbsp;не&nbsp;надо. Короткие ролики <b>без съёмки себя и&nbsp;без монтажа</b> — по&nbsp;готовому шаблону, с&nbsp;телефона. Лицо, голос, «насмотренность» — не&nbsp;требуются. Алгоритм оценивает контент, а&nbsp;не&nbsp;тебя.</p></div>
+      <div class="obj-card"><div class="obj-thumb"><img src="assets/obj6_cut.webp" alt="" onerror="this.closest('.obj-thumb').style.display='none'"><span class="obj-thumb-tag">«Гарантия X2 — риск ноль»</span></div><h4>💸 «А вдруг не&nbsp;сработает»</h4><p>Гарантия X2 (см. блок выше): не&nbsp;получишь первые деньги за&nbsp;30&nbsp;дней — верну <b>2&nbsp;490&nbsp;₽ + ещё 2&nbsp;490&nbsp;₽ сверху</b>. Риск нулевой — в&nbsp;отличие от&nbsp;твоего следующего «может, окупится» запуска.</p></div>
+    </div>
+
+    <!-- БЛОК «2 ПУТИ» (#8.1) -->
+    <div class="two-paths">
+      <h3 class="two-paths-title">СЕЙЧАС У&nbsp;ТЕБЯ <span class="red">2 ПУТИ</span></h3>
+      <div class="two-paths-pill">КАКОЙ ВЫБЕРЕШЬ ТЫ?</div>
+      <div class="two-paths-grid">
+        <div class="path-col">
+          <div class="path-img"><img src="assets/path1_woman_cut.webp" alt=""></div>
+          <div class="path-label">1 ПУТЬ</div>
+          <div class="path-sub">Оставить всё, как есть</div>
+          <p class="path-text">Продолжать жить от&nbsp;клиента к&nbsp;клиенту, от&nbsp;запуска к&nbsp;запуску. Сливать бюджет в&nbsp;трафик и&nbsp;молиться, чтобы окупилось. Ещё год. Ещё два.</p>
+        </div>
+        <div class="path-col preferred">
+          <div class="path-img"><img src="assets/lambo_cut.webp" alt="" class="path-lambo"><img src="assets/path2_woman_cut.webp" alt=""></div>
+          <div class="path-label">2 ПУТЬ</div>
+          <div class="path-sub">Запустить свой YouTube-актив</div>
+          <p class="path-text">Снять первый короткий ролик по&nbsp;системе. Через 30&nbsp;дней — <b>первые деньги с&nbsp;роликов</b>, через 60&nbsp;— стабильные <b>3&nbsp;000–15&nbsp;000&nbsp;₽ в&nbsp;день</b> на&nbsp;автомате, без вложений в&nbsp;трафик.</p>
+        </div>
+      </div>
+      <a href="#price" class="cta two-paths-cta">ВЫБИРАЮ ВТОРОЙ ПУТЬ!</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== НОВЫЙ БЛОК: FAQ ===== -->
+<section class="section faq">
+  <div class="wrap">
+    <h2 class="h2">Часто <span class="red">спрашивают</span></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Уже пробовал YouTube — не&nbsp;пошло. Что у&nbsp;тебя другого?</div>
+        <div class="faq-a">Если снимал «о&nbsp;себе и&nbsp;услугах» — оно и&nbsp;не&nbsp;должно идти. Тут другой контент: <b>вопросы аудитории + ответы за&nbsp;тебя</b>. Алгоритм любит ответы, не&nbsp;презентации. На&nbsp;уроках 3-4 разберём конкретно.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Совмещу ли курс с&nbsp;текущими клиентами и&nbsp;запусками?</div>
+        <div class="faq-a"><b>Да.</b> Первые недели — параллельно проектам. Когда пойдут деньги с&nbsp;роликов, сам решишь, кого из&nbsp;клиентов оставить.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Нет камеры и&nbsp;микрофона. Сколько надо вложить в&nbsp;технику?</div>
+        <div class="faq-a"><b>Ноль.</b> 10&nbsp;уроков — как делать деньги без съёмок + бесплатные программы монтажа. Связка за&nbsp;0&nbsp;₽. Можешь начать сегодня вечером.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Какая ниша? Я&nbsp;ведь дизайнер/копирайтер/таргетолог.</div>
+        <div class="faq-a">Ниша канала ≠ твоя профессия. Покажу, как выбрать прибыльную нишу под YouTube — твой текущий скилл вообще не&nbsp;ограничивает. На&nbsp;уроке 0&nbsp;— <b>секретная ниша на&nbsp;миллионы, которая подойдёт любому</b>.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Я не&nbsp;из&nbsp;России. Курс мне подойдёт?</div>
+        <div class="faq-a"><b>Да.</b> Метод работает в&nbsp;любой стране — Россия, Казахстан, Беларусь, Украина, Армения, Германия, США. Алгоритм один. Психология аудитории — тоже.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">YouTube же умирает. TikTok и&nbsp;Reels — будущее.</div>
+        <div class="faq-a">YouTube в&nbsp;2026 — <b>+18% аудитории за&nbsp;год</b>. Работает везде с&nbsp;сервисом из&nbsp;3х&nbsp;букв. И&nbsp;РФ-аудитория как смотрела, так и&nbsp;смотрит. Дольше watch time → дороже CPM → больше платят. Reels — про развлечения. YouTube — про <b>решения</b>. А&nbsp;решения монетизируются лучше танцев.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Когда придут первые деньги после старта канала?</div>
+        <div class="faq-a">Средний срок — <b>3-7 дней</b>. Самая быстрая — 4&nbsp;дня. Если будешь выкладывать ролики по&nbsp;моим шаблонам и&nbsp;если НЕТ денег за&nbsp;30&nbsp;дней — <b>гарантия X2</b> (см. блок выше).</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Что будет после покупки?</div>
+        <div class="faq-a">В&nbsp;течение <b>1-10&nbsp;минут</b> после оплаты ты&nbsp;получишь доступ к&nbsp;платформе с&nbsp;уроками и&nbsp;бонусами (в&nbsp;зависимости от&nbsp;приобретённого тарифа). Сможешь смотреть в&nbsp;любое время и&nbsp;с&nbsp;любого устройства. Время изучения <b>не&nbsp;ограничено</b>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== БЛОК 14 — ДОВЕРИЕ ===== -->
+<section class="section trust">
+  <div class="wrap">
+    <div class="trust-fig"><img src="assets/trust.webp" alt=""></div>
+    <div class="trust-copy">
+      <h2 class="h2">Херне <span class="red">не&nbsp;учу</span></h2>
+
+      <!-- PERSONAL STORY АВТОРА -->
+      <div class="author-story">
+        <h4>Как я&nbsp;вообще дошёл до&nbsp;YouTube</h4>
+        <p><b>Апрель 2025.</b> Помогал вешать кухню, неудачно встал на&nbsp;ногу и&nbsp;повредил мениск. Месяц в&nbsp;гипсе. От&nbsp;меня уходит девушка. Состояние — <b>ужасное</b>.</p>
+        <p>Ещё 2&nbsp;месяца по&nbsp;врачам, чтобы понять — делать операцию или нет. Было вообще не&nbsp;до&nbsp;работы. Операция дорогая. И&nbsp;подушка безопасности, накопленная за&nbsp;последние пару лет, — <b>заканчивается</b>.</p>
+        <p>Месяц густо, два — пусто. Уходил крупный клиент, который приносил <b>60% денег</b>. Сливал бюджеты в&nbsp;трафик и&nbsp;молился, чтобы клиенты шли. Тут я&nbsp;понял: у&nbsp;меня нет бизнеса, <b>у&nbsp;меня есть я, и&nbsp;я — узкое горлышко</b>.</p>
+        <p>Следующие несколько месяцев я&nbsp;проектировал, снимал, монтировал и&nbsp;собирал эту воронку. Через 3&nbsp;месяца — запуск рекламы, и&nbsp;сразу пошли <b>авто-оплаты</b>. Без единого клиента и&nbsp;созвона.</p>
+        <p>За&nbsp;12&nbsp;месяцев эта система стала приносить больше, чем все мои проекты вместе. <b>Впервые деньги шли, когда я&nbsp;спал.</b> Внутри что-то рухнуло и&nbsp;отпустило. Раньше на&nbsp;страхе я&nbsp;думал, что хочу работать с&nbsp;клиентами, но&nbsp;когда эта необходимость пропала — я&nbsp;понял, что <b>НЕТ</b>. Мне это вообще не&nbsp;нравилось, просто нужно было как-то выживать.</p>
+        <p>И&nbsp;терпеть вечные проблемы клиентов: продажники плохо продают, у&nbsp;компании нет денег — «давайте пока на&nbsp;<b>ПАУЗУ</b>», которая никогда не&nbsp;закончится. Ты&nbsp;вечно для клиента и&nbsp;мама, и&nbsp;папа, и&nbsp;психолог, и&nbsp;наставник, и&nbsp;маркетолог. И&nbsp;хрен знает кто ещё.</p>
+        <p>И&nbsp;не&nbsp;важно, чем ты&nbsp;занимаешься. Можешь писать шедевральные конверсионные тексты, делать бриллиантовые сайты (по&nbsp;цене эконом), приводить супер-горячих клиентов — а&nbsp;в&nbsp;итоге никто не&nbsp;оценит. Заявки будут отрабатывать через пень-колоду (если вообще будут — и&nbsp;не&nbsp;потеряют их), а&nbsp;в&nbsp;итоге <b>ты&nbsp;ещё и&nbsp;виноват останешься</b>.</p>
+        <p>И&nbsp;только сейчас я&nbsp;понял, как я&nbsp;от&nbsp;этого устал. И&nbsp;что жизнь фрилансера вообще <b>не&nbsp;должна быть такой бесперспективной</b>.</p>
+        <p>Этот курс — <b>точная копия того, что я&nbsp;сделал тогда</b>. Без воды, без теории, без «успешного успеха». Только то, что работает.</p>
+      </div>
+
+      <p>В&nbsp;моём Telegram-канале — все скриншоты оплат за&nbsp;12&nbsp;месяцев. Все переписки с&nbsp;учениками. Все случаи, когда фрилансеры и&nbsp;эксперты переставали зависеть от&nbsp;клиентов и&nbsp;платформ — и&nbsp;доход вырастал в&nbsp;разы за&nbsp;30-60&nbsp;дней.</p>
+      <p>Кейсов больше, чем у&nbsp;тебя было «холодных» откликов за&nbsp;всю карьеру. Просто пойди и&nbsp;посмотри.</p>
+      <a href="#" class="tg-link">→ Смотреть кейсы в&nbsp;Telegram</a>
+      <a href="#price" class="cta">Беру курс — жду первые деньги через 21&nbsp;день →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ФИНАЛЬНЫЙ БЛОК — POPCORN CTA (перемещён в конец) ===== -->
+<section class="section program">
+  <div class="wrap">
+    <div class="popcorn-cta">
+      <div>
+        <h3 class="popcorn-cta-title">Актив на&nbsp;YouTube, приносящий <span class="red">от&nbsp;3500 до&nbsp;15&nbsp;000&nbsp;руб/день</span> по&nbsp;цене похода в&nbsp;кино</h3>
+        <p class="popcorn-cta-sub">+ доступ к&nbsp;бонусам на&nbsp;75&nbsp;000&nbsp;руб за&nbsp;0&nbsp;руб</p>
+        <div class="popcorn-cta-price">
+          <span class="popcorn-cta-new">3&nbsp;490 ₽</span>
+          <span class="popcorn-cta-old">34&nbsp;990 ₽<small>Реальная цена</small></span>
+        </div>
+        <div class="popcorn-cta-row">
+          <a href="#price" class="cta">Беру за&nbsp;3&nbsp;490&nbsp;₽ →</a>
+          <div class="popcorn-cta-timer" data-cd><span><b>00</b>часов</span><span><b>15</b>минут</span><span><b>00</b>секунд</span></div>
+        </div>
+      </div>
+      <div class="popcorn-cta-img"><img src="assets/popcorn.webp" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<script>
+// 15-минутный обратный отсчёт для всех элементов с [data-cd]
+// (3 <b> внутри: часы / минуты / секунды).
+// Сохраняется в localStorage — при перезагрузке продолжает с того же момента.
+// Когда истекает — автоматически перезапускается на новые 15 минут.
+(function(){
+  var KEY='mikra_cd_start',DUR=15*60*1000;
+  var start=parseInt(localStorage.getItem(KEY)||'0',10);
+  var now=Date.now();
+  if(!start||(now-start)>DUR){start=now;try{localStorage.setItem(KEY,String(start));}catch(e){}}
+  function pad(n){return n<10?'0'+n:''+n;}
+  function tick(){
+    var left=Math.max(0,start+DUR-Date.now());
+    if(left===0){start=Date.now();try{localStorage.setItem(KEY,String(start));}catch(e){}left=DUR;}
+    var h=Math.floor(left/3600000),m=Math.floor((left%3600000)/60000),s=Math.floor((left%60000)/1000);
+    document.querySelectorAll('[data-cd]').forEach(function(el){
+      var b=el.querySelectorAll('b');
+      if(b.length===3){b[0].textContent=pad(h);b[1].textContent=pad(m);b[2].textContent=pad(s);}
+    });
+    setTimeout(tick,250);
+  }
+  tick();
+})();
+</script>
+
+</body>
+</html>
