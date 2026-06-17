@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Демо: квиз-попап «КТО ТЫ СЕЙЧАС?»</title>
+<title>Кто вы? — Микра</title>
 
 <!-- ===== ЯНДЕКС.МЕТРИКА (счётчик 103738778) ===== -->
 <script type="text/javascript">
@@ -18,9 +18,6 @@
 
 <style>
   body{font-family:'Manrope',-apple-system,'Inter',sans-serif;background:#0a0a0a;color:#fff;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;padding:24px;box-sizing:border-box}
-  .demo-btn{background:#ed3232;color:#fff;border:none;padding:18px 32px;font-size:16px;font-weight:700;border-radius:999px;cursor:pointer;font-family:inherit;letter-spacing:.02em;text-transform:uppercase;box-shadow:0 8px 24px rgba(237,50,50,.35);transition:transform .15s}
-  .demo-btn:hover{transform:translateY(-2px)}
-
   /* ===== QUIZ POPUP START — скопируй блок ниже в любую страницу ===== */
   .quiz-overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:9999;padding:24px;box-sizing:border-box;animation:quizFadeIn .25s ease-out}
   .quiz-overlay.open{display:flex}
@@ -50,9 +47,10 @@
 </head>
 <body>
 
-<!-- ===== QUIZ POPUP — HTML (open on load) ===== -->
+<!-- ===== QUIZ POPUP — HTML ===== -->
 <div class="quiz-overlay open" id="quizOverlay" role="dialog" aria-modal="true" aria-labelledby="quizTitle">
   <div class="quiz-card">
+    <button class="quiz-close" data-quiz-close aria-label="Закрыть">✕</button>
     <h2 class="quiz-title" id="quizTitle">Кто вы?</h2>
     <div class="quiz-grid">
       <button class="quiz-opt" data-goal="mlm"       data-href="/mlm/">
