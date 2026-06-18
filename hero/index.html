@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hero Preview v3 — clean ref + CSS overlay</title>
+<title>Создай YouTube-актив — для фрилансеров</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,14 +16,9 @@
     --ink:#1a1a1a;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:var(--font-sans);background:#1a1a1a;color:#fff;min-height:100vh;padding:20px;-webkit-font-smoothing:antialiased}
-  h1.lead{font-size:14px;font-weight:700;margin-bottom:14px;color:#aaa;text-align:center;letter-spacing:.04em;text-transform:uppercase}
-  .switcher{display:flex;justify-content:center;gap:8px;margin-bottom:18px;flex-wrap:wrap}
-  .switcher button{background:#2a2a2a;color:#ccc;border:1px solid #444;padding:9px 16px;border-radius:8px;font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s}
-  .switcher button:hover{background:#333;color:#fff}
-  .switcher button.active{background:var(--red);color:#fff;border-color:var(--red)}
+  body{font-family:var(--font-sans);background:#f6a716;color:var(--ink);-webkit-font-smoothing:antialiased}
 
-  .stage-wrap{max-width:1500px;margin:0 auto;border-radius:20px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5);position:relative}
+  .stage-wrap{width:100%;position:relative}
   .stage{position:relative;width:100%;aspect-ratio:3/2;overflow:hidden;background:#f6a716;container-type:inline-size}
 
   /* === Image block (hero-art) holds BG + PDF badge.
@@ -206,18 +201,6 @@
     box-shadow:0 14px 40px rgba(237,50,50,.45), inset 0 0 0 1px rgba(255,255,255,.08);
   }
 
-  /* compare modes */
-  body.cmp .stage-wrap{display:none}
-  body.cmp .compare{display:grid !important}
-  body.over .overlay{display:block !important; opacity:.45 !important}
-  .compare{display:none;grid-template-columns:1fr 1fr;gap:14px;max-width:1500px;margin:0 auto}
-  .compare > div{position:relative;border-radius:14px;overflow:hidden;background:#0f0f0f;aspect-ratio:3/2}
-  .compare img.full{width:100%;height:100%;object-fit:cover;display:block}
-  .compare .lbl{position:absolute;top:12px;left:12px;background:rgba(0,0,0,.8);color:#fff;font-size:10px;padding:6px 12px;border-radius:6px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;z-index:50}
-  .compare iframe{width:100%;height:100%;border:0;display:block}
-  .overlay{display:none;position:absolute;inset:0;pointer-events:none;z-index:99;opacity:0}
-  .overlay img{width:100%;height:100%;object-fit:cover}
-
   /* desktop bicon for the gear (4th bullet, mobile-only) — grey gradient */
   .copy ul li .bicon.gear{background:linear-gradient(135deg,#9ca3af,#6b7280)}
 
@@ -228,11 +211,7 @@
      so the baked-in bullet icons stay hidden — bullets are HTML+CSS below.
      ========================================================= */
   @media (max-width: 700px){
-    body{padding:12px}
-    h1.lead{font-size:11px;margin-bottom:10px}
-    .switcher{margin-bottom:12px;gap:6px}
-    .switcher button{padding:7px 12px;font-size:11px}
-    .stage-wrap{border-radius:14px}
+    body{padding:0}
 
     /* Stage = flex column. bg #fbc93f fills text + bullet zones; image meets it via gradient blend. */
     .stage{
@@ -417,22 +396,10 @@
     .cta-row .cta-fill{order:1}
     .cta-row .cta-out {order:2}
 
-    /* Hide compare grid (desktop QA only) */
-    .compare{display:none !important}
-    body.cmp .stage-wrap{display:block !important}
   }
 </style>
 </head>
 <body>
-  <h1 class="lead">HERO v3 · clean GPT Image 2 reference + CSS overlay (PDF badge w/o white border, both CTAs)</h1>
-
-  <div class="switcher">
-    <button class="active" onclick="document.body.className=''">Сборка</button>
-    <button onclick="document.body.className='cmp'">Side-by-side</button>
-    <button onclick="document.body.className='over'">Оригинал 45%</button>
-    <button onclick="window.location.href='grid.html'">Грид</button>
-  </div>
-
   <div class="stage-wrap">
     <div class="stage">
       <!-- Hero art: clean BG (swaps to mobile bg via <picture>) + PDF badge.
@@ -473,13 +440,7 @@
         <a class="cta cta-fill" href="#price">ХОЧУ СВОЙ КАНАЛ ЗА&nbsp;30&nbsp;ДНЕЙ →</a>
       </div>
 
-      <div class="overlay"><img src="objects/_orig.jpg"></div>
     </div>
-  </div>
-
-  <div class="compare">
-    <div><span class="lbl">ОРИГИНАЛ</span><img class="full" src="objects/_orig.jpg"></div>
-    <div><span class="lbl">НАША СБОРКА</span><iframe src="/hero-preview/?frame=1"></iframe></div>
   </div>
 </body>
 </html>
