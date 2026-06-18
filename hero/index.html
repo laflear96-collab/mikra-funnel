@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hero Preview v3 — clean ref + CSS overlay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --font-sans:'Manrope',-apple-system,BlinkMacSystemFont,'Inter',sans-serif;
+    --red:#ed3232;
+    --red-deep:#d92424;
+    --red-hot:#ed3232;
+    --ink:#1a1a1a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:var(--font-sans);background:#1a1a1a;color:#fff;min-height:100vh;padding:20px;-webkit-font-smoothing:antialiased}
+  h1.lead{font-size:14px;font-weight:700;margin-bottom:14px;color:#aaa;text-align:center;letter-spacing:.04em;text-transform:uppercase}
+  .switcher{display:flex;justify-content:center;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+  .switcher button{background:#2a2a2a;color:#ccc;border:1px solid #444;padding:9px 16px;border-radius:8px;font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s}
+  .switcher button:hover{background:#333;color:#fff}
+  .switcher button.active{background:var(--red);color:#fff;border-color:var(--red)}
+
+  .stage-wrap{max-width:1500px;margin:0 auto;border-radius:20px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5);position:relative}
+  .stage{position:relative;width:100%;aspect-ratio:3/2;overflow:hidden;background:#f6a716;container-type:inline-size}
+
+  /* === Image block (hero-art) holds BG + PDF badge.
+     Desktop = absolute fill of .stage. Mobile = relative AR 4:5 above text. */
+  .hero-art{
+    position:absolute; inset:0; z-index:0;
+  }
+  .bg{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover; display:block;
+  }
+
+  /* === PDF instruction badge — pure CSS, no white border === */
+  .pdf-badge{
+    position:absolute; top:3%; left:1.8%; z-index:8;
+    display:inline-flex; align-items:center; gap:10px;
+    background:linear-gradient(180deg, #f04545, #d92424);
+    padding:9px 18px 9px 12px;
+    border-radius:12px;
+    box-shadow:0 8px 22px rgba(180,30,30,.4), inset 0 1px 0 rgba(255,255,255,.15);
+    font-family:var(--font-sans); text-decoration:none;
+    transform:translateZ(0);
+  }
+  .pdf-badge::before{
+    content:""; display:block;
+    width:30px; height:36px;
+    background:#fff;
+    -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 28'><path fill='black' d='M4 0 H17 L24 7 V28 H4 Z M16 1 V8 H23 Z M7 14 H17 V16 H7 Z M7 18 H17 V20 H7 Z M7 22 H13 V24 H7 Z'/></svg>") center/contain no-repeat;
+            mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 28'><path fill='black' d='M4 0 H17 L24 7 V28 H4 Z M16 1 V8 H23 Z M7 14 H17 V16 H7 Z M7 18 H17 V20 H7 Z M7 22 H13 V24 H7 Z'/></svg>") center/contain no-repeat;
+  }
+  .pdf-badge .pdf-txt{
+    display:flex; flex-direction:column;
+    color:#fff; line-height:1.05;
+    font-weight:800; letter-spacing:.04em;
+    text-transform:uppercase;
+  }
+  .pdf-badge .pdf-txt .l1{font-size:9px;font-weight:600;letter-spacing:.08em;opacity:.95}
+  .pdf-badge .pdf-txt .l2{font-size:13px;font-weight:800;letter-spacing:.06em}
+
+  /* === Text container — full overlay over right half of stage === */
+  /* All children positioned ABSOLUTELY by % matching detected text bands in original */
+  .copy{
+    position:absolute; inset:0;
+    z-index:10; color:var(--ink);
+    font-family:var(--font-sans);
+    pointer-events:none;
+  }
+  .copy > *{position:absolute; left:48.3%; right:1.5%; pointer-events:auto}
+
+  /* === Размеры точно по детектированному line-spacing оригинала ===
+     stage_height = stage_width / 1.5 → X% of height = X/1.5 cqw
+     Detected (% of stage_height):
+       h1 line-spacing avg: 8.53%, lh=1.05 → font = 8.53/1.05/1.5 = 5.42cqw
+       h2 band:           2.83%, font = 2.83/0.72/1.5 = 2.62cqw
+       desc line-spacing: 3.13%, lh=1.3 → font = 3.13/1.3/1.5 = 1.60cqw
+       bullets band:      1.37% → font = 1.37/0.72/1.5 = 1.27cqw
+       kicker band:       1.37% → font = 1.27cqw
+  */
+
+  .copy .kicker{
+    top:4.2%;
+    font-size:1.05cqw;
+    font-weight:600;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    line-height:1.32;
+    color:var(--ink);
+  }
+  .copy .kicker b{font-weight:800}
+  .copy .kicker .red{color:var(--red);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
+
+  .copy h2{
+    top:12.8%;
+    font-size:2.6cqw;
+    font-weight:800;
+    color:var(--ink);
+    text-transform:uppercase;
+    line-height:1;
+    letter-spacing:-.005em;
+  }
+  .copy h2 .red{color:var(--red)}
+
+  .copy h1{
+    top:16.5%;
+    font-size:5.4cqw;
+    font-weight:800;
+    line-height:1.05;
+    color:var(--ink);
+    letter-spacing:-.025em;
+    text-transform:uppercase;
+    font-family:var(--font-sans);
+  }
+  .copy h1 .red{color:var(--red)}
+
+  .copy .desc{
+    top:53%;
+    font-size:1.6cqw;
+    color:var(--ink);
+    line-height:1.3;
+    font-weight:500;
+  }
+  .copy .desc b{font-weight:800}
+
+  .copy ul{
+    top:64%;
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:.85cqw;
+  }
+  .copy ul li{
+    display:flex;
+    gap:1.0cqw;
+    font-size:1.27cqw;
+    color:var(--ink);
+    line-height:1.3;
+    font-weight:500;
+    align-items:center;
+  }
+  .copy ul li b{font-weight:800}
+  .copy ul li .btxt{flex:1}
+  .copy ul li .bicon{
+    flex-shrink:0;
+    width:2.3cqw;
+    height:2.3cqw;
+    border-radius:50%;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.15cqw;
+    color:#fff;
+    box-shadow:0 4px 12px rgba(0,0,0,.18);
+  }
+  .copy ul li .bicon.money{background:linear-gradient(135deg,#22c55e,#16a34a)}
+  .copy ul li .bicon.play{background:linear-gradient(135deg,#ef4444,#dc2626)}
+  .copy ul li .bicon.fire{background:linear-gradient(135deg,#f97316,#ea580c)}
+
+  /* CTA row — sibling of .hero-art inside .stage. Desktop: absolute pos in right column.
+     Mobile (in @media block below): static flex below the hero-art. */
+  .cta-row{
+    position:absolute;
+    top:86%;
+    left:48.3%;
+    right:1.5%;
+    z-index:11;
+    display:flex;
+    gap:1.0cqw;
+    align-items:center;
+    flex-wrap:wrap;
+  }
+  /* 4th bullet visible on mobile only */
+  .copy ul li.li-mobile-only{ display:none; }
+  .cta{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--font-sans);
+    font-weight:700;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    font-size:1.05cqw;
+    padding:1.45cqw 2.6cqw;
+    border-radius:999px;
+    cursor:pointer;
+    text-decoration:none;
+    transition:transform .15s,box-shadow .15s;
+    white-space:nowrap;
+  }
+  .cta:hover{transform:translateY(-2px)}
+  .cta-out{
+    background:transparent;
+    color:var(--ink);
+    border:2px solid var(--ink);
+  }
+  .cta-fill{
+    background:linear-gradient(180deg, #ed3232, #d92424);
+    color:#fff;
+    border:0;
+    box-shadow:0 14px 40px rgba(237,50,50,.45), inset 0 0 0 1px rgba(255,255,255,.08);
+  }
+
+  /* compare modes */
+  body.cmp .stage-wrap{display:none}
+  body.cmp .compare{display:grid !important}
+  body.over .overlay{display:block !important; opacity:.45 !important}
+  .compare{display:none;grid-template-columns:1fr 1fr;gap:14px;max-width:1500px;margin:0 auto}
+  .compare > div{position:relative;border-radius:14px;overflow:hidden;background:#0f0f0f;aspect-ratio:3/2}
+  .compare img.full{width:100%;height:100%;object-fit:cover;display:block}
+  .compare .lbl{position:absolute;top:12px;left:12px;background:rgba(0,0,0,.8);color:#fff;font-size:10px;padding:6px 12px;border-radius:6px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;z-index:50}
+  .compare iframe{width:100%;height:100%;border:0;display:block}
+  .overlay{display:none;position:absolute;inset:0;pointer-events:none;z-index:99;opacity:0}
+  .overlay img{width:100%;height:100%;object-fit:cover}
+
+  /* desktop bicon for the gear (4th bullet, mobile-only) — grey gradient */
+  .copy ul li .bicon.gear{background:linear-gradient(135deg,#9ca3af,#6b7280)}
+
+  /* =========================================================
+     MOBILE: vertical stack via flex `order`. Each .copy child becomes a
+     flex item of .stage (via display:contents on .copy) and is placed
+     above or below .hero-art. .hero-art shows the mobile clean bg cropped
+     so the baked-in bullet icons stay hidden — bullets are HTML+CSS below.
+     ========================================================= */
+  @media (max-width: 700px){
+    body{padding:12px}
+    h1.lead{font-size:11px;margin-bottom:10px}
+    .switcher{margin-bottom:12px;gap:6px}
+    .switcher button{padding:7px 12px;font-size:11px}
+    .stage-wrap{border-radius:14px}
+
+    /* Stage = flex column. bg #fbc93f fills text + bullet zones; image meets it via gradient blend. */
+    .stage{
+      aspect-ratio:unset;
+      height:auto;
+      display:flex;
+      flex-direction:column;
+      background:#fbc93f;
+      container-type:normal;
+    }
+    /* .copy disappears as a box; its children become flex items of .stage */
+    .copy{display:contents;}
+
+    /* Flex order — text(1-4) → image(5) → bullets(6) → CTAs(7) */
+    .copy .kicker{order:1}
+    .copy h2     {order:2}
+    .copy h1     {order:3}
+    .copy .desc  {order:4}
+    .hero-art    {order:5}
+    .copy ul     {order:6}
+    .cta-row     {order:7}
+
+    /* Reset all desktop absolute positioning on .copy children */
+    .copy > *,
+    .copy ul,
+    .copy ul li{
+      position:static !important;
+      inset:auto;
+      left:auto !important; right:auto !important; top:auto !important;
+      width:auto;
+      margin:0;
+    }
+
+    /* Hero-art: AR 100/85 → shows source ~22-78% of the 2:3 clean bg.
+       Hides BOTH the empty orange top zone AND the baked-in bullet icons at bottom.
+       Visible: man + arch + podium + dollar bills + 3D logos.
+       Bullets rendered in CSS below. ::before/::after = gradient blend with #fbc93f zone. */
+    .hero-art{
+      position:relative;
+      inset:auto;
+      aspect-ratio:100/85;
+      width:100%;
+      height:auto;
+      flex-shrink:0;
+      overflow:hidden;
+    }
+    .bg-pic{display:contents;}
+    .bg{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      object-position:center 50%;  /* center crop on man — symmetrical trim top + bottom */
+    }
+    /* Top gradient blend: #fbc93f → transparent (15% of image height) */
+    .hero-art::before{
+      content:"";
+      position:absolute;
+      top:0; left:0; right:0;
+      height:18%;
+      background:linear-gradient(180deg, #fbc93f 0%, rgba(251,201,63,0) 100%);
+      z-index:2;
+      pointer-events:none;
+    }
+    /* Bottom gradient blend: #fbc93f → transparent (15% of image height) */
+    .hero-art::after{
+      content:"";
+      position:absolute;
+      bottom:0; left:0; right:0;
+      height:18%;
+      background:linear-gradient(0deg, #fbc93f 0%, rgba(251,201,63,0) 100%);
+      z-index:2;
+      pointer-events:none;
+    }
+    .pdf-badge{display:none;}
+
+    /* === TEXT BLOCKS (normal flow, horizontal padding) === */
+    .copy .kicker{
+      padding:18px 18px 0;
+      position:relative !important;
+      font-size:13px;
+      color:var(--ink);
+      line-height:1.4;
+      letter-spacing:0;
+      text-transform:none;
+      font-weight:500;
+    }
+    /* "ДЛЯ КОГО" red label above the kicker body — matches mobile reference */
+    .copy .kicker::before{
+      content:"ДЛЯ КОГО";
+      display:block;
+      color:var(--red);
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+    .copy .kicker b{font-weight:700}
+    /* red underline on mobile becomes plain ink — red reserved for ДЛЯ КОГО label */
+    .copy .kicker .red{color:var(--ink);text-decoration:none}
+
+    .copy h2{
+      padding:14px 18px 0;
+      font-size:22px;
+      line-height:1.05;
+      font-weight:800;
+      color:var(--ink);
+      text-transform:uppercase;
+    }
+    .copy h2 .red{color:var(--red)}
+
+    .copy h1{
+      padding:4px 18px 0;
+      font-size:30px;
+      line-height:1.05;
+      font-weight:800;
+      color:var(--ink);
+      letter-spacing:-.02em;
+      text-transform:uppercase;
+    }
+    .copy h1 .red{color:var(--red)}
+
+    .copy .desc{
+      padding:12px 18px 14px;
+      font-size:15px;
+      line-height:1.4;
+      color:var(--ink);
+      font-weight:500;
+    }
+    .copy .desc b{font-weight:800}
+
+    /* === BULLETS (CSS icons, normal flex) === */
+    .copy ul{
+      padding:14px 18px 6px;
+      list-style:none;
+      display:block;
+    }
+    .copy ul li{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      font-size:14px;
+      line-height:1.4;
+      color:var(--ink);
+      font-weight:500;
+      margin-bottom:12px;
+    }
+    .copy ul li:last-child{margin-bottom:0}
+    .copy ul li b{font-weight:800}
+    .copy ul li.li-mobile-only{display:flex}
+    .copy ul li .bicon{
+      flex-shrink:0;
+      width:28px; height:28px;
+      border-radius:50%;
+      display:inline-flex;
+      align-items:center; justify-content:center;
+      font-size:14px;
+      color:#fff;
+      box-shadow:0 4px 12px rgba(0,0,0,.18);
+    }
+    .copy ul li .btxt{flex:1}
+
+    /* === CTAs — red filled first, outline second (matches mobile reference) === */
+    .cta-row{
+      position:static;
+      inset:auto;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      padding:8px 18px 22px;
+      align-items:stretch;
+      left:auto; right:auto; top:auto;
+    }
+    .cta{
+      width:100%;
+      font-size:14px;
+      padding:15px 18px;
+      letter-spacing:.04em;
+      border-radius:999px;
+      text-align:center;
+    }
+    .cta-row .cta-fill{order:1}
+    .cta-row .cta-out {order:2}
+
+    /* Hide compare grid (desktop QA only) */
+    .compare{display:none !important}
+    body.cmp .stage-wrap{display:block !important}
+  }
+</style>
+</head>
+<body>
+  <h1 class="lead">HERO v3 · clean GPT Image 2 reference + CSS overlay (PDF badge w/o white border, both CTAs)</h1>
+
+  <div class="switcher">
+    <button class="active" onclick="document.body.className=''">Сборка</button>
+    <button onclick="document.body.className='cmp'">Side-by-side</button>
+    <button onclick="document.body.className='over'">Оригинал 45%</button>
+    <button onclick="window.location.href='grid.html'">Грид</button>
+  </div>
+
+  <div class="stage-wrap">
+    <div class="stage">
+      <!-- Hero art: clean BG (swaps to mobile bg via <picture>) + PDF badge.
+           Desktop = absolute fill. Mobile = block at flex order 5 (between text and bullets). -->
+      <div class="hero-art">
+        <picture class="bg-pic">
+          <source media="(max-width:700px)" srcset="objects/14_clean_bg_mobile.png">
+          <img class="bg" src="objects/13_clean_bg.png?v=3" alt="">
+        </picture>
+
+        <!-- PDF badge in pure CSS — desktop only (hidden on mobile) -->
+        <a class="pdf-badge" href="#">
+          <span class="pdf-txt">
+            <span class="l1">ПОШАГОВАЯ .PDF</span>
+            <span class="l2">ИНСТРУКЦИЯ</span>
+          </span>
+        </a>
+      </div>
+
+      <!-- Copy = sibling of hero-art. Desktop: absolute right-column overlay. Mobile: display:contents,
+           children become flex items of .stage and get reordered around .hero-art via `order`. -->
+      <div class="copy">
+        <div class="kicker">Для <b>фрилансеров, экспертов, наставников, продюсеров</b>, кто <span class="red">устал жить от&nbsp;клиента к&nbsp;клиенту и&nbsp;от&nbsp;запуска к&nbsp;запуску</span></div>
+        <h2>СОЗДАЙ <span class="red">YOUTUBE-АКТИВ</span></h2>
+        <h1>ПРИНОСЯЩИЙ<br><span class="red">ОТ&nbsp;3&nbsp;500</span><br><span class="red">ДО&nbsp;15&nbsp;000&nbsp;₽/ДЕНЬ</span><br>НА АВТОМАТЕ</h1>
+        <p class="desc">через короткие ролики + система <b>авто-монетизации видео</b> из YouTube, Tik-Tok, Нельзяграм</p>
+        <ul>
+          <li><span class="bicon money">💵</span><span class="btxt">и получай <b>от 3 000–15 000 ₽ в день на авто-оплатах</b></span></li>
+          <li><span class="bicon play">▶</span><span class="btxt">даже <b>без своего продукта</b></span></li>
+          <li><span class="bicon fire">🔥</span><span class="btxt">без твоего участия, без вложений в трафик и без зависимости от платформ, клиентов, законов и гео</span></li>
+          <li class="li-mobile-only"><span class="bicon gear">⚙</span><span class="btxt">автоматизированная система: <b>контент, воронки, монетизация</b> — всё работает на тебя 24/7</span></li>
+        </ul>
+      </div>
+
+      <!-- CTAs — desktop: absolute. Mobile: flex item at the bottom of stack. -->
+      <div class="cta-row">
+        <a class="cta cta-out" href="#program">ПРОГРАММА</a>
+        <a class="cta cta-fill" href="#price">ХОЧУ СВОЙ КАНАЛ ЗА&nbsp;30&nbsp;ДНЕЙ →</a>
+      </div>
+
+      <div class="overlay"><img src="objects/_orig.jpg"></div>
+    </div>
+  </div>
+
+  <div class="compare">
+    <div><span class="lbl">ОРИГИНАЛ</span><img class="full" src="objects/_orig.jpg"></div>
+    <div><span class="lbl">НАША СБОРКА</span><iframe src="/hero-preview/?frame=1"></iframe></div>
+  </div>
+</body>
+</html>
