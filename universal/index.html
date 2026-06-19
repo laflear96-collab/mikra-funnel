@@ -1064,25 +1064,6 @@ body{padding-top:62px}
   border-radius: 0 !important;
 }
 
-/* === COMPACT FIRST SCREEN — AR 16:9, max-height 95vh === */
-.uni-hero-yellow .stage{
-  aspect-ratio: 16/9 !important;
-  max-height: 95vh;
-}
-.uni-hero-yellow .bg{
-  object-position: center 28% !important;  /* anchor top — keeps man + arch visible after vertical crop */
-}
-
-/* === SCALE DOWN TYPO ~30% to match shorter hero === */
-.uni-hero-yellow .copy h1{ font-size: 3.8cqw !important; top: 17.5% !important; }
-.uni-hero-yellow .copy h2{ font-size: 1.85cqw !important; top: 13% !important; }
-.uni-hero-yellow .copy .desc{ font-size: 1.15cqw !important; top: 52% !important; }
-.uni-hero-yellow .copy ul{ top: 63% !important; gap: 0.6cqw !important; }
-.uni-hero-yellow .copy ul li{ font-size: 0.9cqw !important; }
-.uni-hero-yellow .copy ul li .bicon{ width: 1.7cqw !important; height: 1.7cqw !important; font-size: 0.85cqw !important; }
-.uni-hero-yellow .cta-row{ top: 86% !important; gap: 0.8cqw !important; }
-.uni-hero-yellow .cta{ font-size: 0.85cqw !important; padding: 1.05cqw 1.9cqw !important; }
-
 /* === FORCE BLACK TEXT (was inheriting white from Universal's --ink:#fff) === */
 .uni-hero-yellow .copy,
 .uni-hero-yellow .copy h2,
@@ -1109,27 +1090,26 @@ body{padding-top:62px}
   color: #fff !important;  /* white on red — intentional */
 }
 
-/* === MASK ROUNDED CORNERS of clean_bg PNG with #f6a716 radial-gradients in each corner === */
-.uni-hero-yellow .hero-art::before,
-.uni-hero-yellow .hero-art::after{
-  content:"";
-  position:absolute;
-  width: 60px;
-  height: 60px;
-  z-index: 1;
-  pointer-events: none;
+/* === DESKTOP-ONLY overrides — compact AR + scaled fonts.
+   Wrapped in @media so the original mobile @media (max-width:700px) inside
+   the namespaced CSS still drives mobile layout. === */
+@media (min-width: 701px){
+  .uni-hero-yellow .stage{
+    aspect-ratio: 16/9 !important;
+    max-height: 95vh;
+  }
+  .uni-hero-yellow .bg{
+    object-position: center 28% !important;
+  }
+  .uni-hero-yellow .copy h1{ font-size: 3.8cqw !important; top: 17.5% !important; }
+  .uni-hero-yellow .copy h2{ font-size: 1.85cqw !important; top: 13% !important; }
+  .uni-hero-yellow .copy .desc{ font-size: 1.15cqw !important; top: 52% !important; }
+  .uni-hero-yellow .copy ul{ top: 63% !important; gap: 0.6cqw !important; }
+  .uni-hero-yellow .copy ul li{ font-size: 0.9cqw !important; }
+  .uni-hero-yellow .copy ul li .bicon{ width: 1.7cqw !important; height: 1.7cqw !important; font-size: 0.85cqw !important; }
+  .uni-hero-yellow .cta-row{ top: 86% !important; gap: 0.8cqw !important; }
+  .uni-hero-yellow .cta{ font-size: 0.85cqw !important; padding: 1.05cqw 1.9cqw !important; }
 }
-/* top-left + bottom-left via ::before (single pseudo with multiple bg) */
-.uni-hero-yellow .hero-art::before{
-  top: 0; left: 0; right: 0; bottom: 0;
-  width: auto; height: auto;
-  background:
-    radial-gradient(circle at top    left,  transparent calc(100% - 60px), #f6a716 100%) top    left  / 60px 60px no-repeat,
-    radial-gradient(circle at top    right, transparent calc(100% - 60px), #f6a716 100%) top    right / 60px 60px no-repeat,
-    radial-gradient(circle at bottom left,  transparent calc(100% - 60px), #f6a716 100%) bottom left  / 60px 60px no-repeat,
-    radial-gradient(circle at bottom right, transparent calc(100% - 60px), #f6a716 100%) bottom right / 60px 60px no-repeat;
-}
-.uni-hero-yellow .hero-art::after{ display: none; }  /* not used in this layout */
 
 </style>
 <section class="uni-hero-yellow">
