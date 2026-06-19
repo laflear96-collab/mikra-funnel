@@ -1090,6 +1090,64 @@ body{padding-top:62px}
   color: #fff !important;  /* white on red — intentional */
 }
 
+/* === MOBILE typography/layout — match Freelance hero (centered + clamp fonts) === */
+@media (max-width: 700px){
+  .uni-hero-yellow .copy .kicker,
+  .uni-hero-yellow .copy h2,
+  .uni-hero-yellow .copy h1,
+  .uni-hero-yellow .copy .desc{
+    text-align: center !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+  .uni-hero-yellow .copy .kicker::before{
+    /* "ДЛЯ КОГО" red label — center, not corner-anchored */
+    position: static !important;
+    text-align: center !important;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .uni-hero-yellow .copy h2{
+    font-size: clamp(15px, 4.6vw, 22px) !important;
+  }
+  .uni-hero-yellow .copy h1{
+    font-size: clamp(26px, 7.5vw, 36px) !important;
+    line-height: 1.05 !important;
+  }
+  .uni-hero-yellow .copy .desc{
+    font-size: clamp(13px, 3.8vw, 16px) !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Bullets — center the list as a block, icon+text stays left-aligned inside */
+  .uni-hero-yellow .copy ul{
+    max-width: 340px !important;
+    margin: 0 auto !important;
+    padding: 14px 18px 6px !important;
+  }
+  .uni-hero-yellow .copy ul li{
+    font-size: clamp(12px, 3.6vw, 15px) !important;
+    line-height: 1.4 !important;
+  }
+  .uni-hero-yellow .copy ul li .bicon{
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 13px !important;
+  }
+
+  /* CTAs — center, capped width like Freelance hero */
+  .uni-hero-yellow .cta-row{
+    max-width: 340px !important;
+    margin: 0 auto !important;
+    align-items: stretch !important;
+    padding: 8px 18px 22px !important;
+  }
+  .uni-hero-yellow .cta{
+    font-size: clamp(13px, 3.6vw, 15px) !important;
+    padding: 13px 18px !important;
+  }
+}
+
 /* === DESKTOP-ONLY overrides — compact AR + scaled fonts.
    Wrapped in @media so the original mobile @media (max-width:700px) inside
    the namespaced CSS still drives mobile layout. === */
