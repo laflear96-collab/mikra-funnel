@@ -664,6 +664,453 @@ body{padding-top:62px}
   <a href="#price" class="cta">Создать актив →</a>
 </div>
 
+<!-- ===== YELLOW HERO (yellow GPT Image 2 + CSS overlay, namespaced) ===== -->
+<style>
+
+  .uni-hero-yellow :root {
+    --font-sans:'Manrope',-apple-system,BlinkMacSystemFont,'Inter',sans-serif;
+    --red:#ed3232;
+    --red-deep:#d92424;
+    --red-hot:#ed3232;
+    --ink:#1a1a1a;
+  }
+  .uni-hero-yellow * {margin:0;padding:0;box-sizing:border-box}
+  .uni-hero-yellow {font-family:var(--font-sans);background:#f6a716;color:var(--ink);-webkit-font-smoothing:antialiased}
+
+  .uni-hero-yellow .stage-wrap {width:100%;position:relative}
+  .uni-hero-yellow .stage {position:relative;width:100%;aspect-ratio:3/2;overflow:hidden;background:#f6a716;container-type:inline-size}
+
+  /* === Image block (hero-art) holds BG + PDF badge.
+     Desktop = absolute fill of .stage. Mobile = relative AR 4:5 above text. */
+  .uni-hero-yellow .hero-art {
+    position:absolute; inset:0; z-index:0;
+  }
+  .uni-hero-yellow .bg {
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover; display:block;
+  }
+
+  /* === PDF instruction badge — pure CSS, no white border === */
+  .uni-hero-yellow .pdf-badge {
+    position:absolute; top:3%; left:1.8%; z-index:8;
+    display:inline-flex; align-items:center; gap:10px;
+    background:linear-gradient(180deg, #f04545, #d92424);
+    padding:9px 18px 9px 12px;
+    border-radius:12px;
+    box-shadow:0 8px 22px rgba(180,30,30,.4), inset 0 1px 0 rgba(255,255,255,.15);
+    font-family:var(--font-sans); text-decoration:none;
+    transform:translateZ(0);
+  }
+  .uni-hero-yellow .pdf-badge::before {
+    content:""; display:block;
+    width:30px; height:36px;
+    background:#fff;
+    -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 28'><path fill='black' d='M4 0 H17 L24 7 V28 H4 Z M16 1 V8 H23 Z M7 14 H17 V16 H7 Z M7 18 H17 V20 H7 Z M7 22 H13 V24 H7 Z'/></svg>") center/contain no-repeat;
+            mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 28'><path fill='black' d='M4 0 H17 L24 7 V28 H4 Z M16 1 V8 H23 Z M7 14 H17 V16 H7 Z M7 18 H17 V20 H7 Z M7 22 H13 V24 H7 Z'/></svg>") center/contain no-repeat;
+  }
+  .uni-hero-yellow .pdf-badge .pdf-txt {
+    display:flex; flex-direction:column;
+    color:#fff; line-height:1.05;
+    font-weight:800; letter-spacing:.04em;
+    text-transform:uppercase;
+  }
+  .uni-hero-yellow .pdf-badge .pdf-txt .l1 {font-size:9px;font-weight:600;letter-spacing:.08em;opacity:.95}
+  .uni-hero-yellow .pdf-badge .pdf-txt .l2 {font-size:13px;font-weight:800;letter-spacing:.06em}
+
+  /* === Text container — full overlay over right half of stage === */
+  /* All children positioned ABSOLUTELY by % matching detected text bands in original */
+  .uni-hero-yellow .copy {
+    position:absolute; inset:0;
+    z-index:10; color:var(--ink);
+    font-family:var(--font-sans);
+    pointer-events:none;
+  }
+  .uni-hero-yellow .copy > * {position:absolute; left:48.3%; right:1.5%; pointer-events:auto}
+
+  /* === Размеры точно по детектированному line-spacing оригинала ===
+     stage_height = stage_width / 1.5 → X% of height = X/1.5 cqw
+     Detected (% of stage_height):
+       h1 line-spacing avg: 8.53%, lh=1.05 → font = 8.53/1.05/1.5 = 5.42cqw
+       h2 band:           2.83%, font = 2.83/0.72/1.5 = 2.62cqw
+       desc line-spacing: 3.13%, lh=1.3 → font = 3.13/1.3/1.5 = 1.60cqw
+       bullets band:      1.37% → font = 1.37/0.72/1.5 = 1.27cqw
+       kicker band:       1.37% → font = 1.27cqw
+  */
+
+  .uni-hero-yellow .copy .kicker {
+    top:4.2%;
+    font-size:1.05cqw;
+    font-weight:600;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    line-height:1.32;
+    color:var(--ink);
+  }
+  .uni-hero-yellow .copy .kicker b {font-weight:800}
+  .uni-hero-yellow .copy .kicker .red {color:var(--red);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
+
+  .uni-hero-yellow .copy h2 {
+    top:12.8%;
+    font-size:2.6cqw;
+    font-weight:800;
+    color:var(--ink);
+    text-transform:uppercase;
+    line-height:1;
+    letter-spacing:-.005em;
+  }
+  .uni-hero-yellow .copy h2 .red {color:var(--red)}
+
+  .uni-hero-yellow .copy h1 {
+    top:16.5%;
+    font-size:5.4cqw;
+    font-weight:800;
+    line-height:1.05;
+    color:var(--ink);
+    letter-spacing:-.025em;
+    text-transform:uppercase;
+    font-family:var(--font-sans);
+  }
+  .uni-hero-yellow .copy h1 .red {color:var(--red)}
+
+  .uni-hero-yellow .copy .desc {
+    top:53%;
+    font-size:1.6cqw;
+    color:var(--ink);
+    line-height:1.3;
+    font-weight:500;
+  }
+  .uni-hero-yellow .copy .desc b {font-weight:800}
+
+  .uni-hero-yellow .copy ul {
+    top:64%;
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:.85cqw;
+  }
+  .uni-hero-yellow .copy ul li {
+    display:flex;
+    gap:1.0cqw;
+    font-size:1.27cqw;
+    color:var(--ink);
+    line-height:1.3;
+    font-weight:500;
+    align-items:center;
+  }
+  .uni-hero-yellow .copy ul li b {font-weight:800}
+  .uni-hero-yellow .copy ul li .btxt {flex:1}
+  .uni-hero-yellow .copy ul li .bicon {
+    flex-shrink:0;
+    width:2.3cqw;
+    height:2.3cqw;
+    border-radius:50%;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.15cqw;
+    color:#fff;
+    box-shadow:0 4px 12px rgba(0,0,0,.18);
+  }
+  .uni-hero-yellow .copy ul li .bicon.money {background:linear-gradient(135deg,#22c55e,#16a34a)}
+  .uni-hero-yellow .copy ul li .bicon.play {background:linear-gradient(135deg,#ef4444,#dc2626)}
+  .uni-hero-yellow .copy ul li .bicon.fire {background:linear-gradient(135deg,#f97316,#ea580c)}
+
+  /* CTA row — sibling of .hero-art inside .stage. Desktop: absolute pos in right column.
+     Mobile (in @media block below): static flex below the hero-art. */
+  .uni-hero-yellow .cta-row {
+    position:absolute;
+    top:86%;
+    left:48.3%;
+    right:1.5%;
+    z-index:11;
+    display:flex;
+    gap:1.0cqw;
+    align-items:center;
+    flex-wrap:wrap;
+  }
+  /* 4th bullet visible on mobile only */
+  .uni-hero-yellow .copy ul li.li-mobile-only { display:none; }
+  .uni-hero-yellow .cta {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--font-sans);
+    font-weight:700;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    font-size:1.05cqw;
+    padding:1.45cqw 2.6cqw;
+    border-radius:999px;
+    cursor:pointer;
+    text-decoration:none;
+    transition:transform .15s,box-shadow .15s;
+    white-space:nowrap;
+  }
+  .uni-hero-yellow .cta:hover {transform:translateY(-2px)}
+  .uni-hero-yellow .cta-out {
+    background:transparent;
+    color:var(--ink);
+    border:2px solid var(--ink);
+  }
+  .uni-hero-yellow .cta-fill {
+    background:linear-gradient(180deg, #ed3232, #d92424);
+    color:#fff;
+    border:0;
+    box-shadow:0 14px 40px rgba(237,50,50,.45), inset 0 0 0 1px rgba(255,255,255,.08);
+  }
+
+  /* desktop bicon for the gear (4th bullet, mobile-only) — grey gradient */
+  .uni-hero-yellow .copy ul li .bicon.gear {background:linear-gradient(135deg,#9ca3af,#6b7280)}
+
+  /* =========================================================
+     MOBILE: vertical stack via flex `order`. Each .copy child becomes a
+     flex item of .stage (via display:contents on .copy) and is placed
+     above or below .hero-art. .hero-art shows the mobile clean bg cropped
+     so the baked-in bullet icons stay hidden — bullets are HTML+CSS below.
+     ========================================================= */
+  @media (max-width: 700px){
+    .uni-hero-yellow {padding:0}
+
+    /* Stage = flex column. bg #fbc93f fills text + bullet zones; image meets it via gradient blend. */
+    .uni-hero-yellow .stage {
+      aspect-ratio:unset;
+      height:auto;
+      display:flex;
+      flex-direction:column;
+      background:#fbc93f;
+      container-type:normal;
+    }
+    /* .copy disappears as a box; its children become flex items of .stage */
+    .uni-hero-yellow .copy {display:contents;}
+
+    /* Flex order — text(1-4) → image(5) → bullets(6) → CTAs(7) */
+    .uni-hero-yellow .copy .kicker {order:1}
+    .uni-hero-yellow .copy h2 {order:2}
+    .uni-hero-yellow .copy h1 {order:3}
+    .uni-hero-yellow .copy .desc {order:4}
+    .uni-hero-yellow .hero-art {order:5}
+    .uni-hero-yellow .copy ul {order:6}
+    .uni-hero-yellow .cta-row {order:7}
+
+    /* Reset all desktop absolute positioning on .copy children */
+    .copy > *,
+    .copy ul,
+    .uni-hero-yellow .copy ul li {
+      position:static !important;
+      inset:auto;
+      left:auto !important; right:auto !important; top:auto !important;
+      width:auto;
+      margin:0;
+    }
+
+    /* Hero-art: AR 100/85 → shows source ~22-78% of the 2:3 clean bg.
+       Hides BOTH the empty orange top zone AND the baked-in bullet icons at bottom.
+       Visible: man + arch + podium + dollar bills + 3D logos.
+       Bullets rendered in CSS below. ::before/::after = gradient blend with #fbc93f zone. */
+    .uni-hero-yellow .hero-art {
+      position:relative;
+      inset:auto;
+      aspect-ratio:100/85;
+      width:100%;
+      height:auto;
+      flex-shrink:0;
+      overflow:hidden;
+    }
+    .uni-hero-yellow .bg-pic {display:contents;}
+    .uni-hero-yellow .bg {
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      object-position:center 50%;  /* center crop on man — symmetrical trim top + bottom */
+    }
+    /* Top gradient blend: #fbc93f → transparent (15% of image height) */
+    .uni-hero-yellow .hero-art::before {
+      content:"";
+      position:absolute;
+      top:0; left:0; right:0;
+      height:18%;
+      background:linear-gradient(180deg, #fbc93f 0%, rgba(251,201,63,0) 100%);
+      z-index:2;
+      pointer-events:none;
+    }
+    /* Bottom gradient blend: #fbc93f → transparent (15% of image height) */
+    .uni-hero-yellow .hero-art::after {
+      content:"";
+      position:absolute;
+      bottom:0; left:0; right:0;
+      height:18%;
+      background:linear-gradient(0deg, #fbc93f 0%, rgba(251,201,63,0) 100%);
+      z-index:2;
+      pointer-events:none;
+    }
+    .uni-hero-yellow .pdf-badge {display:none;}
+
+    /* === TEXT BLOCKS (normal flow, horizontal padding) === */
+    .uni-hero-yellow .copy .kicker {
+      padding:18px 18px 0;
+      position:relative !important;
+      font-size:13px;
+      color:var(--ink);
+      line-height:1.4;
+      letter-spacing:0;
+      text-transform:none;
+      font-weight:500;
+    }
+    /* "ДЛЯ КОГО" red label above the kicker body — matches mobile reference */
+    .uni-hero-yellow .copy .kicker::before {
+      content:"ДЛЯ КОГО";
+      display:block;
+      color:var(--red);
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+    .uni-hero-yellow .copy .kicker b {font-weight:700}
+    /* red underline on mobile becomes plain ink — red reserved for ДЛЯ КОГО label */
+    .uni-hero-yellow .copy .kicker .red {color:var(--ink);text-decoration:none}
+
+    .uni-hero-yellow .copy h2 {
+      padding:14px 18px 0;
+      font-size:22px;
+      line-height:1.05;
+      font-weight:800;
+      color:var(--ink);
+      text-transform:uppercase;
+    }
+    .uni-hero-yellow .copy h2 .red {color:var(--red)}
+
+    .uni-hero-yellow .copy h1 {
+      padding:4px 18px 0;
+      font-size:30px;
+      line-height:1.05;
+      font-weight:800;
+      color:var(--ink);
+      letter-spacing:-.02em;
+      text-transform:uppercase;
+    }
+    .uni-hero-yellow .copy h1 .red {color:var(--red)}
+
+    .uni-hero-yellow .copy .desc {
+      padding:12px 18px 14px;
+      font-size:15px;
+      line-height:1.4;
+      color:var(--ink);
+      font-weight:500;
+    }
+    .uni-hero-yellow .copy .desc b {font-weight:800}
+
+    /* === BULLETS (CSS icons, normal flex) === */
+    .uni-hero-yellow .copy ul {
+      padding:14px 18px 6px;
+      list-style:none;
+      display:block;
+    }
+    .uni-hero-yellow .copy ul li {
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      font-size:14px;
+      line-height:1.4;
+      color:var(--ink);
+      font-weight:500;
+      margin-bottom:12px;
+    }
+    .uni-hero-yellow .copy ul li:last-child {margin-bottom:0}
+    .uni-hero-yellow .copy ul li b {font-weight:800}
+    .uni-hero-yellow .copy ul li.li-mobile-only {display:flex}
+    .uni-hero-yellow .copy ul li .bicon {
+      flex-shrink:0;
+      width:28px; height:28px;
+      border-radius:50%;
+      display:inline-flex;
+      align-items:center; justify-content:center;
+      font-size:14px;
+      color:#fff;
+      box-shadow:0 4px 12px rgba(0,0,0,.18);
+    }
+    .uni-hero-yellow .copy ul li .btxt {flex:1}
+
+    /* === CTAs — red filled first, outline second (matches mobile reference) === */
+    .uni-hero-yellow .cta-row {
+      position:static;
+      inset:auto;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      padding:8px 18px 22px;
+      align-items:stretch;
+      left:auto; right:auto; top:auto;
+    }
+    .uni-hero-yellow .cta {
+      width:100%;
+      font-size:14px;
+      padding:15px 18px;
+      letter-spacing:.04em;
+      border-radius:999px;
+      text-align:center;
+    }
+    .uni-hero-yellow .cta-row .cta-fill {order:1}
+    .uni-hero-yellow .cta-row .cta-out {order:2}
+
+  }
+
+/* === SQUARE CORNERS — override any inherited border-radius === */
+.uni-hero-yellow,
+.uni-hero-yellow .stage-wrap,
+.uni-hero-yellow .stage {
+  border-radius: 0 !important;
+}
+
+</style>
+<section class="uni-hero-yellow">
+<div class="stage-wrap">
+    <div class="stage">
+      <!-- Hero art: clean BG (swaps to mobile bg via <picture>) + PDF badge.
+           Desktop = absolute fill. Mobile = block at flex order 5 (between text and bullets). -->
+      <div class="hero-art">
+        <picture class="bg-pic">
+          <source media="(max-width:700px)" srcset="https://mikra-funnel.vercel.app/hero/objects/14_clean_bg_mobile.png">
+          <img class="bg" src="https://mikra-funnel.vercel.app/hero/objects/13_clean_bg.png?v=3" alt="">
+        </picture>
+
+        <!-- PDF badge in pure CSS — desktop only (hidden on mobile) -->
+        <a class="pdf-badge" href="#">
+          <span class="pdf-txt">
+            <span class="l1">ПОШАГОВАЯ .PDF</span>
+            <span class="l2">ИНСТРУКЦИЯ</span>
+          </span>
+        </a>
+      </div>
+
+      <!-- Copy = sibling of hero-art. Desktop: absolute right-column overlay. Mobile: display:contents,
+           children become flex items of .stage and get reordered around .hero-art via `order`. -->
+      <div class="copy">
+        
+        <h2>СОЗДАЙ <span class="red">СТАБИЛЬНЫЙ ОНЛАЙН-АКТИВ</span></h2>
+        <h1>ПРИНОСЯЩИЙ<br><span class="red">ОТ&nbsp;3&nbsp;500</span><br><span class="red">ДО&nbsp;15&nbsp;000&nbsp;₽/ДЕНЬ</span><br>НА АВТОМАТЕ</h1>
+        <p class="desc">через короткие ролики + система <b>авто-монетизации видео</b> из YouTube, Tik-Tok, Нельзяграм</p>
+        <ul>
+          <li><span class="bicon money">💵</span><span class="btxt">и получай <b>от 3 000–15 000 ₽ в день на авто-оплатах</b></span></li>
+          <li><span class="bicon play">▶</span><span class="btxt">даже <b>без своего продукта</b></span></li>
+          <li><span class="bicon fire">🔥</span><span class="btxt">без твоего участия, без вложений в трафик и без зависимости от платформ, клиентов, законов и гео</span></li>
+          <li class="li-mobile-only"><span class="bicon gear">⚙</span><span class="btxt">автоматизированная система: <b>контент, воронки, монетизация</b> — всё работает на тебя 24/7</span></li>
+        </ul>
+      </div>
+
+      <!-- CTAs — desktop: absolute. Mobile: flex item at the bottom of stack. -->
+      <div class="cta-row">
+        <a class="cta cta-out" href="#program">ПРОГРАММА</a>
+        <a class="cta cta-fill" href="#price">ХОЧУ СВОЙ КАНАЛ ЗА&nbsp;30&nbsp;ДНЕЙ →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ===== /YELLOW HERO ===== -->
+
 <!-- ===== БЛОК 1 — УТП HERO ===== -->
 <section class="section utp">
   <div class="wrap">
@@ -1380,6 +1827,10 @@ body{padding-top:62px}
       <div class="faq-item">
         <div class="faq-q">Что будет после покупки?</div>
         <div class="faq-a">В&nbsp;течение <b>1-10&nbsp;минут</b> после оплаты ты&nbsp;получишь доступ к&nbsp;платформе с&nbsp;уроками и&nbsp;бонусами (в&nbsp;зависимости от&nbsp;приобретённого тарифа). Сможешь смотреть в&nbsp;любое время и&nbsp;с&nbsp;любого устройства. Время изучения <b>не&nbsp;ограничено</b>.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Почему я&nbsp;даю такой ценный материал всего за&nbsp;3500, хотя его можно было&nbsp;бы продавать и&nbsp;за&nbsp;30, и&nbsp;за&nbsp;50&nbsp;000?</div>
+        <div class="faq-a">Моя мотивация в&nbsp;том, чтобы <b>как можно больше людей</b> узнали про мою систему и&nbsp;начали работать по&nbsp;ней. Я&nbsp;лично даю тебе продукт, который ты сможешь <b>легко продавать</b> — и&nbsp;чем больше авто-продаж будет у&nbsp;тебя, <b>тем больше заработаю и&nbsp;я</b>.</div>
       </div>
     </div>
   </div>
