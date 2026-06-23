@@ -1603,35 +1603,46 @@ body{padding-top:62px}
     <h2 class="h2">Это именно <span class="red">для тебя</span>, если ты:</h2>
     <div class="fw-grid fw-grid-8">
       <div class="fw-card">
-        <div class="fw-photo"><img src="assets/whoA.webp" alt=""></div>
+        <div class="fw-photo"><img src="assets/uni_who_freelance.webp" alt="" onerror="this.src='assets/whoA.webp'"></div>
         <h4>Фрилансер или эксперт</h4>
         <p>Устал от&nbsp;качелей «то&nbsp;густо, то&nbsp;пусто», продавать себя дёшево и&nbsp;зависеть от&nbsp;капризов клиентов.</p>
       </div>
       <div class="fw-card">
-        <div class="fw-photo"><img src="assets/obj1_cut.webp" alt=""></div>
+        <div class="fw-photo"><img src="assets/uni_who_employee.webp" alt="" onerror="this.src='assets/obj1_cut.webp'"></div>
         <h4>Наёмный сотрудник</h4>
         <p>Упёрся в&nbsp;потолок зарплаты, устал «продавать жизнь по&nbsp;часам» и&nbsp;зависеть от&nbsp;премии и&nbsp;настроения начальника.</p>
       </div>
       <div class="fw-card">
-        <div class="fw-photo"><img src="assets/obj3_cut.webp" alt=""></div>
+        <div class="fw-photo"><img src="assets/uni_who_business.webp" alt="" onerror="this.src='assets/obj2_cut.webp'"></div>
+        <h4>Предприниматель / собственник</h4>
+        <p>Без тебя бизнес встаёт. Хочешь актив, который приносит деньги <b>параллельно</b> — без сотрудников и&nbsp;аренды.</p>
+      </div>
+      <div class="fw-card">
+        <div class="fw-photo"><img src="assets/uni_who_mom.webp" alt="" onerror="this.src='assets/obj3_cut.webp'"></div>
         <h4>Мама в&nbsp;декрете</h4>
         <p>Хочешь свои деньги — не&nbsp;просить у&nbsp;мужа каждые 500&nbsp;рублей. И&nbsp;не&nbsp;возвращаться в&nbsp;офис на&nbsp;5&nbsp;дней.</p>
       </div>
       <div class="fw-card">
-        <div class="fw-photo"><img src="assets/obj5_cut.webp" alt=""></div>
+        <div class="fw-photo"><img src="assets/uni_who_pensioner.webp" alt="" onerror="this.src='assets/obj5_cut.webp'"></div>
         <h4>Пенсионер / 55+</h4>
         <p>Пенсии 18-25&nbsp;тыс., цены растут. Хочешь прибавку — но&nbsp;без сложных программ и&nbsp;«сделай 100&nbsp;звонков в&nbsp;день».</p>
+      </div>
+      <div class="fw-card">
+        <div class="fw-photo"><img src="assets/uni_who_student.webp" alt="" onerror="this.src='assets/obj4_cut.webp'"></div>
+        <h4>Студент / без работы</h4>
+        <p>Опыта нет, на&nbsp;«нормальную работу» не&nbsp;берут. Стипендии и&nbsp;откликов на&nbsp;hh.ru хватает на&nbsp;кофе. Хочешь первые серьёзные деньги — <b>прямо сейчас</b>.</p>
       </div>
     </div>
 
     <!-- Compact 4-col layout on desktop (overrides default 2-col fw-grid) -->
     <style>
-      .forwhom .fw-grid-8{grid-template-columns:repeat(4,1fr);gap:18px;max-width:1200px}
-      .forwhom .fw-grid-8 .fw-card{padding:0 20px 22px}
-      .forwhom .fw-grid-8 .fw-card h4{font-size:15px;margin-bottom:8px}
-      .forwhom .fw-grid-8 .fw-card p{font-size:13px;line-height:1.5}
-      @media (max-width:1100px){
-        .forwhom .fw-grid-8{grid-template-columns:repeat(2,1fr);max-width:760px}
+      /* 6 cards → 3 columns × 2 rows on desktop */
+      .forwhom .fw-grid-8{grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px}
+      .forwhom .fw-grid-8 .fw-card{padding:0 22px 24px}
+      .forwhom .fw-grid-8 .fw-card h4{font-size:16px;margin-bottom:8px}
+      .forwhom .fw-grid-8 .fw-card p{font-size:13.5px;line-height:1.5}
+      @media (max-width:900px){
+        .forwhom .fw-grid-8{grid-template-columns:repeat(2,1fr);max-width:720px}
       }
       @media (max-width:560px){
         .forwhom .fw-grid-8{grid-template-columns:1fr;max-width:420px}
