@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YouTube-актив для фрилансеров, экспертов и инфобиза — деньги на автомате</title>
+<title>YouTube-актив для наёмных — +30-150к к зарплате за 1-2 часа вечером, без увольнения</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -661,578 +661,26 @@ body{padding-top:62px}
   <div class="tb-timer" data-cd>
     <span><b>00</b><small>часов</small></span><span><b>15</b><small>мин</small></span><span><b>00</b><small>сек</small></span>
   </div>
-  <a href="#price" class="cta">Создать актив →</a>
+  <a href="#price" class="cta">Создать подушку →</a>
 </div>
-
-<!-- ===== YELLOW HERO (yellow GPT Image 2 + CSS overlay, namespaced) ===== -->
-<style>
-
-  .uni-hero-yellow {
-    --font-sans:'Manrope',-apple-system,BlinkMacSystemFont,'Inter',sans-serif;
-    --red:#ed3232;
-    --red-deep:#d92424;
-    --red-hot:#ed3232;
-    --ink:#1a1a1a;
-  }
-  .uni-hero-yellow * {margin:0;padding:0;box-sizing:border-box}
-  .uni-hero-yellow {font-family:var(--font-sans);background:#f6a716;color:var(--ink);-webkit-font-smoothing:antialiased}
-
-  .uni-hero-yellow .stage-wrap {width:100%;position:relative}
-  .uni-hero-yellow .stage {position:relative;width:100%;aspect-ratio:3/2;overflow:hidden;background:#f6a716;container-type:inline-size}
-
-  /* === Image block (hero-art) holds BG + PDF badge.
-     Desktop = absolute fill of .stage. Mobile = relative AR 4:5 above text. */
-  .uni-hero-yellow .hero-art {
-    position:absolute; inset:0; z-index:0;
-  }
-  .uni-hero-yellow .bg {
-    position:absolute; inset:0;
-    width:100%; height:100%;
-    object-fit:cover; display:block;
-  }
-
-  /* === PDF instruction badge — pure CSS, no white border === */
-  .uni-hero-yellow .pdf-badge {
-    position:absolute; top:3%; left:1.8%; z-index:8;
-    display:inline-flex; align-items:center; gap:10px;
-    background:linear-gradient(180deg, #f04545, #d92424);
-    padding:9px 18px 9px 12px;
-    border-radius:12px;
-    box-shadow:0 8px 22px rgba(180,30,30,.4), inset 0 1px 0 rgba(255,255,255,.15);
-    font-family:var(--font-sans); text-decoration:none;
-    transform:translateZ(0);
-  }
-  .uni-hero-yellow .pdf-badge::before {
-    content:""; display:block;
-    width:30px; height:36px;
-    background:#fff;
-    -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 28'><path fill='black' d='M4 0 H17 L24 7 V28 H4 Z M16 1 V8 H23 Z M7 14 H17 V16 H7 Z M7 18 H17 V20 H7 Z M7 22 H13 V24 H7 Z'/></svg>") center/contain no-repeat;
-            mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 28'><path fill='black' d='M4 0 H17 L24 7 V28 H4 Z M16 1 V8 H23 Z M7 14 H17 V16 H7 Z M7 18 H17 V20 H7 Z M7 22 H13 V24 H7 Z'/></svg>") center/contain no-repeat;
-  }
-  .uni-hero-yellow .pdf-badge .pdf-txt {
-    display:flex; flex-direction:column;
-    color:#fff; line-height:1.05;
-    font-weight:800; letter-spacing:.04em;
-    text-transform:uppercase;
-  }
-  .uni-hero-yellow .pdf-badge .pdf-txt .l1 {font-size:9px;font-weight:600;letter-spacing:.08em;opacity:.95}
-  .uni-hero-yellow .pdf-badge .pdf-txt .l2 {font-size:13px;font-weight:800;letter-spacing:.06em}
-
-  /* === Text container — full overlay over right half of stage === */
-  /* All children positioned ABSOLUTELY by % matching detected text bands in original */
-  .uni-hero-yellow .copy {
-    position:absolute; inset:0;
-    z-index:10; color:var(--ink);
-    font-family:var(--font-sans);
-    pointer-events:none;
-  }
-  .uni-hero-yellow .copy > * {position:absolute; left:48.3%; right:1.5%; pointer-events:auto}
-
-  /* === Размеры точно по детектированному line-spacing оригинала ===
-     stage_height = stage_width / 1.5 → X% of height = X/1.5 cqw
-     Detected (% of stage_height):
-       h1 line-spacing avg: 8.53%, lh=1.05 → font = 8.53/1.05/1.5 = 5.42cqw
-       h2 band:           2.83%, font = 2.83/0.72/1.5 = 2.62cqw
-       desc line-spacing: 3.13%, lh=1.3 → font = 3.13/1.3/1.5 = 1.60cqw
-       bullets band:      1.37% → font = 1.37/0.72/1.5 = 1.27cqw
-       kicker band:       1.37% → font = 1.27cqw
-  */
-
-  .uni-hero-yellow .copy .kicker {
-    top:4.2%;
-    font-size:1.05cqw;
-    font-weight:600;
-    letter-spacing:.04em;
-    text-transform:uppercase;
-    line-height:1.32;
-    color:var(--ink);
-  }
-  .uni-hero-yellow .copy .kicker b {font-weight:800}
-  .uni-hero-yellow .copy .kicker .red {color:var(--red);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
-
-  .uni-hero-yellow .copy h2 {
-    top:12.8%;
-    font-size:2.6cqw;
-    font-weight:800;
-    color:var(--ink);
-    text-transform:uppercase;
-    line-height:1;
-    letter-spacing:-.005em;
-  }
-  .uni-hero-yellow .copy h2 .red {color:var(--red)}
-
-  .uni-hero-yellow .copy h1 {
-    top:16.5%;
-    font-size:5.4cqw;
-    font-weight:800;
-    line-height:1.05;
-    color:var(--ink);
-    letter-spacing:-.025em;
-    text-transform:uppercase;
-    font-family:var(--font-sans);
-  }
-  .uni-hero-yellow .copy h1 .red {color:var(--red)}
-
-  .uni-hero-yellow .copy .desc {
-    top:53%;
-    font-size:1.6cqw;
-    color:var(--ink);
-    line-height:1.3;
-    font-weight:500;
-  }
-  .uni-hero-yellow .copy .desc b {font-weight:800}
-
-  .uni-hero-yellow .copy ul {
-    top:64%;
-    list-style:none;
-    display:flex;
-    flex-direction:column;
-    gap:.85cqw;
-  }
-  .uni-hero-yellow .copy ul li {
-    display:flex;
-    gap:1.0cqw;
-    font-size:1.27cqw;
-    color:var(--ink);
-    line-height:1.3;
-    font-weight:500;
-    align-items:center;
-  }
-  .uni-hero-yellow .copy ul li b {font-weight:800}
-  .uni-hero-yellow .copy ul li .btxt {flex:1}
-  .uni-hero-yellow .copy ul li .bicon {
-    flex-shrink:0;
-    width:2.3cqw;
-    height:2.3cqw;
-    border-radius:50%;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    font-size:1.15cqw;
-    color:#fff;
-    box-shadow:0 4px 12px rgba(0,0,0,.18);
-  }
-  .uni-hero-yellow .copy ul li .bicon.money {background:linear-gradient(135deg,#22c55e,#16a34a)}
-  .uni-hero-yellow .copy ul li .bicon.play {background:linear-gradient(135deg,#ef4444,#dc2626)}
-  .uni-hero-yellow .copy ul li .bicon.fire {background:linear-gradient(135deg,#f97316,#ea580c)}
-
-  /* CTA row — sibling of .hero-art inside .stage. Desktop: absolute pos in right column.
-     Mobile (in @media block below): static flex below the hero-art. */
-  .uni-hero-yellow .cta-row {
-    position:absolute;
-    top:86%;
-    left:48.3%;
-    right:1.5%;
-    z-index:11;
-    display:flex;
-    gap:1.0cqw;
-    align-items:center;
-    flex-wrap:wrap;
-  }
-  /* 4th bullet visible on mobile only */
-  .uni-hero-yellow .copy ul li.li-mobile-only { display:none; }
-  .uni-hero-yellow .cta {
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    font-family:var(--font-sans);
-    font-weight:700;
-    letter-spacing:.05em;
-    text-transform:uppercase;
-    font-size:1.05cqw;
-    padding:1.45cqw 2.6cqw;
-    border-radius:999px;
-    cursor:pointer;
-    text-decoration:none;
-    transition:transform .15s,box-shadow .15s;
-    white-space:nowrap;
-  }
-  .uni-hero-yellow .cta:hover {transform:translateY(-2px)}
-  .uni-hero-yellow .cta-out {
-    background:transparent;
-    color:var(--ink);
-    border:2px solid var(--ink);
-  }
-  .uni-hero-yellow .cta-fill {
-    background:linear-gradient(180deg, #ed3232, #d92424);
-    color:#fff;
-    border:0;
-    box-shadow:0 14px 40px rgba(237,50,50,.45), inset 0 0 0 1px rgba(255,255,255,.08);
-  }
-
-  /* desktop bicon for the gear (4th bullet, mobile-only) — grey gradient */
-  .uni-hero-yellow .copy ul li .bicon.gear {background:linear-gradient(135deg,#9ca3af,#6b7280)}
-
-  /* =========================================================
-     MOBILE: vertical stack via flex `order`. Each .copy child becomes a
-     flex item of .stage (via display:contents on .copy) and is placed
-     above or below .hero-art. .hero-art shows the mobile clean bg cropped
-     so the baked-in bullet icons stay hidden — bullets are HTML+CSS below.
-     ========================================================= */
-  @media (max-width: 700px){
-    .uni-hero-yellow {padding:0}
-
-    /* Stage = flex column. bg #fbc93f fills text + bullet zones; image meets it via gradient blend. */
-    .uni-hero-yellow .stage {
-      aspect-ratio:unset;
-      height:auto;
-      display:flex;
-      flex-direction:column;
-      background:#fbc93f;
-      container-type:normal;
-    }
-    /* .copy disappears as a box; its children become flex items of .stage */
-    .uni-hero-yellow .copy {display:contents;}
-
-    /* Flex order — text(1-4) → image(5) → bullets(6) → CTAs(7) */
-    .uni-hero-yellow .copy .kicker {order:1}
-    .uni-hero-yellow .copy h2 {order:2}
-    .uni-hero-yellow .copy h1 {order:3}
-    .uni-hero-yellow .copy .desc {order:4}
-    .uni-hero-yellow .hero-art {order:5}
-    .uni-hero-yellow .copy ul {order:6}
-    .uni-hero-yellow .cta-row {order:7}
-
-    /* Reset all desktop absolute positioning on .copy children */
-    .copy > *,
-    .copy ul,
-    .uni-hero-yellow .copy ul li {
-      position:static !important;
-      inset:auto;
-      left:auto !important; right:auto !important; top:auto !important;
-      width:auto;
-      margin:0;
-    }
-
-    /* Hero-art: AR 100/85 → shows source ~22-78% of the 2:3 clean bg.
-       Hides BOTH the empty orange top zone AND the baked-in bullet icons at bottom.
-       Visible: man + arch + podium + dollar bills + 3D logos.
-       Bullets rendered in CSS below. ::before/::after = gradient blend with #fbc93f zone. */
-    .uni-hero-yellow .hero-art {
-      position:relative;
-      inset:auto;
-      aspect-ratio:100/85;
-      width:100%;
-      height:auto;
-      flex-shrink:0;
-      overflow:hidden;
-    }
-    .uni-hero-yellow .bg-pic {display:contents;}
-    .uni-hero-yellow .bg {
-      position:absolute; inset:0;
-      width:100%; height:100%;
-      object-fit:cover;
-      object-position:center 50%;  /* center crop on man — symmetrical trim top + bottom */
-    }
-    /* Top gradient blend: #fbc93f → transparent (15% of image height) */
-    .uni-hero-yellow .hero-art::before {
-      content:"";
-      position:absolute;
-      top:0; left:0; right:0;
-      height:18%;
-      background:linear-gradient(180deg, #fbc93f 0%, rgba(251,201,63,0) 100%);
-      z-index:2;
-      pointer-events:none;
-    }
-    /* Bottom gradient blend: #fbc93f → transparent (15% of image height) */
-    .uni-hero-yellow .hero-art::after {
-      content:"";
-      position:absolute;
-      bottom:0; left:0; right:0;
-      height:18%;
-      background:linear-gradient(0deg, #fbc93f 0%, rgba(251,201,63,0) 100%);
-      z-index:2;
-      pointer-events:none;
-    }
-    .uni-hero-yellow .pdf-badge {display:none;}
-
-    /* === TEXT BLOCKS (normal flow, horizontal padding) === */
-    .uni-hero-yellow .copy .kicker {
-      padding:18px 18px 0;
-      position:relative !important;
-      font-size:13px;
-      color:var(--ink);
-      line-height:1.4;
-      letter-spacing:0;
-      text-transform:none;
-      font-weight:500;
-    }
-    /* "ДЛЯ КОГО" red label above the kicker body — matches mobile reference */
-    .uni-hero-yellow .copy .kicker::before {
-      content:"ДЛЯ КОГО";
-      display:block;
-      color:var(--red);
-      font-size:11px;
-      font-weight:800;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      margin-bottom:8px;
-    }
-    .uni-hero-yellow .copy .kicker b {font-weight:700}
-    /* red underline on mobile becomes plain ink — red reserved for ДЛЯ КОГО label */
-    .uni-hero-yellow .copy .kicker .red {color:var(--ink);text-decoration:none}
-
-    .uni-hero-yellow .copy h2 {
-      padding:14px 18px 0;
-      font-size:22px;
-      line-height:1.05;
-      font-weight:800;
-      color:var(--ink);
-      text-transform:uppercase;
-    }
-    .uni-hero-yellow .copy h2 .red {color:var(--red)}
-
-    .uni-hero-yellow .copy h1 {
-      padding:4px 18px 0;
-      font-size:30px;
-      line-height:1.05;
-      font-weight:800;
-      color:var(--ink);
-      letter-spacing:-.02em;
-      text-transform:uppercase;
-    }
-    .uni-hero-yellow .copy h1 .red {color:var(--red)}
-
-    .uni-hero-yellow .copy .desc {
-      padding:12px 18px 14px;
-      font-size:15px;
-      line-height:1.4;
-      color:var(--ink);
-      font-weight:500;
-    }
-    .uni-hero-yellow .copy .desc b {font-weight:800}
-
-    /* === BULLETS (CSS icons, normal flex) === */
-    .uni-hero-yellow .copy ul {
-      padding:14px 18px 6px;
-      list-style:none;
-      display:block;
-    }
-    .uni-hero-yellow .copy ul li {
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      font-size:14px;
-      line-height:1.4;
-      color:var(--ink);
-      font-weight:500;
-      margin-bottom:12px;
-    }
-    .uni-hero-yellow .copy ul li:last-child {margin-bottom:0}
-    .uni-hero-yellow .copy ul li b {font-weight:800}
-    .uni-hero-yellow .copy ul li.li-mobile-only {display:flex}
-    .uni-hero-yellow .copy ul li .bicon {
-      flex-shrink:0;
-      width:28px; height:28px;
-      border-radius:50%;
-      display:inline-flex;
-      align-items:center; justify-content:center;
-      font-size:14px;
-      color:#fff;
-      box-shadow:0 4px 12px rgba(0,0,0,.18);
-    }
-    .uni-hero-yellow .copy ul li .btxt {flex:1}
-
-    /* === CTAs — red filled first, outline second (matches mobile reference) === */
-    .uni-hero-yellow .cta-row {
-      position:static;
-      inset:auto;
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-      padding:8px 18px 22px;
-      align-items:stretch;
-      left:auto; right:auto; top:auto;
-    }
-    .uni-hero-yellow .cta {
-      width:100%;
-      font-size:14px;
-      padding:15px 18px;
-      letter-spacing:.04em;
-      border-radius:999px;
-      text-align:center;
-    }
-    .uni-hero-yellow .cta-row .cta-fill {order:1}
-    .uni-hero-yellow .cta-row .cta-out {order:2}
-
-  }
-
-/* === SQUARE CORNERS === */
-.uni-hero-yellow,
-.uni-hero-yellow .stage-wrap,
-.uni-hero-yellow .stage {
-  border-radius: 0 !important;
-}
-
-/* === FORCE BLACK TEXT (was inheriting white from Universal's --ink:#fff) === */
-.uni-hero-yellow .copy,
-.uni-hero-yellow .copy h2,
-.uni-hero-yellow .copy h1,
-.uni-hero-yellow .copy .desc,
-.uni-hero-yellow .copy ul li,
-.uni-hero-yellow .copy ul li b,
-.uni-hero-yellow .copy ul li .btxt,
-.uni-hero-yellow .copy .desc b,
-.uni-hero-yellow .copy h2 b{
-  color: #1a1a1a !important;
-}
-.uni-hero-yellow .copy .red,
-.uni-hero-yellow .copy h1 .red,
-.uni-hero-yellow .copy h2 .red{
-  color: #ed3232 !important;
-}
-.uni-hero-yellow .cta-out{
-  color: #1a1a1a !important;
-  border: 2px solid #1a1a1a !important;
-  background: transparent !important;
-}
-.uni-hero-yellow .cta-fill{
-  color: #fff !important;  /* white on red — intentional */
-}
-
-/* === MOBILE typography/layout — match Freelance hero (centered + clamp fonts) === */
-@media (max-width: 700px){
-  .uni-hero-yellow .copy .kicker,
-  .uni-hero-yellow .copy h2,
-  .uni-hero-yellow .copy h1,
-  .uni-hero-yellow .copy .desc{
-    text-align: center !important;
-    padding-left: 18px !important;
-    padding-right: 18px !important;
-  }
-  .uni-hero-yellow .copy .kicker::before{
-    /* "ДЛЯ КОГО" red label — center, not corner-anchored */
-    position: static !important;
-    text-align: center !important;
-    margin-bottom: 8px;
-    display: block;
-  }
-  .uni-hero-yellow .copy h2{
-    font-size: clamp(15px, 4.6vw, 22px) !important;
-  }
-  .uni-hero-yellow .copy h1{
-    font-size: clamp(26px, 7.5vw, 36px) !important;
-    line-height: 1.05 !important;
-  }
-  .uni-hero-yellow .copy .desc{
-    font-size: clamp(13px, 3.8vw, 16px) !important;
-    line-height: 1.4 !important;
-  }
-
-  /* Bullets — center the list as a block, icon+text stays left-aligned inside */
-  .uni-hero-yellow .copy ul{
-    max-width: 340px !important;
-    margin: 0 auto !important;
-    padding: 14px 18px 6px !important;
-  }
-  .uni-hero-yellow .copy ul li{
-    font-size: clamp(12px, 3.6vw, 15px) !important;
-    line-height: 1.4 !important;
-  }
-  .uni-hero-yellow .copy ul li .bicon{
-    width: 26px !important;
-    height: 26px !important;
-    font-size: 13px !important;
-  }
-
-  /* CTAs — center, capped width like Freelance hero */
-  .uni-hero-yellow .cta-row{
-    max-width: 340px !important;
-    margin: 0 auto !important;
-    align-items: stretch !important;
-    padding: 8px 18px 22px !important;
-  }
-  .uni-hero-yellow .cta{
-    font-size: clamp(13px, 3.6vw, 15px) !important;
-    padding: 13px 18px !important;
-  }
-}
-
-/* === DESKTOP-ONLY overrides — compact AR + scaled fonts.
-   Wrapped in @media so the original mobile @media (max-width:700px) inside
-   the namespaced CSS still drives mobile layout. === */
-@media (min-width: 701px){
-  .uni-hero-yellow .stage{
-    aspect-ratio: 16/9 !important;
-    max-height: 95vh;
-  }
-  .uni-hero-yellow .bg{
-    object-position: center 28% !important;
-  }
-  .uni-hero-yellow .copy h1{ font-size: 3.8cqw !important; top: 17.5% !important; }
-  .uni-hero-yellow .copy h2{ font-size: 1.85cqw !important; top: 13% !important; }
-  .uni-hero-yellow .copy .desc{ font-size: 1.15cqw !important; top: 52% !important; }
-  .uni-hero-yellow .copy ul{ top: 63% !important; gap: 0.6cqw !important; }
-  .uni-hero-yellow .copy ul li{ font-size: 0.9cqw !important; }
-  .uni-hero-yellow .copy ul li .bicon{ width: 1.7cqw !important; height: 1.7cqw !important; font-size: 0.85cqw !important; }
-  .uni-hero-yellow .cta-row{ top: 86% !important; gap: 0.8cqw !important; }
-  .uni-hero-yellow .cta{ font-size: 0.85cqw !important; padding: 1.05cqw 1.9cqw !important; }
-}
-
-</style>
-<section class="uni-hero-yellow">
-<div class="stage-wrap">
-    <div class="stage">
-      <!-- Hero art: clean BG (swaps to mobile bg via <picture>) + PDF badge.
-           Desktop = absolute fill. Mobile = block at flex order 5 (between text and bullets). -->
-      <div class="hero-art">
-        <picture class="bg-pic">
-          <source media="(max-width:700px)" srcset="https://mikra-funnel.vercel.app/hero/objects/14_clean_bg_mobile.png">
-          <img class="bg" src="https://mikra-funnel.vercel.app/hero/objects/13_clean_bg.png?v=3" alt="">
-        </picture>
-
-        <!-- PDF badge in pure CSS — desktop only (hidden on mobile) -->
-        <a class="pdf-badge" href="#">
-          <span class="pdf-txt">
-            <span class="l1">ПОШАГОВАЯ .PDF</span>
-            <span class="l2">ИНСТРУКЦИЯ</span>
-          </span>
-        </a>
-      </div>
-
-      <!-- Copy = sibling of hero-art. Desktop: absolute right-column overlay. Mobile: display:contents,
-           children become flex items of .stage and get reordered around .hero-art via `order`. -->
-      <div class="copy">
-        
-        <h2>СОЗДАЙ <span class="red">СТАБИЛЬНЫЙ ОНЛАЙН-АКТИВ</span></h2>
-        <h1>ПРИНОСЯЩИЙ<br><span class="red">ОТ&nbsp;3&nbsp;500</span><br><span class="red">ДО&nbsp;15&nbsp;000&nbsp;₽/ДЕНЬ</span><br>НА АВТОМАТЕ</h1>
-        <p class="desc">через короткие ролики + система <b>авто-монетизации видео</b> из YouTube, Tik-Tok, Нельзяграм</p>
-        <ul>
-          <li><span class="bicon money">💵</span><span class="btxt">и получай <b>от 3 000–15 000 ₽ в день на авто-оплатах</b></span></li>
-          <li><span class="bicon play">▶</span><span class="btxt">даже <b>без своего продукта</b></span></li>
-          <li><span class="bicon fire">🔥</span><span class="btxt">без твоего участия, без вложений в трафик и без зависимости от платформ, клиентов, законов и гео</span></li>
-          <li class="li-mobile-only"><span class="bicon gear">⚙</span><span class="btxt">автоматизированная система: <b>контент, воронки, монетизация</b> — всё работает на тебя 24/7</span></li>
-        </ul>
-      </div>
-
-      <!-- CTAs — desktop: absolute. Mobile: flex item at the bottom of stack. -->
-      <div class="cta-row">
-        <a class="cta cta-out" href="#program">ПРОГРАММА</a>
-        <a class="cta cta-fill" href="#price">ХОЧУ СВОЙ КАНАЛ ЗА&nbsp;30&nbsp;ДНЕЙ →</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-<!-- ===== /YELLOW HERO ===== -->
 
 <!-- ===== БЛОК 1 — УТП HERO ===== -->
 <section class="section utp">
   <div class="wrap">
     <div class="utp-fig"><img src="assets/hero.webp" alt=""></div>
     <div class="utp-copy">
-      
-      <h1 class="utp-h" style="font-size:clamp(17px,2.2vw,24px);line-height:1.2;margin:0 0 12px">Создай <span class="red">стабильный онлайн-актив</span></h1>
-      <div style="font-size:clamp(32px,4.8vw,54px);font-weight:800;line-height:1.02;text-transform:uppercase;letter-spacing:-.01em;color:var(--ink);margin:0 0 24px">приносящий <span class="red">от&nbsp;3&nbsp;500 до&nbsp;15&nbsp;000&nbsp;₽/день</span> на&nbsp;автомате</div>
-      <p class="utp-sub" style="margin-bottom:28px">через короткие ролики + система <b style="color:#fff">авто-монетизации видео</b> из&nbsp;YouTube, Tik-Tok, Нельзяграм</p>
+      <div class="kicker" style="color:var(--red);font-style:normal;letter-spacing:.12em">Для <b style="color:#fff">наёмных сотрудников</b>, кто упёрся в&nbsp;потолок зарплаты и&nbsp;устал «продавать жизнь по&nbsp;часам»</div>
+      <h1 class="utp-h" style="font-size:clamp(17px,2.2vw,24px);line-height:1.2;margin:0 0 12px">Собери <span class="red">YouTube-актив</span></h1>
+      <div style="font-size:clamp(32px,4.8vw,54px);font-weight:800;line-height:1.02;text-transform:uppercase;letter-spacing:-.01em;color:var(--ink);margin:0 0 24px">который приносит <span class="red">+30&nbsp;000–150&nbsp;000&nbsp;₽ к&nbsp;зарплате</span> за&nbsp;1-2&nbsp;часа вечером</div>
+      <p class="utp-sub" style="margin-bottom:28px">не&nbsp;увольняясь, параллельно работе — короткие ролики + <b style="color:#fff">авто-монетизация</b> из&nbsp;YouTube, Tik-Tok, Нельзяграм</p>
       <ul style="list-style:none;padding:0;margin:0 0 26px;font-size:15px;line-height:1.55;color:var(--ink-dim);max-width:560px;text-align:left;display:inline-block">
-        <li style="padding-left:22px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:0;color:var(--red);font-weight:700;font-size:20px;line-height:1.1">•</span>и&nbsp;получай <b style="color:#fff">от&nbsp;3&nbsp;000–15&nbsp;000&nbsp;₽ в&nbsp;день на&nbsp;авто-оплатах</b></li>
-        <li style="padding-left:22px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:0;color:var(--red);font-weight:700;font-size:20px;line-height:1.1">•</span>даже <b style="color:#fff">без своего продукта</b></li>
-        <li style="padding-left:22px;position:relative"><span style="position:absolute;left:0;top:0;color:var(--red);font-weight:700;font-size:20px;line-height:1.1">•</span>без твоего участия, без вложений в&nbsp;трафик и&nbsp;без зависимости от&nbsp;платформ, клиентов, законов и&nbsp;гео</li>
+        <li style="padding-left:22px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:0;color:var(--red);font-weight:700;font-size:20px;line-height:1.1">•</span>от&nbsp;<b style="color:#fff">3&nbsp;000–15&nbsp;000&nbsp;₽ в&nbsp;день на&nbsp;авто-оплатах</b> — даже пока ты&nbsp;на&nbsp;планёрке</li>
+        <li style="padding-left:22px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:0;color:var(--red);font-weight:700;font-size:20px;line-height:1.1">•</span>2&nbsp;часа вечером — <b style="color:#fff">без увольнения и&nbsp;«я&nbsp;завтра ухожу»</b></li>
+        <li style="padding-left:22px;position:relative"><span style="position:absolute;left:0;top:0;color:var(--red);font-weight:700;font-size:20px;line-height:1.1">•</span>без вложений в&nbsp;трафик, без своего продукта, без зависимости от&nbsp;начальника и&nbsp;премий</li>
       </ul>
       <div class="utp-ctas">
         <a href="#program" class="cta cta-outline">Программа</a>
-        <a href="#price" class="cta">Хочу свой канал за&nbsp;30&nbsp;дней →</a>
+        <a href="#price" class="cta">Хочу подушку к&nbsp;зарплате →</a>
       </div>
     </div>
   </div>
@@ -1244,18 +692,18 @@ body{padding-top:62px}
     <div class="benefits-grid">
       <div class="benefit-col">
         <div class="benefit-img"><span class="benefit-emoji">💰</span><img src="assets/ben1_cut.webp?v=2" alt="" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()"></div>
-        <h3 class="benefit-title">Начнёшь зарабатывать <span class="red">3&nbsp;000–15&nbsp;000&nbsp;₽</span> в&nbsp;день</h3>
-        <p class="benefit-sub">на&nbsp;авто-оплатах — <b>без созвонов, переговоров и&nbsp;операционки</b></p>
+        <h3 class="benefit-title">Подушка к&nbsp;зарплате <span class="red">+30&nbsp;000–150&nbsp;000&nbsp;₽</span> в&nbsp;месяц</h3>
+        <p class="benefit-sub">капает на&nbsp;карту, <b>пока ты&nbsp;на&nbsp;планёрке или едешь домой</b></p>
       </div>
       <div class="benefit-col">
-        <div class="benefit-img"><span class="benefit-emoji">📈</span><img src="assets/ben2_cut.webp?v=3" alt="" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()"></div>
-        <h3 class="benefit-title">Выйдешь на&nbsp;заветные <span class="red">100&nbsp;000–250&nbsp;000&nbsp;₽</span> в&nbsp;месяц</h3>
-        <p class="benefit-sub">на&nbsp;авто-оплатах с&nbsp;<b>чужих продуктов</b></p>
+        <div class="benefit-img"><span class="benefit-emoji">⏱</span><img src="assets/ben2_cut.webp?v=3" alt="" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()"></div>
+        <h3 class="benefit-title">Всего <span class="red">1-2&nbsp;часа в&nbsp;день</span> после работы</h3>
+        <p class="benefit-sub">без увольнения и&nbsp;«я&nbsp;завтра ухожу» — <b>с&nbsp;ноутбука на&nbsp;кухне</b></p>
       </div>
       <div class="benefit-col">
-        <div class="benefit-img"><span class="benefit-emoji">🚀</span><img src="assets/ben3_cut.webp?v=3" alt="" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()"></div>
-        <h3 class="benefit-title">Научишься набирать <span class="red">от&nbsp;10&nbsp;000 до&nbsp;100&nbsp;000</span> подписчиков за&nbsp;<span class="red">0&nbsp;₽</span></h3>
-        <p class="benefit-sub">без съёмок, монтажа и&nbsp;<b>личного бренда</b></p>
+        <div class="benefit-img"><span class="benefit-emoji">🛡</span><img src="assets/ben3_cut.webp?v=3" alt="" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()"></div>
+        <h3 class="benefit-title">Доход <span class="red">не&nbsp;зависит</span> от&nbsp;премии и&nbsp;настроения босса</h3>
+        <p class="benefit-sub">сократят, оптимизируют, заморозят индексацию — <b>актив остаётся твоим</b></p>
       </div>
     </div>
   </div>
@@ -1264,9 +712,9 @@ body{padding-top:62px}
 <!-- ===== БЛОК 2 — ХУК ===== -->
 <section class="section hook">
   <div class="wrap">
-    <div class="kicker">Сколько ещё событий должно произойти в&nbsp;мире, <span class="red">чтобы ты понял?</span></div>
-    <h1 class="h1">Твоя текущая модель заработка <span class="red">не&nbsp;безопасна для тебя</span></h1>
-    <p class="lead">Уже не&nbsp;канает жить от&nbsp;зарплаты к&nbsp;зарплате — в&nbsp;надежде, что начальник, рынок, страна или ИИ не&nbsp;перетряхнут <b style="color:#fff">твой единственный источник дохода</b>.</p>
+    <div class="kicker">Посчитай: сколько лет ты&nbsp;уже <span class="red">меняешь жизнь на&nbsp;зарплату?</span></div>
+    <h1 class="h1">Твоя зарплата — это <span class="red">не&nbsp;доход. Это аренда твоего времени</span></h1>
+    <p class="lead">8&nbsp;часов в&nbsp;день ты&nbsp;сдаёшь компании. Плюс дорога. Плюс «доработать вечером, иначе на&nbsp;планёрке прилетит». Итого 11&nbsp;часов из&nbsp;16&nbsp;бодрствующих — <b style="color:#fff">не&nbsp;твои</b>. Премию режут, индексация — раз в&nbsp;два года на&nbsp;5%, а&nbsp;ипотека и&nbsp;продукты на&nbsp;30%. И&nbsp;если завтра «оптимизируют отдел» — у&nbsp;тебя есть подушка на&nbsp;2&nbsp;месяца. Максимум.</p>
     <a href="#price" class="cta">Покажи решение →</a>
     <div class="hook-visual"><img src="assets/wheel.webp" alt=""></div>
   </div>
@@ -1276,19 +724,19 @@ body{padding-top:62px}
 <section class="section traps">
   <div class="traps-bg"><img src="assets/trap-bg.webp" alt=""></div>
   <div class="wrap">
-    <h2 class="h2">Примерно так обстоят <span class="red">твои дела?</span></h2>
+    <h2 class="h2">Узнаёшь <span class="red">свою неделю?</span></h2>
     <div class="trap-grid">
       <div class="trap">
         <div class="trap-icon"><img src="assets/trap1_cut.webp?v=2" alt=""><span class="trap-num">1</span></div>
-        <div class="trap-text">Нет регулярного и&nbsp;ежедневного <span class="red">потока денег</span> <span class="dim">— каждый месяц начинаешь с&nbsp;нуля</span></div>
+        <div class="trap-text">Между <span class="red">25-м и&nbsp;10-м</span> на&nbsp;карте — пустота <span class="dim">— а&nbsp;ипотека/кредиты/детский сад не&nbsp;спрашивают «зарплата уже пришла?»</span></div>
       </div>
       <div class="trap">
         <div class="trap-icon"><img src="assets/trap2_cut.webp?v=2" alt=""><span class="trap-num">2</span></div>
-        <div class="trap-text"><span class="red">Свои продукты, услуги, время</span> приходится продавать <span class="red">сильно дешевле</span>, <span class="dim">чем тебе хотелось бы</span></div>
+        <div class="trap-text">«Индексация <span class="red">5%</span> раз в&nbsp;год» <span class="dim">— а&nbsp;цены за&nbsp;год +30%. Чтобы расти быстрее — надо менять компанию каждые 1,5 года. И&nbsp;ты&nbsp;знаешь это.</span></div>
       </div>
       <div class="trap trap-3">
         <div class="trap-icon"><img src="assets/trap3_cut.webp?v=2" alt=""><span class="trap-num">3</span></div>
-        <div class="trap-text"><span class="red">Зашиваешься</span> в&nbsp;операционке <span class="dim">— созвоны, переговоры, реклама, отчёты, клиенты ещё&nbsp;миллион других задач</span></div>
+        <div class="trap-text">«Завтра <span class="red">оптимизация отдела</span>» <span class="dim">— и&nbsp;твоя «стабильная» работа исчезает за&nbsp;один Zoom-звонок. Подушки на&nbsp;3+ месяца — нет.</span></div>
       </div>
     </div>
   </div>
@@ -1303,15 +751,15 @@ body{padding-top:62px}
       <div class="split-cards">
         <div class="trap">
           <div class="trap-icon"><img src="assets/d4_cut.webp?v=4" alt=""><span class="trap-num">4</span></div>
-          <div class="trap-text"><span class="red">Вечно в&nbsp;страхе</span> от&nbsp;неуверенности <span class="red">в&nbsp;завтрашнем дне</span> <span class="dim">— будет ли в&nbsp;следующем месяце вообще доход</span></div>
+          <div class="trap-text">Дети растут — <span class="red">а&nbsp;ты&nbsp;на&nbsp;работе</span> <span class="dim">— первое слово, первый шаг, первое сентября. Видишь по&nbsp;фото в&nbsp;чате жены. Пока сидишь на&nbsp;планёрке про KPI Q4.</span></div>
         </div>
         <div class="trap">
           <div class="trap-icon"><img src="assets/d5_cut.webp?v=4" alt=""><span class="trap-num">5</span></div>
-          <div class="trap-text"><span class="red">Тратишь все заработанные деньги</span>, не&nbsp;успевая насладиться <span class="red">жизнью</span> <span class="dim">— или хотя бы отложить <b>подушку безопасности</b>, про отпуск заграницей вообще молчу</span></div>
+          <div class="trap-text">Отпуск раз в&nbsp;год — <span class="red">и&nbsp;тот «по&nbsp;остатку отпускных»</span> <span class="dim">— 14&nbsp;дней Турции, чтобы потом 350 дней снова в&nbsp;офис. И&nbsp;ты&nbsp;называешь это «жить».</span></div>
         </div>
         <div class="trap">
           <div class="trap-icon"><img src="assets/d6_cut.webp?v=4" alt=""><span class="trap-num">6</span></div>
-          <div class="trap-text"><span class="red">Постоянно</span> устаёшь и&nbsp;выгораешь, <span class="dim">забыв что такое лёгкость в&nbsp;работе и&nbsp;жизни</span></div>
+          <div class="trap-text">Тихая мысль ночью: <span class="red">«до&nbsp;пенсии так и&nbsp;буду»</span> <span class="dim">— 25 лет вперёд, тот же отдел, тот же оклад с&nbsp;индексацией, тот же путь домой через пробку. И&nbsp;никто не&nbsp;идёт спасать.</span></div>
         </div>
       </div>
     </div>
@@ -1321,25 +769,25 @@ body{padding-top:62px}
 <!-- ===== БЛОК 4 — МЕЧТА ===== -->
 <section class="section dream light">
   <div class="wrap">
-    <h2 class="h2">Лучше вспомни, зачем ты&nbsp;<span class="red">вообще работаешь</span></h2>
-    <p class="lead">Ты ведь купился на&nbsp;эти обещания стабильности и&nbsp;роста:</p>
+    <h2 class="h2">Вспомни, чего ты&nbsp;хотел в&nbsp;<span class="red">первый рабочий день</span></h2>
+    <p class="lead">Когда подписывал контракт «менеджер по&nbsp;[чему-то] 60&nbsp;к/мес», ты&nbsp;ведь рассчитывал, что:</p>
     <div class="split rev">
       <div class="split-cards">
         <div class="trap">
           <div class="trap-icon"><img src="assets/dr1_cut.webp?v=2" alt=""></div>
-          <div class="trap-text">Работать <b>в&nbsp;удовольствие</b> <span class="dim">— давать результаты клиентам и&nbsp;гордиться своей работой</span></div>
+          <div class="trap-text">Через 5&nbsp;лет — <b>квартира, машина, путешествия 3&nbsp;раза в&nbsp;год</b> <span class="dim">— не «отпуск по&nbsp;остатку», а&nbsp;«поехали в&nbsp;пятницу на&nbsp;Бали»</span></div>
         </div>
         <div class="trap">
           <div class="trap-icon"><img src="assets/dr2_cut.webp?v=2" alt=""></div>
-          <div class="trap-text">Стабильно зарабатывать <b>от&nbsp;150&nbsp;000&nbsp;руб/месяц</b> <span class="dim">и&nbsp;обеспечить себе и&nbsp;своей семье <b>достойную жизнь</b></span></div>
+          <div class="trap-text"><b>Карьерный рост</b> и&nbsp;дикий драйв <span class="dim">— а&nbsp;по&nbsp;факту: то&nbsp;же кресло, тот&nbsp;же оклад, новый начальник раз в&nbsp;2&nbsp;года</span></div>
         </div>
         <div class="trap">
           <div class="trap-icon"><img src="assets/dr3_cut.webp?v=2" alt=""></div>
-          <div class="trap-text">Позволить себе <b>хороший отпуск 2-3&nbsp;раза в&nbsp;год</b> <span class="dim">— комфортно отдыхать заграницей в&nbsp;хороших отелях, а&nbsp;не&nbsp;в&nbsp;огороде на&nbsp;даче или перед телевизором</span></div>
+          <div class="trap-text"><b>Финансовая подушка</b> на&nbsp;6&nbsp;месяцев минимум <span class="dim">— чтобы можно было сказать «увольняюсь» без паники «а&nbsp;что есть будем?»</span></div>
         </div>
         <div class="trap">
           <div class="trap-icon"><img src="assets/dr4_cut.webp?v=2" alt=""></div>
-          <div class="trap-text"><b>Купить машину о&nbsp;которой всегда мечтали</b> <span class="dim">и&nbsp;не&nbsp;ездить в&nbsp;душных автобусах и&nbsp;метро</span></div>
+          <div class="trap-text"><b>Время на&nbsp;себя и&nbsp;близких</b> <span class="dim">— не&nbsp;«вечером после работы оставшихся 2&nbsp;часа», а&nbsp;нормальные будни, выходные и&nbsp;утренники у&nbsp;детей</span></div>
         </div>
       </div>
       <div class="split-fig"><img src="assets/aspire.webp" alt=""></div>
@@ -1360,35 +808,35 @@ body{padding-top:62px}
 <!-- ===== БЛОК 6 — РЕШЕНИЕ ===== -->
 <section class="section solution light">
   <div class="wrap">
-    <h2 class="h2">К&nbsp;счастью, у&nbsp;меня есть <span class="red">решение</span></h2>
-    <div class="method-plate">Короткие ролики + автомонетизация видео = доход на&nbsp;автомате (даже без своего продукта)</div>
-    <p class="lead">Это твой <b>личный актив</b>. Не&nbsp;клиент, который уйдёт. Не&nbsp;площадка, которую забанят. Канал, который работает на&nbsp;тебя — и&nbsp;приносит <b>от&nbsp;3&nbsp;500 до&nbsp;15&nbsp;000&nbsp;₽/день</b>, даже когда ты&nbsp;спишь.</p>
+    <h2 class="h2">К&nbsp;счастью, есть <span class="red">второй конверт</span></h2>
+    <div class="method-plate">2&nbsp;часа после работы → короткие ролики → авто-оплаты, которые капают параллельно зарплате</div>
+    <p class="lead">Это не «бросить всё и&nbsp;стать блогером». Это <b>тихий актив</b> вечером после работы: пока коллеги залипают в&nbsp;сериалы, ты&nbsp;собираешь канал. Через 21-30&nbsp;дней он начинает приносить <b>от&nbsp;3&nbsp;000 до&nbsp;15&nbsp;000&nbsp;₽ в&nbsp;день</b> — отдельно от&nbsp;твоей зарплаты. И&nbsp;никто на&nbsp;работе не&nbsp;узнает.</p>
     <div class="solution-visual"><img src="assets/solution.webp" alt=""></div>
     <div class="solve-grid">
       <div class="solve-card">
         <div class="solve-ic"><img src="assets/sol1_cut.webp" alt=""></div>
-        <h4>Работает даже когда ты&nbsp;спишь</h4>
-        <p>Каждое утро на&nbsp;карте новые авто-оплаты. Без поиска клиентов, созвонов, правок, стресса.</p>
+        <h4>1-2&nbsp;часа вечером после работы</h4>
+        <p>Не&nbsp;надо никого предупреждать «я&nbsp;ухожу». Делается за&nbsp;ноутом на&nbsp;кухне после ужина.</p>
       </div>
       <div class="solve-card">
         <div class="solve-ic"><img src="assets/sol2_cut.webp" alt=""></div>
-        <h4>3&nbsp;000–15&nbsp;000&nbsp;₽ в&nbsp;день</h4>
-        <p>С&nbsp;коротких роликов, на&nbsp;автомате. Как именно деньги приходят — узнаешь внутри.</p>
+        <h4>Капает на&nbsp;карту 24/7</h4>
+        <p>Пока ты&nbsp;на&nbsp;планёрке, в&nbsp;пробке, в&nbsp;отпуске — авто-оплаты идут. Зарплата + второй конверт.</p>
       </div>
       <div class="solve-card">
         <div class="solve-ic"><img src="assets/sol3_cut.webp" alt=""></div>
-        <h4>1&nbsp;ролик приносит доход целый год</h4>
-        <p>YouTube ≠ биржа. Ролик попал в&nbsp;рекомендации = приносит деньги весь год.</p>
+        <h4>1&nbsp;ролик кормит год</h4>
+        <p>Снял один раз — алгоритм крутит его 12&nbsp;месяцев. Не&nbsp;надо «вести блог» каждый день.</p>
       </div>
     </div>
-    <p class="lead">Скопировал ролик за&nbsp;15&nbsp;минут → алгоритм показал его 10&nbsp;000&nbsp;раз → на&nbsp;карту пришло <b style="color:#1a1a1a">5&nbsp;000–50&nbsp;000&nbsp;₽</b> с&nbsp;одного ролика. Без вложений в&nbsp;рекламу.</p>
+    <p class="lead">Скопировал ролик вечером за&nbsp;15&nbsp;минут → алгоритм показал его 10&nbsp;000&nbsp;раз → на&nbsp;карту пришло <b style="color:#1a1a1a">5&nbsp;000–50&nbsp;000&nbsp;₽</b> с&nbsp;одного ролика. Параллельно с&nbsp;твоей основной работой. Без её&nbsp;потери.</p>
 
     <!-- AUTHORITY FRAME -->
     <div class="authority-frame">
-      <p>Скажу прямо: <b>99% людей так и&nbsp;застрянут в&nbsp;обмене часов на&nbsp;деньги.</b><br><br>И&nbsp;ты <b>не&nbsp;виноват</b>. Тебя просто не&nbsp;научили, что у&nbsp;любого устойчивого дохода есть <b>актив</b> — то, что работает без тебя. Тебе продавали «найди стабильную работу, усердно работай, открой бизнес,...» — но это всё ещё ты, твои руки и&nbsp;твой потолок в&nbsp;24&nbsp;часа.<br><br>Ты&nbsp;или построишь свой актив за&nbsp;это время, или через год окажешься в&nbsp;той&nbsp;же точке — с&nbsp;теми&nbsp;же качелями «то густо, то&nbsp;пусто». <b>Время не&nbsp;на&nbsp;твоей стороне.</b></p>
+      <p>Скажу прямо: <b>97% наёмных так и&nbsp;уйдут на&nbsp;пенсию из&nbsp;того&nbsp;же офиса, где сидят сейчас.</b><br><br>И&nbsp;ты <b>не&nbsp;виноват</b>. Тебя в&nbsp;школе и&nbsp;универе учили «получи специальность → работай → пенсия». Никто не&nbsp;показал, что у&nbsp;любого устойчивого дохода есть <b>актив</b> — то, что работает без тебя. Зарплата&nbsp;— не&nbsp;актив. Это <b>аренда</b> твоего времени. Сегодня платят, завтра «оптимизировали отдел» — и&nbsp;ты&nbsp;на&nbsp;HH&nbsp;с&nbsp;тем&nbsp;же резюме.<br><br>Через 5&nbsp;лет ты&nbsp;либо построил параллельный канал дохода, либо <b>снова сидишь и&nbsp;ждёшь индексацию 5%</b>. Время идёт в&nbsp;любом случае. Вопрос — на&nbsp;кого оно работает.</p>
     </div>
 
-    <a href="#price" class="cta" style="margin-top:30px">Хочу так&nbsp;же →</a>
+    <a href="#price" class="cta" style="margin-top:30px">Хочу второй конверт →</a>
   </div>
 </section>
 
@@ -1398,9 +846,9 @@ body{padding-top:62px}
     <div class="identity-plate" style="margin-top:0">
       <div class="identity-kicker">Через 7 дней ты — <span class="red">другой человек</span></div>
       <p class="identity-body">
-        Не «улучшенная версия себя». <b>Другой.</b><br><br>
-        Тот, у&nbsp;кого <b>телефон пиликает оплатами по&nbsp;ночам</b>. Чей ролик, скопированный месяц назад, <b>приносит деньги каждый день</b>. Кто открывает банк утром — и&nbsp;видит <b>+3&nbsp;000–15&nbsp;000&nbsp;₽</b>, которые пришли, пока он спал.<br><br>
-        Ты больше <b>не&nbsp;меняешь часы на&nbsp;деньги</b> и&nbsp;никому ничего не «впариваешь». Выложил короткий ролик — <b>а&nbsp;дальше он приносит деньги сам</b>. Это не магия и&nbsp;не «успешный успех». Это просто другая модель дохода. Из того, кто гоняется за&nbsp;каждым рублём — <span class="red">в&nbsp;того, кому платят на&nbsp;автомате</span>.
+        Не «продвинутый коллега». <b>Другой.</b><br><br>
+        Тот, кто заходит на&nbsp;планёрку в&nbsp;понедельник и&nbsp;спокоен — потому что <b>знает, что зарплата уже не&nbsp;единственный источник дохода</b>. На&nbsp;карте, кроме оклада, уже капают авто-оплаты с&nbsp;роликов, которые он выложил пару вечеров назад.<br><br>
+        Кто слышит «возможно, будут сокращения» — и&nbsp;<b>не&nbsp;идёт ночью читать вакансии</b>. Потому что вторая колонка дохода уже даёт ему столько&nbsp;же, сколько вся работа. Кто наконец перестал <b>считать дни до&nbsp;зарплаты</b> и&nbsp;начал считать <b>ролики до&nbsp;увольнения с&nbsp;нелюбимой работы</b>. По&nbsp;собственному желанию. <span class="red">На&nbsp;его условиях.</span>
       </p>
     </div>
   </div>
@@ -1410,13 +858,13 @@ body{padding-top:62px}
 <section class="section softcta light">
   <div class="wrap">
     <div class="softcta-copy">
-      <div class="bridge">У&nbsp;тебя будет Онлайн-актив, который приносит <b>3&nbsp;000–15&nbsp;000&nbsp;₽/день</b> даже на&nbsp;коротких роликах от&nbsp;1&nbsp;минуты. Без съёмки лица. Без монтажа. Без вложений в&nbsp;трафик.</div>
-      <h2 class="h2">Твой собственный актив — билет в&nbsp;нормальную жизнь. <span class="red">Как бы инфоцыгански это ни&nbsp;звучало.</span></h2>
-      <p class="lead">И&nbsp;ты сможешь собирать его — за&nbsp;24&nbsp;часа.</p>
+      <div class="bridge">У&nbsp;тебя будет YouTube-актив, который приносит <b>+30-150&nbsp;000&nbsp;₽ к&nbsp;зарплате</b> за&nbsp;1-2&nbsp;часа вечером. Без съёмки лица. Без монтажа. Без вложений в&nbsp;трафик. И&nbsp;без объяснений на&nbsp;работе, чем ты&nbsp;занимаешься после 19:00.</p>
+      <h2 class="h2">Второй конверт — твой билет в&nbsp;нормальную жизнь. <span class="red">Как бы инфоцыгански это ни&nbsp;звучало.</span></h2>
+      <p class="lead">И&nbsp;ты сможешь собрать его параллельно работе — за&nbsp;24&nbsp;часа активной работы.</p>
       <ul class="asset-list">
-        <li><b>Доход, не&nbsp;зависящий</b> от&nbsp;того, был ты&nbsp;сегодня на&nbsp;работе или нет</li>
-        <li><b>Подушка,</b> не&nbsp;зависящая ни&nbsp;от&nbsp;начальника, ни&nbsp;от&nbsp;страны</li>
-        <li>Право <b>сказать «нет»</b> переработкам и&nbsp;работе на&nbsp;которую не&nbsp;хочешь вставать по&nbsp;утрам — и&nbsp;уехать в&nbsp;отпуск без ноутбука</li>
+        <li><b>Подушка</b> на&nbsp;случай «оптимизировали отдел» — без панических вакансий в&nbsp;2&nbsp;часа ночи</li>
+        <li><b>Право</b> сказать боссу «индексация 5% — спасибо, не&nbsp;надо» и&nbsp;уйти на&nbsp;своих условиях</li>
+        <li>Через год — <b>выбор</b>: остаться в&nbsp;найме (если нравится) или уволиться, когда сам захочешь</li>
       </ul>
       <a href="#price" class="cta">Начинаю сегодня →</a>
     </div>
@@ -1430,7 +878,7 @@ body{padding-top:62px}
     <h2 class="h2">Всё внутри — в&nbsp;<span class="red">10&nbsp;коротких видеоуроках</span></h2>
     <p class="lead">Не&nbsp;лекции. Не&nbsp;теория. Не&nbsp;«вода» на&nbsp;2&nbsp;часа. Скринкаст с&nbsp;моего экрана → ты&nbsp;делаешь то&nbsp;же самое → получаешь результат.</p>
     <div class="format-plate">Скопировал → Выложил → Начал получать авто-оплаты</div>
-    <p class="format-note">1-2&nbsp;часа в&nbsp;день. Первые деньги с&nbsp;роликов — через 2–7&nbsp;дней.</p>
+    <p class="format-note">1-2&nbsp;часа после работы. Первые деньги — через 2–7&nbsp;дней. Совмещается с&nbsp;любым графиком 5/2 или вахтой.</p>
   </div>
 </section>
 
@@ -1597,47 +1045,44 @@ body{padding-top:62px}
   </div>
 </section>
 
-<!-- ===== БЛОК 11 — ДЛЯ КОГО (Universal: 8 сегментов в компактном гриде) ===== -->
+<!-- ===== БЛОК 11 — ДЛЯ КОГО ===== -->
 <section class="section forwhom light">
   <div class="wrap">
-    <h2 class="h2">Это именно <span class="red">для тебя</span>, если ты:</h2>
-    <div class="fw-grid fw-grid-8">
+    <h2 class="h2">Это именно <span class="red">для тебя</span>, если:</h2>
+    <div class="fw-grid">
       <div class="fw-card">
         <div class="fw-photo"><img src="assets/whoA.webp" alt=""></div>
-        <h4>Фрилансер или эксперт</h4>
-        <p>Устал от&nbsp;качелей «то&nbsp;густо, то&nbsp;пусто», продавать себя дёшево и&nbsp;зависеть от&nbsp;капризов клиентов.</p>
+        <h4>Линейный сотрудник, специалист</h4>
+        <p>Менеджер, аналитик, инженер, бухгалтер, врач, учитель, программист, маркетолог в&nbsp;найме. Оклад 50-150к, индексация раз в&nbsp;год на&nbsp;5%, а&nbsp;цены — на&nbsp;30%.</p>
+        <p>Хочешь <b>+30-150к к&nbsp;зарплате</b> — не&nbsp;увольняясь, не&nbsp;спрашивая разрешения у&nbsp;HR, не&nbsp;нарушая трудовой договор. Просто 1-2&nbsp;часа вечером — и&nbsp;второй конверт уже капает.</p>
+        <div class="fw-checklist">
+          <div class="fw-checklist-title">Это про тебя, если за&nbsp;последний месяц хоть раз:</div>
+          <ul>
+            <li>Считал, на&nbsp;сколько хватит подушки, если завтра уволят</li>
+            <li>Соглашался на&nbsp;«поработай вечером» от&nbsp;страха показать слабину</li>
+            <li>Слышал «индексация будет в&nbsp;следующем году» — и&nbsp;молча кивнул</li>
+            <li>Открывал HH ночью «просто посмотреть»</li>
+            <li>Думал «до&nbsp;пенсии так и&nbsp;буду в&nbsp;этом кресле»</li>
+          </ul>
+        </div>
       </div>
       <div class="fw-card">
-        <div class="fw-photo"><img src="assets/obj1_cut.webp" alt=""></div>
-        <h4>Наёмный сотрудник</h4>
-        <p>Упёрся в&nbsp;потолок зарплаты, устал «продавать жизнь по&nbsp;часам» и&nbsp;зависеть от&nbsp;премии и&nbsp;настроения начальника.</p>
-      </div>
-      <div class="fw-card">
-        <div class="fw-photo"><img src="assets/obj3_cut.webp" alt=""></div>
-        <h4>Мама в&nbsp;декрете</h4>
-        <p>Хочешь свои деньги — не&nbsp;просить у&nbsp;мужа каждые 500&nbsp;рублей. И&nbsp;не&nbsp;возвращаться в&nbsp;офис на&nbsp;5&nbsp;дней.</p>
-      </div>
-      <div class="fw-card">
-        <div class="fw-photo"><img src="assets/obj5_cut.webp" alt=""></div>
-        <h4>Пенсионер / 55+</h4>
-        <p>Пенсии 18-25&nbsp;тыс., цены растут. Хочешь прибавку — но&nbsp;без сложных программ и&nbsp;«сделай 100&nbsp;звонков в&nbsp;день».</p>
+        <div class="fw-photo"><img src="assets/whoB.webp" alt=""></div>
+        <h4>Руководитель отдела, тимлид, middle/senior</h4>
+        <p>Зарплата 150-300к, в&nbsp;«потолке» позиции. Дальше — либо директором (а&nbsp;там очередь из&nbsp;5&nbsp;человек), либо менять компанию каждые 2&nbsp;года ради +30%.</p>
+        <p>Хочешь <b>параллельный доход</b>, который сравним с&nbsp;ЗП — чтобы перестать зависеть от&nbsp;настроения генерального, ужесточения KPI и&nbsp;«реструктуризации».</p>
+        <div class="fw-checklist">
+          <div class="fw-checklist-title">Это про тебя, если за&nbsp;последний месяц хоть раз:</div>
+          <ul>
+            <li>Думал «вышел в&nbsp;потолок, дальше только в&nbsp;своё»</li>
+            <li>Слышал «возможно, сокращения» — и&nbsp;ночью подсчитывал расходы</li>
+            <li>Покрутил оффер от&nbsp;другой компании и&nbsp;остался — «там тоже потолок»</li>
+            <li>Завидовал бывшим коллегам, которые «ушли в&nbsp;своё»</li>
+            <li>Платил ипотеку и&nbsp;понимал «зависим от&nbsp;одной зарплаты»</li>
+          </ul>
+        </div>
       </div>
     </div>
-
-    <!-- Compact 4-col layout on desktop (overrides default 2-col fw-grid) -->
-    <style>
-      .forwhom .fw-grid-8{grid-template-columns:repeat(4,1fr);gap:18px;max-width:1200px}
-      .forwhom .fw-grid-8 .fw-card{padding:0 20px 22px}
-      .forwhom .fw-grid-8 .fw-card h4{font-size:15px;margin-bottom:8px}
-      .forwhom .fw-grid-8 .fw-card p{font-size:13px;line-height:1.5}
-      @media (max-width:1100px){
-        .forwhom .fw-grid-8{grid-template-columns:repeat(2,1fr);max-width:760px}
-      }
-      @media (max-width:560px){
-        .forwhom .fw-grid-8{grid-template-columns:1fr;max-width:420px}
-      }
-    </style>
-
     <a href="#price" class="cta">Это про меня — открой доступ →</a>
   </div>
 </section>
@@ -1818,11 +1263,11 @@ body{padding-top:62px}
     <div class="future-copy">
       <div class="kicker">Загляни <b>вперёд</b> — совсем недалеко</div>
       <h2 class="h2">Твой обычный четверг. <span class="red">Уже через пару дней после курса.</span></h2>
-      <p><b>14:30. Кофе. Открытый ноут — но ничего не&nbsp;горит.</b></p>
-      <p>Открываешь банк с&nbsp;телефона — пока ты&nbsp;занимался своим, на&nbsp;карту капнули <b><span class="red">+10&nbsp;470&nbsp;₽</span></b>. С&nbsp;короткого ролика, который ты&nbsp;скопировал на&nbsp;прошлой неделе за&nbsp;15&nbsp;минут.</p>
-      <p>Допиваешь кофе. Ни&nbsp;отчётов, ни&nbsp;нереалистичных планов, ни&nbsp;правок до&nbsp;утра. Закрываешь ноут. <b>Идёшь по&nbsp;своим делам.</b></p>
-      <p>Вечером выложишь ещё один ролик на&nbsp;60&nbsp;секунд — и&nbsp;он будет <b>приносить оплаты следующие месяцы</b>. Так и&nbsp;набегает <b><span class="red">3&nbsp;000–15&nbsp;000&nbsp;₽ в&nbsp;день на&nbsp;автомате</span></b> — пока ты&nbsp;просто живёшь свою жизнь.</p>
-      <span class="future-stamp">Это не «успешный успех» из&nbsp;инфоцыганства. Это твоя четвёртая неделя после старта канала. Просто работающая система.</span>
+      <p><b>13:18. Планёрка идёт уже 40&nbsp;минут. Кто-то долго объясняет, почему квартал «не&nbsp;дотянули».</b></p>
+      <p>Тихонько разблокируешь телефон под столом. Открываешь банк — пока ты&nbsp;слушаешь про KPI, на&nbsp;карту капнули <b><span class="red">+10&nbsp;470&nbsp;₽</span></b>. С&nbsp;ролика, который ты&nbsp;скопировал в&nbsp;понедельник вечером за&nbsp;15&nbsp;минут.</p>
+      <p>Возвращаешься к&nbsp;планёрке. Ты&nbsp;уже не&nbsp;злишься на&nbsp;«опять переработка». Не&nbsp;трясёшься от&nbsp;слова «оптимизация». <b>Ты&nbsp;просто здесь, потому что пока тебе так удобно.</b></p>
+      <p>Вечером после работы выложишь ещё один 60-секундный ролик — и&nbsp;он будет <b>капать следующие 12&nbsp;месяцев</b>. Так и&nbsp;набегает <b><span class="red">+30-150&nbsp;000&nbsp;₽ к&nbsp;зарплате</span></b> — пока ты&nbsp;просто живёшь, работаешь и&nbsp;ужинаешь с&nbsp;семьёй.</p>
+      <span class="future-stamp">Это не «успешный успех» из&nbsp;инфоцыганства. Это твоя четвёртая неделя после старта канала. Параллельно с&nbsp;работой 5/2. Просто работающая система.</span>
     </div>
   </div>
 </section>
@@ -1868,12 +1313,12 @@ body{padding-top:62px}
     <h2 class="h2">Перед тем как ты&nbsp;<span class="red">закроешь эту страницу</span></h2>
     <p class="lead">Разбираю самые частые отмазки — и&nbsp;почему они не&nbsp;работают.</p>
     <div class="obj-grid">
-      <div class="obj-card"><div class="obj-thumb"><img src="assets/obj1_cut.webp" alt="" onerror="this.closest('.obj-thumb').style.display='none'"><span class="obj-thumb-tag">«Продаёт ролик, а&nbsp;не&nbsp;я»</span></div><h4>🎯 Первая модель, где ТЫ не&nbsp;продаёшь — деньги идут сами</h4><p>Ролик делает всю работу: ты&nbsp;не&nbsp;продаёшь вживую, не&nbsp;созваниваешься и&nbsp;не&nbsp;пишешь «купи у&nbsp;меня». Деньги капают на&nbsp;автомате (как именно — узнаешь внутри). Это и&nbsp;есть «работать 2&nbsp;часа в&nbsp;день», которое тебе обещали инфоцыгане.</p></div>
-      <div class="obj-card"><div class="obj-thumb"><img src="assets/obj2_cut.webp" alt="" onerror="this.closest('.obj-thumb').style.display='none'"><span class="obj-thumb-tag">«Это АКТИВ, а&nbsp;не&nbsp;клиент»</span></div><h4>🛡 АКТИВ, а&nbsp;не&nbsp;очередной токсичный клиент</h4><p>Уйдёт клиент — канал останется. Забанят площадку — канал твой. Сменишь нишу — канал твой. Впервые то, что ты&nbsp;строишь, работает <b>НА тебя</b>, а&nbsp;не&nbsp;наоборот.</p></div>
-      <div class="obj-card"><div class="obj-thumb"><img src="assets/obj3_cut.webp" alt="" onerror="this.closest('.obj-thumb').style.display='none'"><span class="obj-thumb-tag">«Уже пробовал»</span></div><h4>🎬 «Я уже пробовал контент. Не&nbsp;зашло»</h4><p>Ты снимал «о&nbsp;себе и&nbsp;услугах». YouTube это не&nbsp;любит. <b>Вирусные темы</b>, которые легко залетают в&nbsp;рекомендации и&nbsp;набирают миллионы просмотров.</p></div>
-      <div class="obj-card"><div class="obj-thumb"><img src="assets/obj4_cut.webp" alt="" onerror="this.closest('.obj-thumb').style.display='none'"><span class="obj-thumb-tag">«2 часа в&nbsp;неделю»</span></div><h4>⏰ «Нет времени — я&nbsp;в&nbsp;операционке по&nbsp;уши»</h4><p>2&nbsp;часа в&nbsp;неделю. Меньше, чем ты&nbsp;тратишь на&nbsp;правки одного токсика. А&nbsp;через пару месяцев канал даст тебе право <b>этого клиента уволить</b>. Первый ролик снимешь по&nbsp;шаблону за&nbsp;90&nbsp;минут.</p></div>
-      <div class="obj-card"><div class="obj-thumb"><img src="assets/obj5_cut.webp" alt="" onerror="this.closest('.obj-thumb').style.display='none'"><span class="obj-thumb-tag">«Без съёмки лица»</span></div><h4>📹 «Не хочу светить лицо»</h4><p>И&nbsp;не&nbsp;надо. Короткие ролики <b>без съёмки себя и&nbsp;без монтажа</b> — по&nbsp;готовому шаблону, с&nbsp;телефона. Лицо, голос, «насмотренность» — не&nbsp;требуются. Алгоритм оценивает контент, а&nbsp;не&nbsp;тебя.</p></div>
-      <div class="obj-card"><div class="obj-thumb"><img src="assets/obj6_cut.webp" alt="" onerror="this.closest('.obj-thumb').style.display='none'"><span class="obj-thumb-tag">«Гарантия X2 — риск ноль»</span></div><h4>💸 «А вдруг не&nbsp;сработает»</h4><p>Гарантия X2 (см. блок выше): не&nbsp;получишь первые деньги за&nbsp;30&nbsp;дней — верну <b>2&nbsp;490&nbsp;₽ + ещё 2&nbsp;490&nbsp;₽ сверху</b>. Риск нулевой — в&nbsp;отличие от&nbsp;твоего следующего «может, окупится» запуска.</p></div>
+      <div class="obj-card"><div class="obj-thumb"><img src="assets/obj1_cut.webp" alt="" onerror="this.closest('.obj-thumb').style.display='none'"><span class="obj-thumb-tag">«Не успею после работы»</span></div><h4>⏰ 1-2&nbsp;часа вечером — не «параллельная работа», а&nbsp;вечерний клик</h4><p>Это не&nbsp;вторая работа со&nbsp;дедлайнами. По&nbsp;шаблону: 15&nbsp;минут на&nbsp;ролик, 5&nbsp;минут на&nbsp;загрузку. Делаешь после ужина под сериал. В&nbsp;выходные — пара часов на&nbsp;неделю вперёд. Никакого выгорания не&nbsp;будет.</p></div>
+      <div class="obj-card"><div class="obj-thumb"><img src="assets/obj2_cut.webp" alt="" onerror="this.closest('.obj-thumb').style.display='none'"><span class="obj-thumb-tag">«Боюсь, что узнают на&nbsp;работе»</span></div><h4>🤫 Анонимно. Лицо не&nbsp;светим. HR не&nbsp;узнает</h4><p>Канал — на&nbsp;любую тему, кроме твоей профессии. Лицо в&nbsp;кадре не&nbsp;нужно. Никаких «привет, меня зовут Иван из&nbsp;компании Х». Можешь делать всё с&nbsp;левого аккаунта. И&nbsp;даже если коллеги увидят — это <b>не&nbsp;нарушает</b> ТК&nbsp;РФ (если в&nbsp;контракте нет запрета на&nbsp;второй доход — а&nbsp;его обычно нет).</p></div>
+      <div class="obj-card"><div class="obj-thumb"><img src="assets/obj3_cut.webp" alt="" onerror="this.closest('.obj-thumb').style.display='none'"><span class="obj-thumb-tag">«Уже пробовал, не&nbsp;зашло»</span></div><h4>🎬 «Я уже пробовал блог. Не&nbsp;пошло»</h4><p>Ты&nbsp;снимал «о&nbsp;себе и&nbsp;своей жизни». Алгоритму это не&nbsp;интересно. Он&nbsp;любит <b>ответы на&nbsp;запросы</b> — «как X», «почему Y», «сравнение Z». На&nbsp;3-м уроке — <b>47&nbsp;готовых тем с&nbsp;подтверждённым спросом</b>. Тебе остаётся скопировать и&nbsp;выложить.</p></div>
+      <div class="obj-card"><div class="obj-thumb"><img src="assets/obj4_cut.webp" alt="" onerror="this.closest('.obj-thumb').style.display='none'"><span class="obj-thumb-tag">«Не хочу увольняться»</span></div><h4>🛡 Увольняться <b>не&nbsp;надо</b> — в&nbsp;этом и&nbsp;вся фишка</h4><p>Это не&nbsp;«брось работу — и&nbsp;в&nbsp;блогеры». Это второй конверт <b>параллельно</b> зарплате. Через 6-12&nbsp;месяцев сам решишь: остаться в&nbsp;найме (если устраивает) или уйти на&nbsp;своих условиях, потому что доход с&nbsp;канала сравнялся с&nbsp;ЗП. Никакого «прыжка веры».</p></div>
+      <div class="obj-card"><div class="obj-thumb"><img src="assets/obj5_cut.webp" alt="" onerror="this.closest('.obj-thumb').style.display='none'"><span class="obj-thumb-tag">«Без камеры и&nbsp;скиллов»</span></div><h4>📹 Без камеры, без монтажа, без «личного бренда»</h4><p>Короткие ролики <b>с&nbsp;телефона, без съёмки себя</b>, по&nbsp;готовому шаблону. Лицо, голос, харизма, «насмотренность» — не&nbsp;нужны. Алгоритм оценивает контент. Тебе остаётся выложить.</p></div>
+      <div class="obj-card"><div class="obj-thumb"><img src="assets/obj6_cut.webp" alt="" onerror="this.closest('.obj-thumb').style.display='none'"><span class="obj-thumb-tag">«Гарантия X2 — риск ноль»</span></div><h4>💸 «А&nbsp;вдруг не&nbsp;сработает»</h4><p>Гарантия X2 (см. блок выше): не&nbsp;получишь первые деньги за&nbsp;30&nbsp;дней — верну <b>2&nbsp;490&nbsp;₽ + ещё 2&nbsp;490&nbsp;₽ сверху</b>. Риск нулевой — особенно по&nbsp;сравнению с&nbsp;ситуацией «завтра оптимизировали отдел». 2,5к&nbsp;₽ — это меньше, чем один поход в&nbsp;ресторан.</p></div>
     </div>
 
     <!-- БЛОК «2 ПУТИ» (#8.1) -->
@@ -1885,13 +1330,13 @@ body{padding-top:62px}
           <div class="path-img"><img src="assets/path1_woman_cut.webp" alt=""></div>
           <div class="path-label">1 ПУТЬ</div>
           <div class="path-sub">Оставить всё, как есть</div>
-          <p class="path-text">Продолжать жить от&nbsp;клиента к&nbsp;клиенту, от&nbsp;запуска к&nbsp;запуску. Сливать бюджет в&nbsp;трафик и&nbsp;молиться, чтобы окупилось. Ещё год. Ещё два.</p>
+          <p class="path-text">Каждый день — будильник, пробка, кофе из&nbsp;кулера, планёрка, обед, опять планёрка, домой через пробку, лёг — встал. Индексация 5% в&nbsp;год. Подушка на&nbsp;2&nbsp;месяца. Так — ещё 25&nbsp;лет.</p>
         </div>
         <div class="path-col preferred">
           <div class="path-img"><img src="assets/lambo_cut.webp" alt="" class="path-lambo"><img src="assets/path2_woman_cut.webp" alt=""></div>
           <div class="path-label">2 ПУТЬ</div>
-          <div class="path-sub">Запустить свой YouTube-актив</div>
-          <p class="path-text">Снять первый короткий ролик по&nbsp;системе. Через 30&nbsp;дней — <b>первые деньги с&nbsp;роликов</b>, через 60&nbsp;— стабильные <b>3&nbsp;000–15&nbsp;000&nbsp;₽ в&nbsp;день</b> на&nbsp;автомате, без вложений в&nbsp;трафик.</p>
+          <div class="path-sub">Параллельно работе собрать актив</div>
+          <p class="path-text">Сегодня вечером — первый ролик по&nbsp;шаблону. Через 21&nbsp;день — <b>первые авто-оплаты на&nbsp;карту</b>, через 60&nbsp;— стабильные <b>+30-150&nbsp;000&nbsp;₽ к&nbsp;зарплате</b>. Не&nbsp;увольняясь. Не&nbsp;спрашивая никого.</p>
         </div>
       </div>
       <a href="#price" class="cta two-paths-cta">ВЫБИРАЮ ВТОРОЙ ПУТЬ!</a>
@@ -1905,23 +1350,23 @@ body{padding-top:62px}
     <h2 class="h2">Часто <span class="red">спрашивают</span></h2>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q">Уже пробовал YouTube — не&nbsp;пошло. Что у&nbsp;тебя другого?</div>
-        <div class="faq-a">Если снимал «о&nbsp;себе и&nbsp;услугах» — оно и&nbsp;не&nbsp;должно идти. Тут другой контент: <b>Вечные и&nbsp;популярные темы.</b> На&nbsp;уроках 3-4 разберём конкретно и&nbsp;дам 1&nbsp;нишу которая у&nbsp;тебя точно сработает.</div>
+        <div class="faq-q">Я работаю 5/2, сил после работы нет. Реально совмещу?</div>
+        <div class="faq-a"><b>Да.</b> 1-2&nbsp;часа вечером после ужина — этого хватит. По&nbsp;шаблону: 15&nbsp;минут на&nbsp;ролик, 5&nbsp;минут на&nbsp;загрузку. В&nbsp;выходные можно сделать пачку роликов на&nbsp;неделю вперёд. Многие ученики совмещают с&nbsp;вахтой 15/15 или сменным графиком.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Совмещу ли курс с&nbsp;текущей работой и&nbsp;занятостью?</div>
-        <div class="faq-a"><b>Да.</b> Первые недели — параллельно с&nbsp;основной работой легко. Когда пойдут деньги с&nbsp;роликов, сам решишь что оставить.</div>
+        <div class="faq-q">Не нарушу ли я&nbsp;трудовой договор? Не&nbsp;уволят за&nbsp;«вторую работу»?</div>
+        <div class="faq-a">По&nbsp;ТК&nbsp;РФ <b>работник имеет право</b> на&nbsp;второй доход — кроме случаев, когда в&nbsp;контракте прямо запрещено (это редко, в&nbsp;основном в&nbsp;госструктурах и&nbsp;банках). Контент — на&nbsp;любую тему, кроме твоей профессии. Лицо в&nbsp;кадре не&nbsp;светим. HR не&nbsp;узнает.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Нет камеры и&nbsp;микрофона. Сколько надо вложить в&nbsp;технику?</div>
-        <div class="faq-a"><b>Ноль.</b> 10&nbsp;уроков — как делать деньги без съёмок + бесплатные программы монтажа. Связка за&nbsp;0&nbsp;₽. Можешь начать сегодня вечером.</div>
+        <div class="faq-q">Нет камеры и&nbsp;опыта монтажа. Сколько надо вложить в&nbsp;технику?</div>
+        <div class="faq-a"><b>Ноль.</b> Всё делается с&nbsp;телефона. 10&nbsp;уроков покажут как — без камеры, без микрофона, без съёмки себя. Бесплатные программы монтажа. Связка за&nbsp;0&nbsp;₽. Можешь начать сегодня вечером.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Какая ниша? Я&nbsp;ведь менеджер/маркетолог/бухгалтер/пенсионер/студент.</div>
-        <div class="faq-a">Ниша канала ≠ твоя профессия. Покажу, как выбрать прибыльную нишу под YouTube — твой текущий скилл вообще не&nbsp;ограничивает. На&nbsp;уроке 0&nbsp;— <b>секретная ниша на&nbsp;миллионы, которая подойдёт любому</b>.</div>
+        <div class="faq-q">Какая ниша? Я&nbsp;ведь инженер/бухгалтер/менеджер — это никому не&nbsp;интересно.</div>
+        <div class="faq-a">Ниша канала <b>не&nbsp;связана</b> с&nbsp;твоей профессией. Покажу, как выбрать прибыльную нишу под YouTube — твой текущий скилл не&nbsp;имеет значения. На&nbsp;уроке 0&nbsp;— <b>секретная ниша на&nbsp;миллионы, которая подойдёт любому</b>.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Я из&nbsp;России. Курс мне подойдёт?</div>
+        <div class="faq-q">Я не&nbsp;из&nbsp;России. Курс мне подойдёт?</div>
         <div class="faq-a"><b>Да.</b> Метод работает в&nbsp;любой стране — Россия, Казахстан, Беларусь, Украина, Армения, Германия, США. Алгоритм один. Психология аудитории — тоже.</div>
       </div>
       <div class="faq-item">
@@ -1929,16 +1374,16 @@ body{padding-top:62px}
         <div class="faq-a">YouTube в&nbsp;2026 — <b>+18% аудитории за&nbsp;год</b>. Работает везде с&nbsp;сервисом из&nbsp;3х&nbsp;букв. И&nbsp;РФ-аудитория как смотрела, так и&nbsp;смотрит. Дольше watch time → дороже CPM → больше платят. Reels — про развлечения. YouTube — про <b>решения</b>. А&nbsp;решения монетизируются лучше танцев.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Когда придут первые деньги после старта канала?</div>
-        <div class="faq-a">Средний срок — <b>3-7 дней</b>. Самая быстрая — 4&nbsp;дня. Если будешь выкладывать ролики по&nbsp;моим шаблонам и&nbsp;если НЕТ денег за&nbsp;30&nbsp;дней — <b>гарантия X2</b> (см. блок выше).</div>
+        <div class="faq-q">Когда придут первые деньги на&nbsp;карту?</div>
+        <div class="faq-a">Средний срок — <b>3-7 дней</b> после загрузки первого ролика. Самая быстрая — 4&nbsp;дня. Если будешь выкладывать по&nbsp;моим шаблонам и&nbsp;если НЕТ денег за&nbsp;30&nbsp;дней — <b>гарантия X2</b> (см. блок выше): вернём 2&nbsp;490&nbsp;₽ + ещё 2&nbsp;490&nbsp;₽ сверху.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Что если у&nbsp;меня вахта или ненормированный график?</div>
+        <div class="faq-a">Работает. Для вахтовиков — снимаешь пачку роликов на&nbsp;берегу, потом 15&nbsp;дней они капают сами. Сменный график — то&nbsp;же самое. Главное — система не&nbsp;требует ежедневного присутствия. Снял один раз → работает год.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Что будет после покупки?</div>
         <div class="faq-a">В&nbsp;течение <b>1-10&nbsp;минут</b> после оплаты ты&nbsp;получишь доступ к&nbsp;платформе с&nbsp;уроками и&nbsp;бонусами (в&nbsp;зависимости от&nbsp;приобретённого тарифа). Сможешь смотреть в&nbsp;любое время и&nbsp;с&nbsp;любого устройства. Время изучения <b>не&nbsp;ограничено</b>.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Почему я&nbsp;даю такой ценный материал всего за&nbsp;3500, хотя его можно было&nbsp;бы продавать и&nbsp;за&nbsp;30, и&nbsp;за&nbsp;50&nbsp;000?</div>
-        <div class="faq-a">Моя мотивация в&nbsp;том, чтобы <b>как можно больше людей</b> узнали про мою систему и&nbsp;начали работать по&nbsp;ней. Я&nbsp;лично даю тебе продукт, который ты сможешь <b>легко продавать</b> — и&nbsp;чем больше авто-продаж будет у&nbsp;тебя, <b>тем больше заработаю и&nbsp;я</b>.</div>
       </div>
     </div>
   </div>
@@ -1953,18 +1398,20 @@ body{padding-top:62px}
 
       <!-- PERSONAL STORY АВТОРА -->
       <div class="author-story">
-        <h4>Как я&nbsp;вообще дошёл до&nbsp;YouTube</h4>
-        <p><b>Апрель 2025.</b> Помогал вешать кухню, неудачно встал на&nbsp;ногу и&nbsp;повредил мениск. Месяц в&nbsp;гипсе. От&nbsp;меня уходит девушка. Состояние — <b>ужасное</b>.</p>
-        <p>Ещё 2&nbsp;месяца по&nbsp;врачам, чтобы понять — делать операцию или нет. Было вообще не&nbsp;до&nbsp;работы. Операция дорогая. И&nbsp;подушка безопасности, накопленная за&nbsp;последние пару лет, — <b>заканчивается</b>.</p>
-        <p>Месяц густо, два — пусто. Уходил крупный клиент, который приносил <b>60% денег</b>. Сливал бюджеты в&nbsp;трафик и&nbsp;молился, чтобы клиенты шли. Тут я&nbsp;понял: у&nbsp;меня нет бизнеса, <b>у&nbsp;меня есть я, и&nbsp;я — узкое горлышко</b>.</p>
-        <p>Следующие несколько месяцев я&nbsp;проектировал, снимал, монтировал и&nbsp;собирал эту воронку. Через 3&nbsp;месяца — запуск рекламы, и&nbsp;сразу пошли <b>авто-оплаты</b>. Без единого клиента и&nbsp;созвона.</p>
-        <p>За&nbsp;12&nbsp;месяцев эта система стала приносить больше, чем все мои проекты вместе. <b>Впервые деньги шли, когда я&nbsp;спал.</b> Внутри что-то рухнуло и&nbsp;отпустило. Раньше на&nbsp;страхе я&nbsp;думал, что хочу работать с&nbsp;клиентами, но&nbsp;когда эта необходимость пропала — я&nbsp;понял, что <b>НЕТ</b>. Мне это вообще не&nbsp;нравилось, просто нужно было как-то выживать.</p>
-        <p>И&nbsp;терпеть вечные проблемы клиентов: продажники плохо продают, у&nbsp;компании нет денег — «давайте пока на&nbsp;<b>ПАУЗУ</b>», которая никогда не&nbsp;закончится. Ты&nbsp;вечно для клиента и&nbsp;мама, и&nbsp;папа, и&nbsp;психолог, и&nbsp;наставник, и&nbsp;маркетолог. И&nbsp;хрен знает кто ещё.</p>
-        <p>И&nbsp;не&nbsp;важно, чем ты&nbsp;занимаешься. Можешь писать шедевральные конверсионные тексты, делать бриллиантовые сайты (по&nbsp;цене эконом), приводить супер-горячих клиентов — а&nbsp;в&nbsp;итоге никто не&nbsp;оценит. Заявки будут отрабатывать через пень-колоду (если вообще будут — и&nbsp;не&nbsp;потеряют их), а&nbsp;в&nbsp;итоге <b>ты&nbsp;ещё и&nbsp;виноват останешься</b>.</p>
-        <p>И&nbsp;только сейчас я&nbsp;понял, как я&nbsp;от&nbsp;этого устал. И&nbsp;что жизнь фрилансера вообще <b>не&nbsp;должна быть такой бесперспективной</b>.</p>
-        <p>Этот курс — <b>точная копия того, что я&nbsp;сделал тогда</b>. Без воды, без теории, без «успешного успеха». Только то, что работает.</p>
+        <h4>Я тоже когда-то ходил в&nbsp;офис</h4>
+        <p><b>2019. Маркетинг в&nbsp;корпорации.</b> Оклад приличный, но&nbsp;потолок виден за&nbsp;3&nbsp;года вперёд: ещё одна индексация на&nbsp;7%, и&nbsp;всё. Чтобы расти быстрее — менять компанию каждые 1,5 года. И&nbsp;каждый раз — испытательный срок, новые требования, новые KPI, новый начальник.</p>
+        <p>Утром в&nbsp;понедельник я&nbsp;ехал на&nbsp;работу и&nbsp;<b>считал дни до&nbsp;пятницы</b>. В&nbsp;пятницу вечером радовался — два дня свободы. В&nbsp;воскресенье вечером уже становилось грустно. И&nbsp;так — год за&nbsp;годом.</p>
+        <p>В&nbsp;ковид компанию начало шатать. Сократили <b>половину отдела</b>. Я&nbsp;остался — но&nbsp;понял: «<b>стабильная работа</b>» — это иллюзия. Стабильно у&nbsp;тебя только <b>одно решение генерального</b> от&nbsp;«вы&nbsp;нам больше не&nbsp;нужны».</p>
+        <p>Подушка была на&nbsp;2&nbsp;месяца. Ипотека — на&nbsp;15&nbsp;лет вперёд. И&nbsp;в&nbsp;эту ночь я&nbsp;решил: <b>либо я&nbsp;найду второй источник дохода — либо буду жить в&nbsp;вечном страхе.</b></p>
+        <p>Я&nbsp;попробовал всё: фриланс по&nbsp;вечерам (быстро выгорел), партнёрки (не&nbsp;зашло), курсы по&nbsp;инвестициям (медленно). Пока не&nbsp;наткнулся на&nbsp;связку: <b>короткие ролики + авто-монетизация</b>. Не&nbsp;надо лица. Не&nbsp;надо своих продуктов. Не&nbsp;надо клиентов.</p>
+        <p>Через <b>23&nbsp;дня</b> после первого ролика — первые 4&nbsp;800&nbsp;₽ на&nbsp;карту. Я&nbsp;помню, как сидел на&nbsp;кухне в&nbsp;11&nbsp;вечера, смотрел на&nbsp;уведомление из&nbsp;банка и&nbsp;<b>не&nbsp;верил</b>. Маленькая сумма. Но&nbsp;она пришла <b>не&nbsp;от&nbsp;работодателя</b>. Это меняет ВСЁ внутри.</p>
+        <p>Через 4&nbsp;месяца второй конверт сравнялся с&nbsp;окладом. Через 8 — превышал в&nbsp;2&nbsp;раза. Я&nbsp;ушёл с&nbsp;работы — но&nbsp;не&nbsp;потому что меня уволили или достало. <b>Просто стало не&nbsp;интересно туда возвращаться</b>. По&nbsp;собственному желанию. На&nbsp;своих условиях.</p>
+        <p>Этот курс — <b>точная копия того, что я&nbsp;сделал тогда</b>. Без воды, без теории, без «успешного успеха». Шаг за&nbsp;шагом — как параллельно работе собрать актив, который даёт тебе <b>право выбирать</b>.</p>
       </div>
 
+      <p>В&nbsp;моём Telegram-канале — все скриншоты оплат за&nbsp;12&nbsp;месяцев. Переписки с&nbsp;учениками: менеджерами, инженерами, бухгалтерами, врачами — теми, кто параллельно с&nbsp;основной работой собрал второй конверт за&nbsp;30-60&nbsp;дней.</p>
+      <p>Кейсов больше, чем у&nbsp;тебя было планёрок за&nbsp;этот год. Просто пойди и&nbsp;посмотри.</p>
+      <a href="#" class="tg-link">→ Смотреть кейсы в&nbsp;Telegram</a>
       <a href="#price" class="cta">Беру курс — жду первые деньги через 21&nbsp;день →</a>
     </div>
   </div>
