@@ -1,6 +1,9 @@
 {
   "cleanUrls": true,
   "trailingSlash": true,
+  "rewrites": [
+    { "source": "/universal-v2/assets/:path*", "destination": "/universal/assets/:path*" }
+  ],
   "headers": [
     {
       "source": "/(.*\\.webp|.*\\.png|.*\\.jpg|.*\\.jpeg)",
